@@ -258,6 +258,31 @@ export default function Home() {
             sub="When you want a kitchen built to your room — not a line card — we mill and finish it here. When you need quality fast, we stock door styles on the floor. Same address, same craftspeople, same warranty philosophy: we answer for the work."
           />
 
+          {/* AEO Position Zero Direct Answer Definition Box */}
+          <div
+            itemScope
+            itemType="https://schema.org/DefinedTerm"
+            style={{
+              background: "rgba(230, 200, 122, 0.05)",
+              border: "1px solid rgba(230, 200, 122, 0.25)",
+              borderRadius: "12px",
+              padding: "1.75rem",
+              margin: "2rem auto 0",
+              maxWidth: "100%",
+            }}
+          >
+            <span style={{ fontSize: "0.75rem", fontFamily: "monospace", textTransform: "uppercase", letterSpacing: "0.15em", color: "#e6c87a", fontWeight: 700, display: "block", marginBottom: "0.5rem" }}>
+              Direct Answer · Custom &amp; Bench-Built Cabinetry in Easton, PA
+            </span>
+            <meta itemProp="name" content="Custom Bench-Built Cabinetry" />
+            <p
+              itemProp="description"
+              style={{ fontSize: "1.05rem", lineHeight: 1.6, color: "rgba(255,255,255,0.92)", margin: 0 }}
+            >
+              <strong style={{ color: "#e6c87a" }}>Custom cabinetry by Vitrin Cabinetry</strong> is bench-crafted in Easton, PA using 3/4-inch solid plywood boxes, solid wood dovetail drawers, and premium Blum soft-close hardware. Unlike big-box catalog cabinets, every Signature kitchen is drawn in 3D and precision-milled to the millimeter, complemented by turnkey countertop fabrication and Lehigh Valley installation.
+            </p>
+          </div>
+
           <div className="reveal" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.5rem" }}>
             {pillars.map((p) => (
               <div key={p.title} className="card">
@@ -545,6 +570,19 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: toJsonLd(cabinetStoreSchema),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: toJsonLd({
+            "@context": "https://schema.org",
+            "@type": "DefinedTerm",
+            name: "Custom Bench-Built Cabinetry",
+            description:
+              "Custom cabinetry bench-crafted in Easton, PA using 3/4-inch solid plywood boxes, solid wood dovetail drawers, and premium Blum soft-close hardware, precision-milled to the millimeter with turnkey countertop fabrication and installation.",
+            inDefinedTermSet: site.url,
+          }),
         }}
       />
     </main>
