@@ -1,0 +1,5 @@
+{
+  "$schema": "https://unpkg.com/knip@6/schema.json",
+  "entry": ["__checks__/**/*.spec.ts", "checkly.config.ts"],
+  "ignoreBinaries": ["lychee"]
+}

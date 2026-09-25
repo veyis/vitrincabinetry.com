@@ -8,7 +8,12 @@
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
-    "check": "pnpm typecheck && pnpm lint"
+    "check": "pnpm typecheck && pnpm lint",
+    "test:a11y": "playwright test tests/e2e/a11y.spec.ts --project=chromium",
+    "knip": "knip",
+    "checkly:test": "checkly test",
+    "checkly:deploy": "checkly deploy",
+    "links:check": "lychee --no-progress --max-concurrency 8 https://vitrincabinetry.com/sitemap.xml"
   },
   "dependencies": {
     "@next/third-parties": "^16.3.6",
@@ -20,12 +25,16 @@
     "schema-dts": "^2.0.0"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "^1.63.0",
     "@tailwindcss/postcss": "^4.3.3",
     "@types/node": "^26.6.2",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
+    "checkly": "^9.5.0",
     "eslint": "^10.11.0",
     "eslint-config-next": "16.3.6",
+    "knip": "^6.38.0",
     "tailwindcss": "^4.3.3",
     "typescript": "^7.0.2",
     "typescript-v6": "npm:typescript@6.0.3"
