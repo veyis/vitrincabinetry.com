@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -8,6 +9,13 @@ import TradeCalloutStrip from "@/components/TradeCalloutStrip";
 import { site } from "@/lib/site";
 import { towns } from "@/lib/towns";
 import { breadcrumbSchema, cabinetStoreSchema, toJsonLd } from "@/lib/schema";
+
+export const metadata: Metadata = {
+  title: "Kitchen, Bathroom & Closet Cabinetry in Easton, PA",
+  description:
+    "Custom and semi-custom kitchen, bathroom, and closet cabinetry bench-built in Easton, PA — plus quartz countertops, flooring, and full remodeling. Serving Easton, Bethlehem, Allentown, and the Lehigh Valley.",
+  alternates: { canonical: "/" },
+};
 
 const stats = [
   { num: "15+", label: "Years on the Bench" },

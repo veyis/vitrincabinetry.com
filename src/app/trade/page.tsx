@@ -8,7 +8,7 @@ import { site } from "@/lib/site";
 import { breadcrumbSchema, toJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Trade Program — Cabinet Supply for Contractors, Builders & Designers",
+  title: "Trade Program for Contractors & Builders",
   description:
     "Vitrin Cabinetry's Trade Program: standing trade pricing, fast quotes, dedicated rep, will-call pickup, and jobsite delivery for contractors, builders, designers, architects, and installers in Bucks County and the Lehigh Valley.",
   alternates: { canonical: "/trade" },

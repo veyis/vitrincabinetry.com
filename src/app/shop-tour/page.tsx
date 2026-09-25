@@ -8,7 +8,7 @@ import { site } from "@/lib/site";
 import { breadcrumbSchema, toJsonLd, videoObjectJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Workshop Tour — Where Vitrin Signature Is Built in Easton, PA",
+  title: "Workshop Tour in Easton, PA",
   description:
     "Walk through the Vitrin Cabinetry workshop in Easton, PA. See where every kitchen is designed, built, and finished by hand before it lands in your home.",
   alternates: { canonical: "/shop-tour" },

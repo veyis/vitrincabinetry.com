@@ -9,7 +9,7 @@ import { site } from "@/lib/site";
 import { breadcrumbSchema, serviceSchema, toJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Built-Ins, Libraries & Mudrooms — Stock & Custom · Vitrin Cabinetry",
+  title: "Built-Ins, Libraries & Mudrooms",
   description:
     "Custom built-ins, libraries, mudrooms, and home offices from Vitrin Cabinetry — built at our Easton bench. Plywood, dovetail drawers, Blum hardware.",
   alternates: { canonical: "/cabinets/built-ins" },
