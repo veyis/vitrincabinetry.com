@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 };
 
 const expectations = [
-  { title: "Stock cabinets on display", body: "See the full Vitrin Stock lineup — door styles, finishes, and finished cabinets you can take home this week." },
+  { title: "Stock cabinet options", body: "Explore upcoming Vitrin Stock door styles, finishes, and construction specifications currently in development." },
   { title: "Materials bench", body: "Sit down with samples — wood species, paint and stain swatches, hardware, counter chips." },
   { title: "Dedicated rep on hand", body: "A real person who knows the inventory, the lead times, and the trade-pricing tiers." },
   { title: "No pressure visits", body: "Walk through, look, ask questions, leave. Or talk pricing and place an order. Whichever you came for." },
@@ -39,7 +39,7 @@ const faqs = [
   },
   {
     q: "Can I take cabinets home from the showroom?",
-    a: "Vitrin Stock cabinets are held in inventory, so finished cabinets can be ready to take home the same week rather than ordered and waited on. Custom cabinetry is built to order — the showroom is where that order starts.",
+    a: "Vitrin Stock cabinet lines are being finalized for launch. Once live, standard configurations will be available for quick turnaround, while custom cabinetry is built to order at our shop.",
   },
   {
     q: "Do you offer trade pricing for contractors and designers?",

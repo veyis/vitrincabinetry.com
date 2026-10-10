@@ -10,18 +10,18 @@ import { site } from "@/lib/site";
 import { breadcrumbSchema, toJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Stock Cabinets — Ready from the Showroom · Vitrin Cabinetry",
+  title: "Stock Cabinet Inquiries in Easton, PA",
   description:
-    "Vitrin Stock cabinets — plywood-box construction, Blum hardware, dovetail drawers. Curated door styles and finishes, available for pickup or delivery from our Easton, PA showroom. Trade pricing.",
+    "Planning a cabinet project? Ask Vitrin Cabinetry about options, pricing, and availability. Our Easton showroom is in prelaunch.",
   alternates: { canonical: "/cabinets/stock" },
 };
 
-// Placeholder SKUs — replace with real inventory + photography as it lands.
+// Illustrative door styles — lineup and exact pricing confirmed with inquiry.
 const featured = [
-  { name: "Inset Shaker", finish: "Painted White Dove", from: "$X", img: "/images/placeholder.png" },
-  { name: "Full-Overlay Shaker", finish: "Painted Iron Ore", from: "$X", img: "/images/placeholder.png" },
-  { name: "Slab Modern", finish: "Rift-Cut White Oak", from: "$X", img: "/images/placeholder.png" },
-  { name: "Beaded Inset", finish: "Stained Walnut", from: "$X", img: "/images/placeholder.png" },
+  { name: "Inset Shaker", finish: "Painted White Dove", from: "Request pricing", status: "Ask about availability", img: "/images/placeholder.png" },
+  { name: "Full-Overlay Shaker", finish: "Painted Iron Ore", from: "Request pricing", status: "Ask about availability", img: "/images/placeholder.png" },
+  { name: "Slab Modern", finish: "Rift-Cut White Oak", from: "Request pricing", status: "Ask about availability", img: "/images/placeholder.png" },
+  { name: "Beaded Inset", finish: "Stained Walnut", from: "Request pricing", status: "Ask about availability", img: "/images/placeholder.png" },
 ];
 
 const sizes = [
@@ -59,10 +59,10 @@ export default function StockPage() {
           </nav>
           <span className="eyebrow" style={{ color: "#e6c87a" }}>Vitrin Stock</span>
           <h1 style={{ fontSize: "clamp(2.4rem, 5vw, 3.6rem)", marginBottom: "1.25rem", color: "#fff" }}>
-            Stock cabinets, ready to take home.
+            Ask about stock cabinet options.
           </h1>
           <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.92)", maxWidth: "640px", margin: "0 auto", lineHeight: 1.6 }}>
-            Plywood-box construction. Blum hardware. Dovetail drawers. Available for pickup, delivery, or jobsite drop in Bucks County and the Lehigh Valley.
+            Plywood-box construction, Blum hardware, and dovetail drawers. Tell us the sizes and finishes you need. Pricing, availability, and collection or delivery arrangements will be confirmed with your inquiry.
           </p>
         </div>
       </section>
@@ -70,9 +70,9 @@ export default function StockPage() {
       <section>
         <div className="container">
           <div className="section-center">
-            <span className="eyebrow">What&apos;s in stock</span>
+            <span className="eyebrow">Cabinet options</span>
             <h2 className="section-heading">Featured door styles</h2>
-            <p className="section-sub">Placeholder lineup. Real SKUs, photos, and prices land as inventory rolls in.</p>
+            <p className="section-sub">Illustrative lineup. Exact SKUs, photography, and prices will be confirmed with your project quote.</p>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "1.25rem" }}>
             {featured.map((f) => (
@@ -80,8 +80,8 @@ export default function StockPage() {
                 <h3 className="card__title">{f.name}</h3>
                 <p className="card__desc">{f.finish}</p>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "0.75rem" }}>
-                  <span style={{ color: "var(--primary)", fontWeight: 600 }}>From {f.from}</span>
-                  <span style={{ fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: "1px", color: "var(--good, #2f6a3a)" }}>Available now</span>
+                  <span style={{ color: "var(--primary)", fontWeight: 600 }}>{f.from}</span>
+                  <span style={{ fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: "1px", color: "var(--text-secondary)" }}>{f.status}</span>
                 </div>
               </div>
             ))}
@@ -113,7 +113,7 @@ export default function StockPage() {
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "1.25rem" }}>
             {[
-              { title: "Will-call pickup", desc: "By appointment at the Easton shop once your order is ready. Most stock orders ready within 2 business days." },
+              { title: "Will-call pickup", desc: "By appointment at the Easton shop once your order is ready. Collection, delivery, and timing are confirmed with your quote." },
               { title: "Local delivery", desc: "Bucks County, Lehigh Valley, Montgomery County. Flat-fee tiers by zone." },
               { title: "Jobsite delivery", desc: "Scheduled against your install date. We coordinate with your foreman." },
               { title: "Lift-gate / inside delivery", desc: "Available on request for larger orders." },
@@ -133,7 +133,7 @@ export default function StockPage() {
         <div className="container" style={{ textAlign: "center" }}>
           <h2 className="section-heading">Get a stock cabinet quote</h2>
           <p className="section-sub" style={{ margin: "1rem auto 2rem" }}>
-            Send us the sizes you need. Stock orders are priced same-day.
+            Send us the sizes you need. Inquiries are reviewed promptly by our Easton team.
           </p>
           <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
             <Link href="/contact?type=stock" className="btn-primary">Get a Stock Quote</Link>
