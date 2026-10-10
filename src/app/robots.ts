@@ -14,19 +14,23 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: "*",
-        allow: "/",
+        allow: ["/", "/api/knowledge-graph"],
         disallow: ["/api/"],
       },
       {
         userAgent: [
-          "GPTBot",
+          "OAI-SearchBot",
+          "Claude-SearchBot",
+          "PerplexityBot",
           "ChatGPT-User",
+          "Claude-User",
+          "GPTBot",
           "ClaudeBot",
           "anthropic-ai",
-          "PerplexityBot",
           "Google-Extended",
+          "Applebot-Extended",
         ],
-        allow: ["/", "/llms.txt", "/llms-full.txt"],
+        allow: ["/", "/llms.txt", "/llms-full.txt", "/api/knowledge-graph"],
         disallow: ["/api/"],
       },
     ],
