@@ -12,16 +12,16 @@ import { breadcrumbSchema, toJsonLd } from "@/lib/schema";
 export const metadata: Metadata = {
   title: "Vitrin Signature — Custom Cabinets, Built in Easton",
   description:
-    "Vitrin Signature is fully custom cabinetry built at our Easton bench. Any size, any door style, any finish. 4–8 week lead time. Plywood boxes, dovetail drawers, Blum hardware.",
+    "Discuss custom cabinetry with Vitrin Cabinetry in Easton. Our showroom is in prelaunch; design options, pricing, and production timing are confirmed with your inquiry.",
   alternates: { canonical: "/cabinets/custom" },
 };
 
 const orderSteps = [
-  { title: "Discovery", body: "30-minute phone call. Scope, location, budget tier, timeline." },
-  { title: "In-home survey", body: "We measure, photograph, and document the space." },
-  { title: "Design & quote", body: "3D renderings + line-item written quote within 1–2 weeks." },
-  { title: "Fabrication", body: "4–8 weeks at our Easton bench. Weekly photo updates." },
-  { title: "Delivery (install optional)", body: "Delivered to your home or jobsite. Install if you want it; your contractor's crew if you don't." },
+  { title: "Discovery", body: "Discuss your scope, location, budget tier, and target dates. Call arrangements are confirmed with your inquiry." },
+  { title: "In-home survey", body: "Measurement and survey arrangements are confirmed before an appointment is booked." },
+  { title: "Design & quote", body: "Discuss 3D renderings and a line-item written quote. Design scope and timing are confirmed for your project." },
+  { title: "Fabrication", body: "Production timing and progress-update arrangements are confirmed with your project quote." },
+  { title: "Delivery (install optional)", body: "Discuss home or jobsite delivery and optional installation. Availability and timing are confirmed with your quote." },
 ];
 
 export default function CustomPage() {
@@ -53,7 +53,7 @@ export default function CustomPage() {
             Custom cabinets, built at our Easton bench.
           </h1>
           <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.92)", maxWidth: "640px", margin: "0 auto", lineHeight: 1.6 }}>
-            Any size. Any door style. Any finish. Built to your kitchen&apos;s exact dimensions. 4–8 weeks in the shop after design approval.
+            Discuss cabinetry for your kitchen&apos;s dimensions, style, and finish. Our Easton showroom is in prelaunch; design options, pricing, and production timing are confirmed with your inquiry.
           </p>
         </div>
       </section>
@@ -115,9 +115,9 @@ export default function CustomPage() {
         <div className="container">
           <div className="section-center">
             <span className="eyebrow">Lead time</span>
-            <h2 className="section-heading">4 to 8 weeks in the shop after design approval.</h2>
+            <h2 className="section-heading">Confirm the schedule for your project.</h2>
             <p className="section-sub">
-              You get weekly photo updates from the bench. No silence. No surprises. If lead time matters more than custom, see <Link href="/cabinets/stock" className="text-link">Vitrin Stock</Link>.
+              Tell us your target dates. We will confirm design, fabrication, and collection or delivery timing with your quote. You can also ask about <Link href="/cabinets/stock" className="text-link">Vitrin Stock</Link>.
             </p>
           </div>
         </div>
@@ -133,11 +133,11 @@ export default function CustomPage() {
         <div className="container" style={{ textAlign: "center" }}>
           <h2 className="section-heading">Start a custom kitchen</h2>
           <p className="section-sub" style={{ margin: "1rem auto 2rem" }}>
-            Tell us the room and the budget tier. We&apos;ll set up a discovery call.
+            Tell us the room, budget tier, and target dates. We will follow up about options and any discovery-call arrangements.
           </p>
           <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
-            <Link href="/contact?type=custom" className="btn-primary">Start a Custom Kitchen</Link>
-            <Link href="/showroom" className="btn-secondary">Visit the Showroom</Link>
+            <Link href="/contact?type=custom" className="btn-primary">Ask about custom cabinetry</Link>
+            <Link href="/showroom" className="btn-secondary">Ask about a showroom visit</Link>
           </div>
         </div>
       </section>

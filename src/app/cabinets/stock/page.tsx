@@ -42,7 +42,7 @@ export default function StockPage() {
       <section className="hero" style={{ minHeight: "55vh", padding: "180px 0 60px" }}>
         <Image
           src="/images/heros/inset-shaker-kitchen-pennsylvania-stone-farmhouse.png"
-          alt="Stock cabinets ready for pickup at the Vitrin Cabinetry showroom in Easton, PA"
+          alt="Inset Shaker cabinetry in a kitchen with stone walls"
           fill
           priority
           sizes="100vw"
@@ -62,7 +62,7 @@ export default function StockPage() {
             Ask about stock cabinet options.
           </h1>
           <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.92)", maxWidth: "640px", margin: "0 auto", lineHeight: 1.6 }}>
-            Plywood-box construction, Blum hardware, and dovetail drawers. Tell us the sizes and finishes you need. Pricing, availability, and collection or delivery arrangements will be confirmed with your inquiry.
+            Plywood-box construction, Blum hardware, and dovetail drawers. Our Easton showroom is in prelaunch. Tell us the sizes and finishes you need. Pricing, availability, and collection or delivery arrangements will be confirmed with your inquiry.
           </p>
         </div>
       </section>
@@ -93,7 +93,7 @@ export default function StockPage() {
         <div className="container">
           <div className="section-center">
             <span className="eyebrow">Sizes</span>
-            <h2 className="section-heading">Standard box sizes we stock</h2>
+            <h2 className="section-heading">Standard box sizes to discuss</h2>
           </div>
           <ul style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "0.5rem 2rem", listStyle: "none", padding: 0, color: "var(--text-secondary)" }}>
             {sizes.map((s) => (
@@ -136,8 +136,8 @@ export default function StockPage() {
             Send us the sizes you need. Inquiries are reviewed promptly by our Easton team.
           </p>
           <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
-            <Link href="/contact?type=stock" className="btn-primary">Get a Stock Quote</Link>
-            <Link href="/showroom" className="btn-secondary">Visit the Showroom</Link>
+            <Link href="/contact?type=stock" className="btn-primary">Request pricing and availability</Link>
+            <Link href="/showroom" className="btn-secondary">Ask about a showroom visit</Link>
           </div>
         </div>
       </section>

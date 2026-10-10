@@ -31,7 +31,7 @@ const pillars = [
   },
   {
     title: "Two tiers, one shop.",
-    desc: "Vitrin Stock ships fast from the showroom floor. Vitrin Signature is built to your kitchen's exact dimensions — drawn, milled, and finished on our bench. Same team stands behind both.",
+    desc: "Ask about Vitrin Stock options, pricing, and availability. Vitrin Signature is built to your kitchen's exact dimensions — drawn, milled, and finished on our bench. Same team stands behind both.",
   },
   {
     title: "Yours to install — or we’ll do it.",
@@ -42,7 +42,7 @@ const pillars = [
 const audienceCards = [
   {
     title: "Homeowners",
-    desc: "Schedule a showroom preview, sit at the materials bench, and plan stock or custom cabinetry for your space.",
+    desc: "Discuss stock or custom cabinetry for your space. Our showroom is in prelaunch; any visit must be confirmed before you travel.",
     href: "/cabinets",
   },
   {
@@ -199,7 +199,7 @@ export default function Home() {
             <span className="mask-line"><span>in <em>Easton.</em></span></span>
           </h1>
           <p style={{ fontSize: "1.15rem", color: "rgba(255,255,255,0.92)", maxWidth: "720px", lineHeight: 1.6 }}>
-            We don&apos;t sell kitchens out of a catalog — we build them at our own bench in Easton, PA, with in-stock door styles on the floor when speed matters. Kitchen, bath, and closet cabinetry drawn in 3D and finished in our shop, then completed with quartz, granite, or porcelain counters, tile, and flooring by the same crew — in homes that have stood in Easton, Bethlehem, and Allentown for a century or more.
+            We don&apos;t sell kitchens out of a catalog — we build them at our own bench in Easton, PA, with stock options, pricing, and availability confirmed for your project. Kitchen, bath, and closet cabinetry drawn in 3D and finished in our shop, then completed with quartz, granite, or porcelain counters, tile, and flooring by the same crew — in homes that have stood in Easton, Bethlehem, and Allentown for a century or more.
           </p>
           <div className="hero__cta">
             <Link href="/cabinets/stock" className="btn-primary">Browse Stock Cabinets &rarr;</Link>
@@ -255,7 +255,7 @@ export default function Home() {
             num="01"
             label="The Vitrin Difference"
             title={<>Bench-built Signature. Curated Stock. <em>One Easton shop.</em></>}
-            sub="When you want a kitchen built to your room — not a line card — we mill and finish it here. When you need quality fast, we stock door styles on the floor. Same address, same craftspeople, same warranty philosophy: we answer for the work."
+            sub="When you want a kitchen built to your room — not a line card — we mill and finish it here. Ask about stock door styles, availability, and timing with your inquiry. Same address, same craftspeople, same warranty philosophy: we answer for the work."
           />
 
           {/* AEO Position Zero Direct Answer Definition Box */}
@@ -320,9 +320,9 @@ export default function Home() {
         <div className="container">
           <SectionHead
             num="03"
-            label="From the Showroom"
-            title={<>Stock cabinets in our <em>Easton shop</em></>}
-            sub="Featured Vitrin Stock door styles. Pickup or delivery from Easton, PA."
+            label="Cabinet Inquiries"
+            title={<>Stock cabinet options from <em>Easton</em></>}
+            sub="Illustrative Vitrin Stock door styles. Pricing, availability, and collection or delivery arrangements are confirmed with your inquiry."
           />
 
           <div className="reveal" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "1.25rem" }}>
@@ -541,13 +541,13 @@ export default function Home() {
       {/* Dual final CTA */}
       <section className="section--dark">
         <div className="container" style={{ textAlign: "center" }}>
-          <h2 className="section-heading">Ready to order cabinets?</h2>
+          <h2 className="section-heading">Planning a cabinet project?</h2>
           <p style={{ fontSize: "1.1rem", maxWidth: "560px", margin: "1rem auto 2.5rem" }}>
-            Visit our Easton showroom — or send us your kitchen drawings for a quote.
+            Send your kitchen drawings and ask about pricing and availability. Our Easton showroom is in prelaunch; contact us before planning a visit.
           </p>
           <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
             <Link href="/showroom" className="btn-primary" style={{ padding: "1.25rem 2.5rem", fontSize: "1rem" }}>
-              Visit the Showroom
+              Ask About a Visit
             </Link>
             <Link href="/contact" className="btn-secondary" style={{ padding: "1.25rem 2.5rem", fontSize: "1rem" }}>
               Get a Cabinet Quote

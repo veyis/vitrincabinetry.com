@@ -8,46 +8,44 @@ import { site } from "@/lib/site";
 import { breadcrumbSchema, cabinetStoreSchema, faqPageJsonLd, toJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Visit the Vitrin Showroom — Easton, PA",
+  title: "Easton Showroom — Prelaunch Inquiries",
   description:
-    "Vitrin Cabinetry's showroom in Easton, PA. Sit at the materials bench, browse stock cabinets ready to take home, and start a custom kitchen — all in one place.",
+    "Our Easton showroom is in prelaunch. Contact Vitrin Cabinetry about your cabinet project, pricing, availability, and possible appointment arrangements.",
   alternates: { canonical: "/showroom" },
 };
 
 const expectations = [
-  { title: "Stock cabinet options", body: "Explore upcoming Vitrin Stock door styles, finishes, and construction specifications currently in development." },
-  { title: "Materials bench", body: "Sit down with samples — wood species, paint and stain swatches, hardware, counter chips." },
-  { title: "Dedicated rep on hand", body: "A real person who knows the inventory, the lead times, and the trade-pricing tiers." },
-  { title: "No pressure visits", body: "Walk through, look, ask questions, leave. Or talk pricing and place an order. Whichever you came for." },
+  { title: "Cabinet options", body: "Tell us the styles, finishes, and sizes you need. We will confirm the options available for your project." },
+  { title: "Materials and samples", body: "Tell us which materials interest you. Available samples and review arrangements will be confirmed with your inquiry." },
+  { title: "Project inquiries", body: "Ask our team about pricing, lead times, and trade arrangements for your project." },
+  { title: "Visits by confirmation", body: "Contact us first. We will confirm whether a visit is available and provide appointment details before you travel." },
 ];
 
-// Visible Q&A, mirrored into FAQPage JSON-LD. Every answer restates a fact
-// already published on this site or in src/lib/site.ts — no street address,
-// no invented drive times, no hours the GBP has not confirmed.
+// Owner-confirmed prelaunch facts, shared by visible answers and FAQPage markup.
 const faqs = [
   {
     q: "Where is the Vitrin Cabinetry showroom?",
-    a: `The showroom is in Easton, Pennsylvania. It is opening soon, and the exact street address is confirmed when you book your visit — call ${site.phoneDisplay} or email ${site.email} and we will send you the location and a time.`,
+    a: `Our Easton, Pennsylvania showroom is in prelaunch. Call ${site.phoneDisplay} or email ${site.email} to discuss your project. We will confirm whether a visit is available and provide the location and appointment details before you travel.`,
   },
   {
     q: "Can I visit the showroom before it officially opens?",
-    a: `Yes. Visits are arranged by appointment while the address is being finalized. Call ${site.phoneDisplay} or email ${site.email}, tell us roughly what you are working on, and we will confirm a time and the exact location.`,
+    a: `Contact us at ${site.phoneDisplay} or ${site.email} to ask about a visit. Appointment availability, location, and timing must be confirmed before you travel.`,
   },
   {
     q: "What can I see at the showroom?",
-    a: "The full Vitrin Stock lineup — door styles, finishes, and finished cabinets — plus a materials bench where you can sit down with wood species, paint and stain swatches, hardware, and counter chips. A rep who knows the inventory, the lead times, and the trade-pricing tiers is on hand.",
+    a: "Tell us which door styles, finishes, or materials you would like to discuss. The showroom is in prelaunch, so available samples and any visit arrangements will be confirmed with your inquiry.",
   },
   {
     q: "Can I take cabinets home from the showroom?",
-    a: "Vitrin Stock cabinet lines are being finalized for launch. Once live, standard configurations will be available for quick turnaround, while custom cabinetry is built to order at our shop.",
+    a: "Pricing, availability, and collection or delivery timing will be confirmed with your quote. Contact us before planning a collection; the showroom is in prelaunch.",
   },
   {
     q: "Do you offer trade pricing for contractors and designers?",
-    a: "Yes. Trade-pricing tiers are available and the showroom rep can walk you through them. The trade page explains how an account is set up.",
+    a: "Trade inquiries are welcome. Contact us about your project and we will confirm applicable pricing and account arrangements.",
   },
   {
     q: "Do I have to visit the showroom to get a quote?",
-    a: `No. You can start a quote by phone at ${site.phoneDisplay}, by email at ${site.email}, or through the contact form. The showroom helps most when you want to see finishes and door styles next to each other before deciding.`,
+    a: `No. Send a pricing and availability inquiry by phone at ${site.phoneDisplay}, by email at ${site.email}, or through the contact form. Any appointment arrangements will be confirmed separately.`,
   },
 ];
 
@@ -75,10 +73,10 @@ export default function ShowroomPage() {
           </nav>
           <span className="eyebrow" style={{ color: "#e6c87a" }}>Showroom</span>
           <h1 style={{ fontSize: "clamp(2.4rem, 5vw, 3.6rem)", marginBottom: "1.25rem", color: "#fff" }}>
-            Visit the Vitrin showroom.
+            Our Easton showroom is in prelaunch.
           </h1>
           <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.92)", maxWidth: "640px", margin: "0 auto", lineHeight: 1.6 }}>
-            Easton, PA. Stock cabinets on the floor, materials bench, dedicated rep. The place to start, whether you came for one vanity or a full custom kitchen.
+            Contact us to discuss your cabinet project. We will confirm pricing, availability, and any appointment arrangements with your inquiry.
           </p>
         </div>
       </section>
@@ -90,11 +88,9 @@ export default function ShowroomPage() {
         <div className="container--narrow prose">
           <h2>Where is the Vitrin Cabinetry showroom?</h2>
           <p>
-            Vitrin Cabinetry&apos;s showroom is in Easton, Pennsylvania. You can see the full Vitrin Stock lineup on the
-            floor, sit at the materials bench with wood, paint, and countertop samples, and meet a rep who knows the
-            inventory and the lead times. The showroom is opening soon, and the exact street address is confirmed when
-            you book — call <a href={`tel:${site.phone}`}>{site.phoneDisplay}</a> or email{" "}
-            <a href={`mailto:${site.email}?subject=Showroom%20Visit`}>{site.email}</a> to arrange a visit.
+            Our Easton, Pennsylvania showroom is in prelaunch. Contact us about your cabinet project and we will
+            confirm whether a visit is available, together with its location and appointment details before you travel. Call <a href={`tel:${site.phone}`}>{site.phoneDisplay}</a> or email{" "}
+            <a href={`mailto:${site.email}?subject=Showroom%20Visit`}>{site.email}</a> to ask about a visit.
           </p>
           <p>
             Vitrin serves Easton, Bethlehem, Allentown, and the wider Lehigh Valley and Bucks County. If you would
@@ -108,7 +104,7 @@ export default function ShowroomPage() {
         <div className="container">
           <div className="section-center">
             <span className="eyebrow">What to expect</span>
-            <h2 className="section-heading">A real showroom, not a sales pitch</h2>
+            <h2 className="section-heading">Start with an inquiry</h2>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "1.25rem" }}>
             {expectations.map((e) => (
@@ -126,7 +122,7 @@ export default function ShowroomPage() {
           <span className="eyebrow">Plan your visit</span>
           <h2 className="section-heading">Address coming soon</h2>
           <p className="section-sub" style={{ margin: "1rem auto 2rem" }}>
-            Our Easton showroom is opening soon. Until the address is final, book a visit by phone or email — we&apos;ll confirm the exact location and time.
+            Our Easton showroom is in prelaunch. Ask about a visit by phone or email. We will confirm whether an appointment is available, along with its location and time, before you travel.
           </p>
           <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
             <a href={`tel:${site.phone}`} className="btn-primary">

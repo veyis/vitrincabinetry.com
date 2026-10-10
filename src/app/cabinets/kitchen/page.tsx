@@ -11,14 +11,14 @@ import { breadcrumbSchema, serviceSchema, toJsonLd } from "@/lib/schema";
 export const metadata: Metadata = {
   title: "Kitchen Cabinets — Stock & Custom",
   description:
-    "Kitchen cabinets from Vitrin Cabinetry — stock cabinets ready from the Easton showroom, or fully custom kitchens built at our bench. Plywood boxes, Blum hardware, dovetail drawers.",
+    "Explore stock and custom kitchen cabinet options from Vitrin Cabinetry in Easton. Our showroom is in prelaunch; pricing, availability, and timing are confirmed with your inquiry.",
   alternates: { canonical: "/cabinets/kitchen" },
 };
 
 const styles = [
   { title: "Inset Shaker", desc: "Painted, traditional bones, contemporary palette. Our most-requested door style — works in farmhouses, colonials, and transitional builds alike." },
   { title: "Full-overlay flat panel", desc: "Clean and modern. Rift-cut oak, walnut, or smooth painted finishes. Popular in new construction and open-plan renovations." },
-  { title: "Two-tone island contrast", desc: "Painted perimeter, stained or contrasting island. Available in both stock and custom tiers." },
+  { title: "Two-tone island contrast", desc: "Painted perimeter, stained or contrasting island. Ask which stock or custom options are available for your project." },
   { title: "Traditional raised panel", desc: "Cherry, maple, or paint-grade. Holds up well in older Bucks County homes and period-appropriate restorations." },
 ];
 
@@ -60,7 +60,7 @@ export default function Page() {
             Kitchen cabinets — stock or built to fit.
           </h1>
           <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.92)", maxWidth: "640px", margin: "0 auto", lineHeight: 1.6 }}>
-            Two ways to cabinet your kitchen — pick door styles from in-stock SKUs in our Easton showroom, or order a kitchen built to your room&apos;s exact dimensions.
+            Explore stock and custom cabinetry for your kitchen. Our Easton showroom is in prelaunch; pricing, availability, and timing are confirmed with your inquiry.
           </p>
         </div>
       </section>
@@ -71,13 +71,13 @@ export default function Page() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "1.5rem" }}>
             <Link href="/cabinets/stock" className="card">
               <h2 className="card__title">Stock kitchen cabinets</h2>
-              <p className="card__desc">In-showroom inventory. Curated door styles and finishes. Ready for pickup within the week. Best for rental units, secondary kitchens, fast-turn contractor jobs.</p>
+              <p className="card__desc">Discuss door styles, finishes, and sizes for your project. Stock availability and collection or delivery timing are confirmed with your inquiry.</p>
               <div className="card__more">Browse Vitrin Stock →</div>
             </Link>
             <Link href="/cabinets/custom" className="card">
               <h2 className="card__title">Custom kitchen cabinets</h2>
-              <p className="card__desc">Built at our Easton bench to your room&apos;s exact dimensions. Any door style, any wood species, any finish. 4–8 week build.</p>
-              <div className="card__more">Order a Vitrin Signature kitchen →</div>
+              <p className="card__desc">Discuss cabinetry made for your room&apos;s dimensions. Design options and production timing are confirmed with your project quote.</p>
+              <div className="card__more">Explore Vitrin Signature options →</div>
             </Link>
           </div>
         </div>
@@ -88,9 +88,9 @@ export default function Page() {
         <div className="container">
           <div className="section-center">
             <span className="eyebrow">Style Options</span>
-            <h2 className="section-heading">Four door styles, fully configurable from there.</h2>
+            <h2 className="section-heading">Four door styles to discuss.</h2>
             <p className="section-sub">
-              These are the starting points most buyers choose. Every dimension, finish, and hardware decision flexes from here. Available in both stock and custom tiers.
+              Use these styles as starting points for your inquiry. Dimensions, finishes, hardware, and availability in each tier are confirmed for your project.
             </p>
           </div>
 
@@ -134,7 +134,7 @@ export default function Page() {
               <h2 className="section-heading" style={{ marginBottom: "1rem" }}>Wood species and finish options.</h2>
               <div className="prose">
                 <p>
-                  Stock carries a curated palette. Custom orders open the full species list.
+                  Discuss the species and finishes below with your inquiry. We will confirm which options are available for your chosen tier.
                 </p>
               </div>
               <ul style={{ listStyle: "none", padding: 0, marginTop: "1rem" }}>
@@ -169,7 +169,7 @@ export default function Page() {
           </p>
           <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
             <Link href="/contact?type=kitchen" className="btn-primary">Get a Kitchen Quote</Link>
-            <Link href="/showroom" className="btn-secondary">Visit the Showroom</Link>
+            <Link href="/showroom" className="btn-secondary">Ask about a showroom visit</Link>
           </div>
         </div>
       </section>
@@ -194,7 +194,7 @@ export default function Page() {
           __html: toJsonLd(
             serviceSchema({
               name: "Kitchen Cabinet Supply",
-              description: "Stock and custom kitchen cabinets sold from Vitrin Cabinetry in Easton, PA. Plywood box construction, Blum hardware, dovetail drawers.",
+              description: "Stock and custom kitchen cabinet inquiries for Vitrin Cabinetry in Easton, PA. Pricing, availability, and timing are confirmed for each project.",
               url: pageUrl,
               serviceType: "Custom Cabinetry Supply",
             })

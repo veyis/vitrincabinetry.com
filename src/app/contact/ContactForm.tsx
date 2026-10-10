@@ -89,7 +89,7 @@ export default function ContactForm() {
       <div style={{ textAlign: "center", padding: "2rem 0" }}>
         <h3 style={{ fontSize: "1.5rem", marginBottom: "0.75rem" }}>Thank you.</h3>
         <p style={{ color: "var(--text-secondary)" }}>
-          Your inquiry is in. Your dedicated rep will reach out within one business day.
+          Your inquiry is in. We will follow up about your project. Pricing, availability, and any appointment arrangements will be confirmed with you.
         </p>
       </div>
     );

@@ -43,7 +43,7 @@ export default function Contact() {
             Tell us about your cabinets.
           </h1>
           <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.92)", maxWidth: "640px", margin: "0 auto", lineHeight: 1.6 }}>
-            Stock or custom. Trade or retail. Send us the project — we&apos;ll quote within one business day.
+            Stock or custom. Trade or retail. Send your project details and ask about pricing and availability. Our Easton showroom is in prelaunch.
           </p>
         </div>
       </section>
@@ -54,13 +54,13 @@ export default function Contact() {
             <div>
               <h2 style={{ fontSize: "2rem", marginBottom: "2rem" }}>Get a cabinet quote</h2>
               <p style={{ color: "var(--text-secondary)", marginBottom: "2rem" }}>
-                Fill out the form below. For stock cabinets or trade inquiries, your rep will reach out within one business day.
+                Send your inquiry using the form. We will follow up about options, pricing, availability, and any appointment arrangements. Please wait for confirmed visit details before traveling.
               </p>
 
               <div style={{ marginBottom: "2.5rem", padding: "1.5rem", background: "var(--surface)", borderLeft: "4px solid var(--primary)", borderRadius: "0 4px 4px 0" }}>
                 <h3 style={{ fontSize: "1.25rem", marginBottom: "0.75rem", color: "var(--text)" }}>The $250 Discovery Session</h3>
                 <p style={{ fontSize: "0.95rem", color: "var(--text-secondary)", marginBottom: "1rem" }}>
-                  For fully custom kitchen projects, we start with a Paid Discovery Session. This 60-minute in-home or showroom consultation includes a hand-sketched layout and a ballpark written quote. <strong>The $250 fee is fully credited toward your deposit if you proceed.</strong> This ensures our design time is dedicated to serious homeowners.
+                  For fully custom kitchen projects, we start with a Paid Discovery Session. This 60-minute consultation includes a hand-sketched layout and a ballpark written quote. Location and appointment availability are confirmed before booking. <strong>The $250 fee is fully credited toward your deposit if you proceed.</strong> This ensures our design time is dedicated to serious homeowners.
                 </p>
                 <div style={{ fontSize: "0.9rem", fontWeight: 600, color: "var(--text)" }}>
                   Kitchen Pricing Tiers:
@@ -97,9 +97,8 @@ export default function Contact() {
               </div>
 
               <div>
-                <div style={{ fontWeight: "bold", color: "var(--primary)", marginBottom: "0.5rem" }}>Hours</div>
-                <div style={{ color: "var(--text-secondary)" }}>Mon – Fri: 9am – 6pm</div>
-                <div style={{ color: "var(--text-secondary)" }}>Sat: 10am – 4pm (by appointment)</div>
+                <div style={{ fontWeight: "bold", color: "var(--primary)", marginBottom: "0.5rem" }}>Appointment inquiries</div>
+                <div style={{ color: "var(--text-secondary)" }}>The showroom is in prelaunch. Contact us to confirm whether a visit is available, along with the location and appointment time.</div>
               </div>
             </div>
 

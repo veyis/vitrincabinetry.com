@@ -40,12 +40,7 @@ const postalAddress = {
   addressCountry: site.address.country,
 };
 
-const openingHours = site.hours.map((h) => ({
-  "@type": "OpeningHoursSpecification" as const,
-  dayOfWeek: h.dayOfWeek,
-  opens: h.opens,
-  closes: h.closes,
-}));
+// Opening hours are omitted during prelaunch; restore after the owner confirms them.
 
 const sameAs = Object.values(site.social).filter(Boolean);
 
@@ -81,7 +76,6 @@ export const localBusinessSchema: WithContext<LocalBusiness> = {
   address: postalAddress,
   geo: { "@type": "GeoCoordinates", ...site.geo },
   areaServed: site.areaServed,
-  openingHoursSpecification: openingHours,
   knowsAbout: [...site.knowsAbout],
   hasOfferCatalog: offerCatalog,
   contactPoint: [
@@ -312,7 +306,6 @@ export const cabinetStoreSchema: WithContext<HomeAndConstructionBusiness> = {
   address: postalAddress,
   geo: { "@type": "GeoCoordinates", ...site.geo },
   areaServed: site.areaServed,
-  openingHoursSpecification: openingHours,
   // aggregateRating intentionally omitted — the storefront and the workshop
   // share the same rating pool; render it only on localBusinessSchema.
   // hasMap belongs on the storefront too: /showroom renders this schema, and
