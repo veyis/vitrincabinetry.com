@@ -20,7 +20,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   if (!member) return {};
 
   return {
-    title: `${member.name}, ${member.role} — Vitrin Cabinetry`,
+    title: `${member.name}, ${member.role}`,
     description: member.bio,
     alternates: { canonical: `/team/${member.slug}` },
   };

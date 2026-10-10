@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy · Vitrin Cabinetry",
+  title: "Privacy Policy",
   description:
     "How Vitrin Cabinetry collects, uses, and protects the information you share with us — contact form submissions, quote requests, and basic site analytics.",
   alternates: { canonical: "/privacy" },

@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Leave a Review — Vitrin Cabinetry",
+  title: "Leave a Review",
   description: "Review your experience with Vitrin Cabinetry on Google or Houzz.",
   robots: { index: false, follow: false }, // Don't index utility pages
   // Self-canonical — pointing at `/` made GSC treat this as alternate/noindex noise.

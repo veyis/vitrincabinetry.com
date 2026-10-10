@@ -9,7 +9,7 @@ import { guides } from "@/lib/guides";
 import { shareMetadata } from "@/lib/seo";
 import { breadcrumbSchema, itemListJsonLd, toJsonLd } from "@/lib/schema";
 
-const PAGE_TITLE = "Guides — Kitchen Remodeling Resources by Vitrin Cabinetry";
+const PAGE_TITLE = "Guides — Kitchen Remodeling Resources";
 const PAGE_DESC =
   "Honest, plain-language guides on custom cabinetry, kitchen remodeling, and the questions buyers in Bucks County actually ask. Pricing, comparisons, decisions.";
 

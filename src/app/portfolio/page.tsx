@@ -9,7 +9,7 @@ import { breadcrumbSchema, toJsonLd } from "@/lib/schema";
 import PortfolioGrid from "./PortfolioGrid";
 
 export const metadata: Metadata = {
-  title: "Portfolio — Custom Kitchens Built by Vitrin Cabinetry",
+  title: "Portfolio — Custom Kitchens",
   description:
     "Selected custom kitchen and bath projects by Vitrin Cabinetry — bench-built at our Easton, PA shop. Browse by style and town.",
   alternates: { canonical: "/portfolio" },

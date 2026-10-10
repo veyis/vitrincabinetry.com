@@ -42,7 +42,7 @@ const pillars = [
 const audienceCards = [
   {
     title: "Homeowners",
-    desc: "Walk in, sit at the materials bench, take stock cabinets home this week or order a full custom kitchen.",
+    desc: "Schedule a showroom preview, sit at the materials bench, and plan stock or custom cabinetry for your space.",
     href: "/cabinets",
   },
   {
@@ -57,11 +57,11 @@ const audienceCards = [
   },
 ];
 
-// TODO: fill real starting prices from the shop; "$X" entries render without a price.
+// Prelaunch featured stock door styles — pricing and availability confirmed with inquiry.
 const featuredStock = [
-  { name: "Inset Shaker · Painted White Dove", from: "$X" },
-  { name: "Full-Overlay Shaker · Painted Iron Ore", from: "$X" },
-  { name: "Slab Modern · Rift-Cut White Oak", from: "$X" },
+  { name: "Inset Shaker · Painted White Dove", from: "Request pricing", status: "Ask about availability" },
+  { name: "Full-Overlay Shaker · Painted Iron Ore", from: "Request pricing", status: "Ask about availability" },
+  { name: "Slab Modern · Rift-Cut White Oak", from: "Request pricing", status: "Ask about availability" },
 ];
 
 const beyondCabinets = [
@@ -330,8 +330,8 @@ export default function Home() {
               <Link key={s.name} href="/cabinets/stock" className="card">
                 <h3 className="card__title">{s.name}</h3>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "0.75rem" }}>
-                  {s.from !== "$X" && <span style={{ color: "var(--primary)", fontWeight: 600 }}>From {s.from}</span>}
-                  <span style={{ fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: "1px", color: "var(--good, #2f6a3a)" }}>Available now</span>
+                  <span style={{ color: "var(--primary)", fontWeight: 600 }}>{s.from}</span>
+                  <span style={{ fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: "1px", color: "var(--muted, #666)" }}>{s.status}</span>
                 </div>
               </Link>
             ))}

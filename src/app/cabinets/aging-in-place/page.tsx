@@ -9,7 +9,7 @@ import { site } from "@/lib/site";
 import { breadcrumbSchema, serviceSchema, toJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Aging-in-Place Cabinets — Stock & Custom · Vitrin Cabinetry",
+  title: "Aging-in-Place Cabinets — Stock & Custom",
   description:
     "Aging-in-place kitchen and bath cabinetry from Vitrin Cabinetry — lower counter heights, knee space, pull-out accessibility. Stock and custom options. Built in Easton, PA.",
   alternates: { canonical: "/cabinets/aging-in-place" },

@@ -9,7 +9,7 @@ import { site } from "@/lib/site";
 import { breadcrumbSchema, serviceSchema, toJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Bath Vanities & Cabinets — Stock & Custom · Vitrin Cabinetry",
+  title: "Bath Vanities & Cabinets — Stock & Custom",
   description:
     "Bathroom vanities and cabinetry from Vitrin Cabinetry — stock vanities ready from the Easton showroom, or fully custom bath cabinetry built at our bench. Plywood boxes, Blum hardware, dovetail drawers.",
   alternates: { canonical: "/cabinets/bath" },

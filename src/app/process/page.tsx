@@ -8,7 +8,7 @@ import { site } from "@/lib/site";
 import { breadcrumbSchema, serviceSchema, toJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "How Ordering a Custom Kitchen Works — Vitrin Cabinetry",
+  title: "How Ordering a Custom Kitchen Works",
   description:
     "How Vitrin Cabinetry handles a custom kitchen order, end to end: discovery, in-home survey, design and quote, fabrication at our Easton bench, and delivery (install optional).",
   alternates: { canonical: "/process" },

@@ -10,7 +10,7 @@ import { site } from "@/lib/site";
 import { breadcrumbSchema, toJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Cabinets — Stock & Custom · Vitrin Cabinetry",
+  title: "Cabinets — Stock & Custom",
   description:
     "Two ways to buy cabinets from Vitrin: stock cabinets ready from our Easton showroom, or fully custom kitchens built to your exact dimensions. Trade pricing on both.",
   alternates: { canonical: "/cabinets" },

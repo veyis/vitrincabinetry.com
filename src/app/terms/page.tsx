@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Terms of Use · Vitrin Cabinetry",
+  title: "Terms of Use",
   description:
     "Terms of use for the Vitrin Cabinetry website — informational content, quotes and estimates, intellectual property, and limitation of liability.",
   alternates: { canonical: "/terms" },
