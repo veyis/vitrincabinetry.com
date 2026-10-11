@@ -74,7 +74,7 @@ export const localBusinessSchema: WithContext<LocalBusiness> = {
   email: site.email,
   priceRange: "$$$",
   address: postalAddress,
-  geo: { "@type": "GeoCoordinates", ...site.geo },
+  // No business coordinates during prelaunch: site.geo is only the Easton city center.
   areaServed: site.areaServed,
   knowsAbout: [...site.knowsAbout],
   hasOfferCatalog: offerCatalog,
@@ -304,7 +304,7 @@ export const cabinetStoreSchema: WithContext<HomeAndConstructionBusiness> = {
   email: site.email,
   priceRange: "$$",
   address: postalAddress,
-  geo: { "@type": "GeoCoordinates", ...site.geo },
+  // No business coordinates during prelaunch: site.geo is only the Easton city center.
   areaServed: site.areaServed,
   // aggregateRating intentionally omitted — the storefront and the workshop
   // share the same rating pool; render it only on localBusinessSchema.

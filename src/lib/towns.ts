@@ -25,7 +25,7 @@ export const towns: TownData[] = [
     slug: "easton",
     name: "Easton",
     intro:
-      "Easton is home â our bench sits right here where the Lehigh meets the Delaware. The housing runs from grand College Hill Victorians to West Ward brick rowhomes to the newer colonials out in Palmer and Forks, and every one of them asks something different of a kitchen. Being the local shop means we've measured most of those room types more than once.",
+      "Easton is home — our bench sits right here where the Lehigh meets the Delaware. The housing runs from grand College Hill Victorians to West Ward brick rowhomes to the newer colonials out in Palmer and Forks, and every one of them asks something different of a kitchen. Being the local shop means we've measured most of those room types more than once.",
     housing: "College Hill Victorians, downtown and West Ward brick rowhomes, and 1990s–2000s colonials in Palmer and Forks",
     projectTitle: "A College Hill Victorian, cooked in for the next century.",
     projectBody:
