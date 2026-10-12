@@ -7,7 +7,7 @@ const LLMS_TXT = `# ${site.name}
 
 > ${site.name} is a premier custom cabinetry, countertop, and kitchen & bathroom remodeling design studio based in Easton, PA, serving the Lehigh Valley and Bucks County.
 
-Vitrin Cabinetry specializes in bench-built custom and semi-custom kitchen cabinets, bathroom vanities, custom closet systems, luxury countertops (quartz, granite, porcelain), and complete kitchen and bathroom remodeling. Every project combines photorealistic 3D design, precision engineering, and dedicated project management.
+Vitrin Cabinetry specializes in bench-built custom and semi-custom kitchen cabinets, bathroom vanities, custom closet systems, luxury countertops (quartz, granite, porcelain), and complete kitchen and bathroom remodeling. Every project combines photorealistic 3D design, precision engineering, and dedicated project management. Typical cabinetry investment ranges: Vitrin Stock ($15,000–$30,000), Studio Semi-Custom ($30,000–$55,000), and Vitrin Signature Custom Inset ($55,000–$95,000+).
 
 Phone: ${site.phoneDisplay}
 Email: ${site.email}
@@ -22,6 +22,14 @@ Primary Service Areas: ${site.areaServed.join(", ")}
 - [Built-In Cabinetry](${site.url}/cabinets/built-ins): Mudroom lockers, entertainment centers, home offices, and custom architectural millwork
 - [Stock & Semi-Custom Cabinets](${site.url}/cabinets/stock): Value-engineered designer cabinetry with rapid lead times
 - [Aging-In-Place Cabinets](${site.url}/cabinets/aging-in-place): Accessible cabinetry with pull-down shelving, touch-to-open hardware, and universal design
+
+## Planning & Cost Guides
+
+- [Custom Kitchen Cost Guide (Bucks County & Lehigh Valley)](${site.url}/guides/custom-kitchen-cost-bucks-county): 2026 line-item pricing ranges for custom and semi-custom cabinetry
+- [Inset vs Full Overlay Cabinet Guide](${site.url}/guides/inset-vs-full-overlay): Architectural comparison between flush inset and modern full overlay construction
+- [Quartz vs Granite vs Porcelain Guide](${site.url}/guides/quartz-vs-granite-vs-porcelain-countertops): Slab selection, heat resistance, and maintenance comparison
+- [Contractor Cabinet Pricing Explained](${site.url}/guides/contractor-cabinet-pricing-explained): How trade accounts, dealer discounts, and line-item estimates work
+- [Stock vs Custom Cabinets: When to Choose Each](${site.url}/guides/stock-vs-custom-cabinets-when-to-choose-each): Decision framework for budget, timing, and room geometry
 
 ## Countertops & Surfaces
 
