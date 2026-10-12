@@ -159,6 +159,54 @@ export default function Page() {
         </div>
       </section>
 
+      {/* 2026 Kitchen Cabinet Cost & Budget Guide */}
+      <section className="section--surface">
+        <div className="container">
+          <div className="section-center">
+            <span className="eyebrow">Cost &amp; Budget Planning</span>
+            <h2 className="section-heading">What kitchen cabinets cost in 2026.</h2>
+            <p className="section-sub">
+              Transparent investment ranges for Lehigh Valley and Bucks County homeowners, from factory stock to handcrafted custom inset cabinetry.
+            </p>
+          </div>
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.5rem", marginTop: "2rem" }}>
+            <div className="card">
+              <span className="eyebrow" style={{ fontSize: "0.8rem", color: "var(--primary)" }}>Tier 1</span>
+              <h3 className="card__title">Vitrin Stock</h3>
+              <div style={{ fontSize: "1.5rem", fontWeight: 700, margin: "0.5rem 0", color: "var(--text)" }}>$15,000 – $30,000</div>
+              <p className="card__desc">Pre-configured all-plywood cabinet boxes with soft-close Blum hardware. Fast availability for quick-turn renovations and rental investments.</p>
+              <Link href="/cabinets/stock" className="card__more">Explore Stock Cabinets →</Link>
+            </div>
+
+            <div className="card">
+              <span className="eyebrow" style={{ fontSize: "0.8rem", color: "var(--primary)" }}>Tier 2</span>
+              <h3 className="card__title">Studio Semi-Custom</h3>
+              <div style={{ fontSize: "1.5rem", fontWeight: 700, margin: "0.5rem 0", color: "var(--text)" }}>$30,000 – $55,000</div>
+              <p className="card__desc">Customized sizing, paint-grade poplar or maple, transitional palettes, and standard integrated appliance fits for mid-sized family kitchens.</p>
+              <Link href="/guides/custom-kitchen-cost-bucks-county" className="card__more">Read Cost Breakdown →</Link>
+            </div>
+
+            <div className="card">
+              <span className="eyebrow" style={{ fontSize: "0.8rem", color: "var(--primary)" }}>Tier 3</span>
+              <h3 className="card__title">Vitrin Signature Custom</h3>
+              <div style={{ fontSize: "1.5rem", fontWeight: 700, margin: "0.5rem 0", color: "var(--text)" }}>$55,000 – $95,000+</div>
+              <p className="card__desc">Handcrafted at our Easton bench. Inset Shaker, quarter-sawn white oak or walnut, integrated appliance panels, and bespoke interior storage.</p>
+              <Link href="/cabinets/custom" className="card__more">Explore Signature Custom →</Link>
+            </div>
+          </div>
+
+          <div style={{ textAlign: "center", marginTop: "2rem" }}>
+            <p style={{ color: "var(--text-secondary)", fontSize: "0.95rem", marginBottom: "1rem" }}>
+              Source: Vitrin Cabinetry 2025–2026 delivered project averages across Lehigh Valley, PA and Bucks County, PA.
+            </p>
+            <Link href="/guides/custom-kitchen-cost-bucks-county" className="btn-secondary">
+              Read Our Complete Bucks County &amp; Lehigh Valley Cost Guide
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <ConstructionSpecs />
 
       <section className="section--surface">
