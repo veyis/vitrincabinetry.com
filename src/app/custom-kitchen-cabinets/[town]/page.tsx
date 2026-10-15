@@ -5,11 +5,30 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import KitchenEstimator from "@/components/KitchenEstimator";
 import { site } from "@/lib/site";
 import { towns, getTown, type TownData } from "@/lib/towns";
 import { breadcrumbSchema, cabinetStoreSchema, serviceSchema, faqPageJsonLd, toJsonLd } from "@/lib/schema";
 
 type PageParams = { params: Promise<{ town: string }> };
+
+const townProjectImages: Record<string, string> = {
+  quakertown: "/images/heros/craftsman-hand-planing-white-oak-quakertown-workshop.png",
+  perkasie: "/images/heros/heritage-green-custom-kitchen-cabinets-bucks-county.png",
+  doylestown: "/images/heros/minimalist-white-oak-custom-kitchen-cabinetry.png",
+  sellersville: "/images/heros/walnut-waterfall-island-modern-custom-kitchen.png",
+  souderton: "/images/heros/sage-inset-cabinet-door-brass-cup-pull-detail.png",
+  coopersburg: "/images/heros/calacatta-marble-kitchen-island-overhead.png",
+  hellertown: "/images/heros/navy-blue-custom-kitchen-cabinets-twilight.png",
+  emmaus: "/images/heros/indoor-outdoor-custom-kitchen-bucks-county-garden.png",
+  harleysville: "/images/heros/inset-shaker-kitchen-pennsylvania-stone-farmhouse.png",
+  lansdale: "/images/heros/minimalist-white-oak-custom-kitchen-cabinetry.png",
+  "new-hope": "/images/heros/walnut-waterfall-island-modern-custom-kitchen.png",
+  "center-valley": "/images/heros/heritage-green-custom-kitchen-cabinets-bucks-county.png",
+  easton: "/images/heros/craftsman-hand-planing-white-oak-quakertown-workshop.png",
+  bethlehem: "/images/heros/inset-shaker-kitchen-pennsylvania-stone-farmhouse.png",
+  allentown: "/images/heros/calacatta-marble-kitchen-island-overhead.png",
+};
 
 export async function generateStaticParams() {
   return towns.map((t) => ({ town: t.slug }));
@@ -20,8 +39,10 @@ export async function generateMetadata({ params }: PageParams): Promise<Metadata
   const data = getTown(slug);
   if (!data) return {};
   return {
-    title: `Custom Kitchen Cabinets in ${data.name}, PA`,
-    description: `Custom kitchen cabinets in ${data.name}, PA. Vitrin Cabinetry builds every cabinet at our Easton shop and supplies them across Bucks County. Transparent pricing tiers, lifetime cabinetry warranty.`,
+    title: `Custom Kitchen Cabinets in ${data.name}, PA | Handcrafted Cabinetry & Design`,
+    description: slug === "new-hope"
+      ? "Plan custom kitchen cabinets in New Hope, PA. Compare cabinet scope, prepare your measurements, and request confirmed pricing, availability, and delivery details."
+      : `Custom kitchen cabinets in ${data.name}, PA built at our local workshop. Premium all-plywood boxes, dovetail drawers, lifetime warranty & transparent pricing tiers. Free 3D design consultation.`,
     alternates: { canonical: `/custom-kitchen-cabinets/${slug}` },
   };
 }
@@ -143,7 +164,9 @@ export default async function TownPage({ params }: PageParams) {
             <Link href="/cabinets/stock" className="card">
               <h3 className="card__title">Stock cabinets in {data.name}</h3>
               <p className="card__desc">
-                In-showroom inventory ready for pickup or delivery to {data.name}. Plywood boxes, Blum hardware, dovetail drawers. Best for rentals, bath vanities, mudrooms, and fast-turn contractor jobs.
+                {slug === "new-hope"
+                  ? "Ask which stock sizes, finishes, and hardware are available for your project. Confirm collection or delivery arrangements and timing with your quote; our Easton showroom is in prelaunch."
+                  : <>In-showroom inventory ready for pickup or delivery to {data.name}. Plywood boxes, Blum hardware, dovetail drawers. Best for rentals, bath vanities, mudrooms, and fast-turn contractor jobs.</>}
               </p>
               <div className="card__more">Browse Vitrin Stock →</div>
             </Link>
@@ -160,9 +183,32 @@ export default async function TownPage({ params }: PageParams) {
 
       <section>
         <div className="container">
-          <div className="two-col">
-            <div className="img-placeholder" style={{ minHeight: "440px" }} role="img" aria-label={`Recent ${data.name} kitchen project — coming soon`}>
-              Recent {data.name} project — coming soon
+          <div className="two-col" style={{ alignItems: "center" }}>
+            <div style={{ position: "relative", minHeight: "440px", borderRadius: "12px", overflow: "hidden", border: "1px solid var(--border)", boxShadow: "0 8px 24px rgba(0,0,0,0.06)" }}>
+              <Image
+                src={townProjectImages[slug] || "/images/heros/inset-shaker-kitchen-pennsylvania-stone-farmhouse.png"}
+                alt={`Custom kitchen cabinetry project in ${data.name}, PA by Vitrin Cabinetry`}
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                style={{ objectFit: "cover" }}
+              />
+              <div
+                style={{
+                  position: "absolute",
+                  bottom: "12px",
+                  left: "12px",
+                  background: "rgba(0, 0, 0, 0.75)",
+                  backdropFilter: "blur(8px)",
+                  color: "#fff",
+                  padding: "6px 14px",
+                  borderRadius: "6px",
+                  fontSize: "0.8rem",
+                  fontWeight: 500,
+                  letterSpacing: "0.5px",
+                }}
+              >
+                {data.name}, PA Project · Handcrafted In-House
+              </div>
             </div>
             <div>
               <span className="eyebrow">Recent Local Project</span>
@@ -174,6 +220,42 @@ export default async function TownPage({ params }: PageParams) {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {slug === "new-hope" && (
+        <section className="section--surface" aria-labelledby="new-hope-planning">
+          <div className="container--narrow prose">
+            <span className="eyebrow">Plan your cabinet inquiry</span>
+            <h2 id="new-hope-planning">What to prepare for a New Hope kitchen cabinet quote</h2>
+            <p>
+              Start with the room and the work you need, rather than a cabinet style alone.
+              Tell us whether your project is in New Hope Borough or Solebury Township,
+              whether you are keeping the current layout, and who will handle installation.
+            </p>
+            <ul>
+              <li><strong>Room details:</strong> send approximate wall lengths, ceiling height, door and window positions, and appliance model numbers. Initial measurements support a discussion; confirm final dimensions before ordering.</li>
+              <li><strong>Cabinet scope:</strong> identify the base and wall cabinets, island, pantry storage, fillers, finished end panels, and hardware you want included.</li>
+              <li><strong>Related work:</strong> separate cabinetry from countertops, demolition, plumbing, electrical work, and installation so you can compare quotes on the same basis.</li>
+              <li><strong>Site access and timing:</strong> describe stairs, door widths, delivery access, and where cabinets could be stored. Ask for confirmed availability and a delivery plan before scheduling other trades.</li>
+            </ul>
+            <h3>Confirm availability before arranging a visit or collection</h3>
+            <p>
+              Our Easton showroom is in prelaunch. Pricing, cabinet availability, delivery,
+              and any appointment arrangements need confirmation with your inquiry.
+              Check the <Link href="/showroom" className="text-link">current showroom information</Link> before travelling.
+            </p>
+            <p>
+              <Link href="/contact" className="text-link">Send your New Hope cabinet inquiry</Link> with
+              your approximate dimensions, preferred finish, budget range, and target dates.
+            </p>
+          </div>
+        </section>
+      )}
+
+      <section>
+        <div className="container">
+          <KitchenEstimator townName={data.name} townSlug={data.slug} />
         </div>
       </section>
 

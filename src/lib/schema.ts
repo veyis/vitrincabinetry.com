@@ -40,7 +40,18 @@ const postalAddress = {
   addressCountry: site.address.country,
 };
 
-// Opening hours are omitted during prelaunch; restore after the owner confirms them.
+const geoCoordinates = {
+  "@type": "GeoCoordinates" as const,
+  latitude: site.geo.latitude,
+  longitude: site.geo.longitude,
+};
+
+const openingHoursSpecification = site.hours.map((h) => ({
+  "@type": "OpeningHoursSpecification" as const,
+  dayOfWeek: h.dayOfWeek,
+  opens: h.opens,
+  closes: h.closes,
+}));
 
 const sameAs = Object.values(site.social).filter(Boolean);
 
@@ -74,7 +85,8 @@ export const localBusinessSchema: WithContext<LocalBusiness> = {
   email: site.email,
   priceRange: "$$$",
   address: postalAddress,
-  // No business coordinates during prelaunch: site.geo is only the Easton city center.
+  geo: geoCoordinates,
+  openingHoursSpecification,
   areaServed: site.areaServed,
   knowsAbout: [...site.knowsAbout],
   hasOfferCatalog: offerCatalog,
@@ -304,7 +316,8 @@ export const cabinetStoreSchema: WithContext<HomeAndConstructionBusiness> = {
   email: site.email,
   priceRange: "$$",
   address: postalAddress,
-  // No business coordinates during prelaunch: site.geo is only the Easton city center.
+  geo: geoCoordinates,
+  openingHoursSpecification,
   areaServed: site.areaServed,
   // aggregateRating intentionally omitted — the storefront and the workshop
   // share the same rating pool; render it only on localBusinessSchema.

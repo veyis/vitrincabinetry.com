@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import TradeCalloutStrip from "@/components/TradeCalloutStrip";
+import KitchenEstimator from "@/components/KitchenEstimator";
 import { site } from "@/lib/site";
 import { towns } from "@/lib/towns";
 import { breadcrumbSchema, cabinetStoreSchema, toJsonLd } from "@/lib/schema";
@@ -383,6 +384,13 @@ export default function Home() {
           <div style={{ textAlign: "center", marginTop: "2.5rem" }}>
             <Link href="/remodeling" className="btn-secondary">See full remodeling scope &rarr;</Link>
           </div>
+        </div>
+      </section>
+
+      {/* Instant Project Estimator */}
+      <section>
+        <div className="container">
+          <KitchenEstimator townName="Bucks County & Lehigh Valley" townSlug="bucks-county" />
         </div>
       </section>
 

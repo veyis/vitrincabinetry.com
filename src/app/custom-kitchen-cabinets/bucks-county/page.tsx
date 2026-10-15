@@ -4,6 +4,7 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import KitchenEstimator from "@/components/KitchenEstimator";
 import { site } from "@/lib/site";
 import { towns } from "@/lib/towns";
 import { projects } from "@/lib/projects";
@@ -163,6 +164,13 @@ export default function BucksCountyPillar() {
               </Link>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Instant Project Estimator */}
+      <section>
+        <div className="container">
+          <KitchenEstimator townName="Bucks County" townSlug="bucks-county" />
         </div>
       </section>
 
