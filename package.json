@@ -16,12 +16,12 @@
     "links:check": "lychee --no-progress --max-concurrency 8 https://vitrincabinetry.com/sitemap.xml"
   },
   "dependencies": {
-    "@next/third-parties": "^16.3.8",
+    "@next/third-parties": "^16.4.1",
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
-    "next": "16.3.8",
-    "react": "19.3.0",
-    "react-dom": "19.3.0",
+    "next": "16.4.1",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
     "schema-dts": "^2.1.0"
   },
   "devDependencies": {
@@ -33,11 +33,11 @@
     "@types/react-dom": "^19.3.0",
     "checkly": "^9.5.0",
     "eslint": "^10.12.0",
-    "eslint-config-next": "16.3.8",
+    "eslint-config-next": "16.4.1",
     "knip": "^6.39.0",
     "tailwindcss": "^4.3.3",
     "typescript": "^7.0.2",
     "typescript-v6": "npm:typescript@6.0.3"
   },
-  "packageManager": "pnpm@12.6.0"
+  "packageManager": "pnpm@12.11.2"
 }
