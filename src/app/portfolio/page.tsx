@@ -40,7 +40,7 @@ export default function PortfolioPage() {
           </nav>
           <span className="eyebrow" style={{ color: "#e6c87a" }}>Portfolio</span>
           <h1 style={{ fontSize: "clamp(2.4rem, 5vw, 3.6rem)", marginBottom: "1.25rem", color: "#fff" }}>
-            Selected work, photographed and named.
+            Selected kitchen and cabinetry projects.
           </h1>
           <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.92)", maxWidth: "640px", margin: "0 auto", lineHeight: 1.6 }}>
             Every project below was built by our team at the bench. Click through any of them for the story, the style, and the choices behind the work.
