@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { sendGAEvent } from "@next/third-parties/google";
 
 interface LeadMagnetProps {
   title: string;
@@ -35,9 +36,12 @@ export default function LeadMagnet({ title, description, buttonText, downloadUrl
       if (!res.ok) throw new Error("Failed to subscribe");
 
       setStatus("success");
+      if (!payload.honeypot) {
+        sendGAEvent("event", "lead_magnet_download", { form_name: "lead_magnet" });
+      }
       // Trigger download
       window.open(downloadUrl, "_blank");
-    } catch (err) {
+    } catch {
       setStatus("error");
     }
   }

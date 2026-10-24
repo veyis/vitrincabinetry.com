@@ -1,6 +1,5 @@
 import React from "react";
 import { notFound } from "next/navigation";
-import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
@@ -15,8 +14,9 @@ export async function generateStaticParams() {
   }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const member = team.find((m) => m.slug === params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const member = team.find((m) => m.slug === slug);
   if (!member) return {};
 
   return {
@@ -26,8 +26,9 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   };
 }
 
-export default function TeamMemberPage({ params }: { params: { slug: string } }) {
-  const member = team.find((m) => m.slug === params.slug);
+export default async function TeamMemberPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const member = team.find((m) => m.slug === slug);
 
   if (!member) {
     notFound();

@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { useSearchParams } from "next/navigation";
+import { sendGAEvent } from "@next/third-parties/google";
 
 const ALLOWED_TYPES = [
   "trade",
@@ -78,6 +79,9 @@ export default function ContactForm() {
         throw new Error(body.error || "Could not send message");
       }
       setStatus("success");
+      if (!payload.honeypot) {
+        sendGAEvent("event", "generate_lead", { form_name: "contact" });
+      }
     } catch (err) {
       setStatus("error");
       setErrorMessage(err instanceof Error ? err.message : "Something went wrong");

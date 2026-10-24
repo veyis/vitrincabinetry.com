@@ -10,6 +10,7 @@ export type GuideMeta = {
   category: "Decision" | "Pricing" | "Materials" | "Process";
   readingMinutes: number;
   datePublished: string;
+  dateModified?: string;
 };
 
 export const guides: GuideMeta[] = [
@@ -71,10 +72,11 @@ export const guides: GuideMeta[] = [
     slug: "setting-up-a-trade-cabinet-account",
     title: "Setting Up a Trade Cabinet Account at Vitrin",
     excerpt:
-      "How contractors, builders, and installers set up a trade account with Vitrin Cabinetry — application, pricing sheet, and net terms after first order.",
+      "How contractors, builders, and installers set up a trade account with Vitrin Cabinetry — application, pricing sheet, and account terms after the first order.",
     category: "Process",
-    readingMinutes: 6,
+    readingMinutes: 3,
     datePublished: "2026-05-12",
+    dateModified: "2026-10-23",
   },
   {
     slug: "stock-vs-custom-cabinets-when-to-choose-each",
@@ -82,8 +84,9 @@ export const guides: GuideMeta[] = [
     excerpt:
       "When stock cabinets are the smart pick and when custom is worth the wait. A decision framework from a shop that sells both.",
     category: "Decision",
-    readingMinutes: 9,
+    readingMinutes: 3,
     datePublished: "2026-05-12",
+    dateModified: "2026-10-23",
   },
   {
     slug: "buying-cabinets-for-a-spec-home",
@@ -91,8 +94,9 @@ export const guides: GuideMeta[] = [
     excerpt:
       "How builders and developers source cabinets for spec homes — volume pricing, lead times, and design flexibility for buyers-in-tow.",
     category: "Pricing",
-    readingMinutes: 8,
+    readingMinutes: 3,
     datePublished: "2026-05-12",
+    dateModified: "2026-10-23",
   },
   {
     slug: "cabinet-delivery-and-jobsite-coordination",
@@ -100,8 +104,9 @@ export const guides: GuideMeta[] = [
     excerpt:
       "Will-call pickup, jobsite delivery, lift-gate, and inside delivery — how Vitrin gets cabinets to your install date without breaking your schedule.",
     category: "Process",
-    readingMinutes: 7,
+    readingMinutes: 3,
     datePublished: "2026-05-12",
+    dateModified: "2026-10-23",
   },
   {
     slug: "what-goes-wrong-in-a-cabinet-project",
@@ -118,8 +123,9 @@ export const guides: GuideMeta[] = [
     excerpt:
       "How trade pricing works at Vitrin — tiered by volume, account terms, and what to expect on your first pricing sheet.",
     category: "Pricing",
-    readingMinutes: 10,
+    readingMinutes: 3,
     datePublished: "2026-05-12",
+    dateModified: "2026-10-23",
   },
 ];
 

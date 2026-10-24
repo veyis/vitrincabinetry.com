@@ -17,6 +17,7 @@ const base = site.url;
 // that changes the content it covers.
 const UPDATED = {
   core: "2026-08-02",          // src/app/page.tsx and the static marketing routes
+  trade: "2026-10-23",         // src/app/trade/page.tsx
   cabinets: "2026-07-04",      // src/app/cabinets/**
   services: "2026-07-04",      // remodeling, countertops, flooring, closets
   supporting: "2026-07-04",    // installation, showroom
@@ -32,7 +33,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/process`, lastModified: UPDATED.core, changeFrequency: "monthly", priority: 0.85 },
     { url: `${base}/about`, lastModified: UPDATED.core, changeFrequency: "monthly", priority: 0.7 },
     { url: `${base}/shop-tour`, lastModified: UPDATED.core, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${base}/trade`, lastModified: UPDATED.core, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/trade`, lastModified: UPDATED.trade, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/portfolio`, lastModified: UPDATED.core, changeFrequency: "weekly", priority: 0.9 },
     { url: `${base}/guides`, lastModified: UPDATED.core, changeFrequency: "weekly", priority: 0.8 },
     { url: `${base}/contact`, lastModified: UPDATED.core, changeFrequency: "yearly", priority: 0.6 },
@@ -82,7 +83,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const guidePages: MetadataRoute.Sitemap = guides.map((g) => ({
     url: `${base}/guides/${g.slug}`,
-    lastModified: new Date(g.datePublished),
+    lastModified: new Date(g.dateModified ?? g.datePublished),
     changeFrequency: "monthly",
     priority: 0.85,
   }));

@@ -154,7 +154,7 @@ export default function TradePage() {
             <div className="card">
               <h3 className="card__title">After your first order</h3>
               <ul style={{ paddingLeft: "1.1rem", color: "var(--text-secondary)" }}>
-                <li>Stock orders by phone, email, or showroom walk-in. Quoted same-day.</li>
+                <li>Stock orders by phone or email, with Easton pickup by appointment. Quoted same-day.</li>
                 <li>Custom orders go through your rep with drawings and specs.</li>
                 <li>Account terms available after first paid order.</li>
               </ul>
