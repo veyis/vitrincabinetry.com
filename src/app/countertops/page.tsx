@@ -8,7 +8,7 @@ import { site } from "@/lib/site";
 import { breadcrumbSchema, serviceSchema, faqPageJsonLd, toJsonLd } from "@/lib/schema";
 import { shareMetadata } from "@/lib/seo";
 
-const PAGE_TITLE = "Quartz, Granite & Porcelain Countertops — Easton, PA";
+const PAGE_TITLE = "Quartz & Granite Countertops in Easton, PA";
 const PAGE_DESC =
   "Quartz, granite, and porcelain countertops templated, fabricated, and installed from Easton, PA. Paired with our cabinets or fitted to yours. Serving Bucks County and the Lehigh Valley.";
 

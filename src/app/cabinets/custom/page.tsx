@@ -10,7 +10,7 @@ import { site } from "@/lib/site";
 import { breadcrumbSchema, toJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Vitrin Signature — Custom Cabinets, Built in Easton",
+  title: "Custom Kitchen Cabinets, Built in Easton",
   description:
     "Discuss custom cabinetry with Vitrin Cabinetry in Easton. Our showroom is in prelaunch; design options, pricing, and production timing are confirmed with your inquiry.",
   alternates: { canonical: "/cabinets/custom" },
