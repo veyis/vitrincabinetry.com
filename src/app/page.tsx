@@ -9,7 +9,7 @@ import TradeCalloutStrip from "@/components/TradeCalloutStrip";
 import KitchenEstimator from "@/components/KitchenEstimator";
 import { site } from "@/lib/site";
 import { towns } from "@/lib/towns";
-import { breadcrumbSchema, cabinetStoreSchema, toJsonLd } from "@/lib/schema";
+import { breadcrumbSchema, toJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Kitchen, Bathroom & Closet Cabinetry in Easton, PA",
@@ -186,7 +186,7 @@ export default function Home() {
           poster="/images/heros/bespoke-kitchen-stone-farmhouse-bucks-county-poster.jpg"
           aria-hidden="true"
         >
-          <source media="(prefers-reduced-motion: no-preference)" src="/videos/bespoke-kitchen-stone-farmhouse-bucks-county.mp4" type="video/mp4" />
+          <source media="(min-width: 900px) and (prefers-reduced-motion: no-preference)" src="/videos/bespoke-kitchen-stone-farmhouse-bucks-county.mp4" type="video/mp4" />
         </video>
         <div className="hero__overlay" />
         <div className="hero__inner">
@@ -200,7 +200,7 @@ export default function Home() {
             <span className="mask-line"><span>in <em>Easton.</em></span></span>
           </h1>
           <p style={{ fontSize: "1.15rem", color: "rgba(255,255,255,0.92)", maxWidth: "720px", lineHeight: 1.6 }}>
-            We don&apos;t sell kitchens out of a catalog — we build them at our own bench in Easton, PA, with stock options, pricing, and availability confirmed for your project. Kitchen, bath, and closet cabinetry drawn in 3D and finished in our shop, then completed with quartz, granite, or porcelain counters, tile, and flooring by the same crew — in homes that have stood in Easton, Bethlehem, and Allentown for a century or more.
+            We don&apos;t sell kitchens out of a catalog — we build them at our own bench in Easton, PA, with stock options, pricing, and availability confirmed for your project. Kitchen, bath, and closet cabinetry drawn in 3D and finished in our shop, then completed with quartz, granite, or porcelain counters, tile, and flooring by the same crew — in homes that have stood in Easton, Bethlehem, and Allentown for a century or more. See our <Link href="/custom-kitchen-cabinets/easton" style={{ color: "inherit", textDecoration: "underline" }}>custom kitchen cabinets in Easton</Link>.
           </p>
           <div className="hero__cta">
             <Link href="/cabinets/stock" className="btn-primary">Browse Stock Cabinets &rarr;</Link>
@@ -572,12 +572,6 @@ export default function Home() {
           __html: toJsonLd(
             breadcrumbSchema([{ name: "Home", url: site.url }])
           ),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: toJsonLd(cabinetStoreSchema),
         }}
       />
       <script
