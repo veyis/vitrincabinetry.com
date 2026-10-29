@@ -106,6 +106,11 @@ export default async function ProjectPage({ params }: PageParams) {
               {project.story.split("\n\n").map((para, i) => (
                 <p key={i}>{para}</p>
               ))}
+              {project.slug === "new-hope-modern-stone" && (
+                <p>
+                  Planning a kitchen in the area? See our page on <Link href="/custom-kitchen-cabinets/new-hope" className="text-link">custom cabinets in New Hope</Link>.
+                </p>
+              )}
             </div>
             <div>
               <div className="card" style={{ background: "#fff" }}>

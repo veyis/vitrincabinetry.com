@@ -74,7 +74,7 @@ export default function AboutPage() {
 
           <h3>Where we work</h3>
           <p>
-            We install across {site.areaServed.slice(0, 8).map((t) => t.replace(", PA", "")).join(", ")} and the rest of the Lehigh Valley and upper Bucks. Our shop is in Easton — most clients live within a 25-minute drive of it.
+            We install across {site.areaServed.slice(0, 8).map((t) => t.replace(", PA", "")).join(", ")} and the rest of the Lehigh Valley and upper Bucks. Our shop is in Easton — most clients live within a 25-minute drive of it. See our <Link href="/custom-kitchen-cabinets/easton" className="text-link">custom kitchen cabinets in Easton</Link> for local housing and permit notes.
           </p>
         </div>
       </section>

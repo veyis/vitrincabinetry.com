@@ -8,7 +8,7 @@ import { site } from "@/lib/site";
 import { breadcrumbSchema, serviceSchema, faqPageJsonLd, toJsonLd } from "@/lib/schema";
 import { shareMetadata } from "@/lib/seo";
 
-const PAGE_TITLE = "Kitchen & Bathroom Remodeling — Easton & the Lehigh Valley, PA";
+const PAGE_TITLE = "Kitchen & Bath Remodeling in Easton, PA";
 const PAGE_DESC =
   "Complete kitchen and bathroom remodeling from an Easton, PA cabinet shop — 3D design, demolition, cabinetry, countertops, backsplash, lighting, plumbing, electrical, and finishing.";
 
@@ -89,7 +89,7 @@ export default function Page() {
             Complete kitchen &amp; bath remodels, run by the cabinet shop.
           </h1>
           <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.92)", maxWidth: "680px", margin: "0 auto", lineHeight: 1.6 }}>
-            From 3D design through demolition, cabinetry, countertops, backsplash, lighting, plumbing, electrical, flooring, and finishing — one accountable team in Easton, PA, serving Bucks County and the Lehigh Valley.
+            From 3D design through demolition, cabinetry, countertops, backsplash, lighting, plumbing, electrical, flooring, and finishing — one accountable team in Easton, PA, serving Bucks County and the Lehigh Valley. Cabinets only? See our <Link href="/custom-kitchen-cabinets/easton" style={{ color: "inherit", textDecoration: "underline" }}>custom kitchen cabinets in Easton</Link>.
           </p>
         </div>
       </section>

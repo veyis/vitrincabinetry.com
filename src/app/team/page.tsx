@@ -95,7 +95,7 @@ export default function TeamPage() {
         <div className="container--narrow" style={{ textAlign: "center" }}>
           <h2 className="section-heading">Work with us</h2>
           <p className="section-sub" style={{ margin: "1rem auto 2rem" }}>
-            Ready to start your project? Bring your plans, or just your ideas, to our Easton shop.
+            Ready to start your project? Bring your plans, or just your ideas, to our Easton shop. Planning a kitchen? See our <Link href="/custom-kitchen-cabinets/easton" className="text-link">custom kitchen cabinets in Easton</Link>.
           </p>
           <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
             <Link href="/contact" className="btn-primary">Book a Consultation</Link>

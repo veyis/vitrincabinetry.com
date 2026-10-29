@@ -8,7 +8,7 @@ import Footer from "@/components/Footer";
 import KitchenEstimator from "@/components/KitchenEstimator";
 import { site } from "@/lib/site";
 import { towns, getTown, type TownData } from "@/lib/towns";
-import { breadcrumbSchema, cabinetStoreSchema, serviceSchema, faqPageJsonLd, toJsonLd } from "@/lib/schema";
+import { breadcrumbSchema, serviceSchema, faqPageJsonLd, toJsonLd } from "@/lib/schema";
 
 type PageParams = { params: Promise<{ town: string }> };
 
@@ -34,6 +34,20 @@ export async function generateStaticParams() {
   return towns.map((t) => ({ town: t.slug }));
 }
 
+// Town-specific meta description built only from fields in towns.ts, so the
+// 15 pages stop sharing one boilerplate snippet.
+function townDescription(data: TownData): string {
+  return `Custom kitchen cabinets for ${data.name}, PA homes: ${data.housing}. Request a design consultation.`;
+}
+
+// Same-area cross-links (anchor text names the destination town).
+const neighbours: Record<string, string[]> = {
+  easton: ["hellertown", "bethlehem"],
+  hellertown: ["easton", "bethlehem"],
+  bethlehem: ["easton", "hellertown", "allentown"],
+  allentown: ["bethlehem"],
+};
+
 export async function generateMetadata({ params }: PageParams): Promise<Metadata> {
   const { town: slug } = await params;
   const data = getTown(slug);
@@ -42,7 +56,7 @@ export async function generateMetadata({ params }: PageParams): Promise<Metadata
     title: `Custom Kitchen Cabinets in ${data.name}, PA`,
     description: slug === "new-hope"
       ? "Plan custom kitchen cabinets in New Hope, PA. Compare cabinet scope, prepare your measurements, and request confirmed pricing, availability, and delivery details."
-      : `Custom kitchen cabinets in ${data.name}, PA built at our local workshop. Premium all-plywood boxes, dovetail drawers, lifetime warranty & transparent pricing tiers. Free 3D design consultation.`,
+      : townDescription(data),
     alternates: { canonical: `/custom-kitchen-cabinets/${slug}` },
   };
 }
@@ -138,7 +152,7 @@ export default async function TownPage({ params }: PageParams) {
           <nav className="breadcrumb" aria-label="Breadcrumb" style={{ color: "rgba(255,255,255,0.8)" }}>
             <Link href="/" style={{ color: "inherit" }}>Home</Link>
             <span className="sep">/</span>
-            <Link href="/custom-kitchen-cabinets/bucks-county" style={{ color: "inherit" }}>Bucks County</Link>
+            <Link href="/custom-kitchen-cabinets" style={{ color: "inherit" }}>Custom kitchen cabinets</Link>
             <span className="sep">/</span>
             <span aria-current="page" style={{ color: "#fff" }}>{data.name}, PA</span>
           </nav>
@@ -155,6 +169,32 @@ export default async function TownPage({ params }: PageParams) {
       </section>
 
       <section>
+        <div className="container--narrow prose">
+          <span className="eyebrow">Cabinetry in {data.name}</span>
+          <h2>What {data.name} kitchens ask of cabinetry.</h2>
+          <p>
+            Housing here runs to {data.housing}. {data.popularStyleNote}
+          </p>
+          <p>
+            For {data.name}-area projects we deal with {data.townships}. {data.permitsNote}
+          </p>
+          <p>
+            See all <Link href="/custom-kitchen-cabinets" className="text-link">custom kitchen cabinets by town</Link> or the{" "}
+            <Link href="/custom-kitchen-cabinets/bucks-county" className="text-link">Bucks County overview</Link>.
+            {(neighbours[slug] ?? []).map((n) => {
+              const t = getTown(n);
+              return t ? (
+                <React.Fragment key={n}>
+                  {" "}
+                  <Link href={`/custom-kitchen-cabinets/${t.slug}`} className="text-link">custom kitchen cabinets in {t.name}</Link>.
+                </React.Fragment>
+              ) : null;
+            })}
+          </p>
+        </div>
+      </section>
+
+      <section className="section--surface">
         <div className="container">
           <div className="section-center">
             <span className="eyebrow">Two ways to buy in {data.name}</span>
@@ -187,7 +227,7 @@ export default async function TownPage({ params }: PageParams) {
             <div style={{ position: "relative", minHeight: "440px", borderRadius: "12px", overflow: "hidden", border: "1px solid var(--border)", boxShadow: "0 8px 24px rgba(0,0,0,0.06)" }}>
               <Image
                 src={townProjectImages[slug] || "/images/heros/inset-shaker-kitchen-pennsylvania-stone-farmhouse.png"}
-                alt={`Custom kitchen cabinetry project in ${data.name}, PA by Vitrin Cabinetry`}
+                alt={`Representative custom kitchen cabinetry for ${data.name}, PA homes by Vitrin Cabinetry`}
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 style={{ objectFit: "cover" }}
@@ -207,12 +247,15 @@ export default async function TownPage({ params }: PageParams) {
                   letterSpacing: "0.5px",
                 }}
               >
-                {data.name}, PA Project · Handcrafted In-House
+                Representative {data.name}, PA kitchen · Handcrafted In-House
               </div>
             </div>
             <div>
-              <span className="eyebrow">Recent Local Project</span>
-              <h2 className="section-heading">{data.projectTitle}</h2>
+              <span className="eyebrow">Typical {data.name} kitchen</span>
+              <h2 className="section-heading">A typical {data.name} kitchen project.</h2>
+              <p style={{ marginTop: "0.75rem", color: "var(--text-secondary)", fontSize: "0.9rem" }}>
+                An illustrative scenario for {data.name}-area homes, with representative imagery. It is not a specific client job.
+              </p>
               <div className="prose" style={{ marginTop: "1rem" }}>
                 {data.projectBody.split("\n\n").map((p, i) => (
                   <p key={i}>{p}</p>
@@ -262,24 +305,6 @@ export default async function TownPage({ params }: PageParams) {
       <section className="section--surface">
         <div className="container">
           <div className="section-center">
-            <span className="eyebrow">Why {data.name} Homeowners Pick Vitrin</span>
-            <h2 className="section-heading">Five reasons clients in {data.name} choose us.</h2>
-          </div>
-
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.25rem" }}>
-            {whyCards.map((r) => (
-              <div key={r.title} className="card">
-                <h3 className="card__title">{r.title}</h3>
-                <p className="card__desc">{r.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <div className="container">
-          <div className="section-center">
             <span className="eyebrow">Styles Popular in {data.name}</span>
             <h2 className="section-heading">What looks right in a {data.name} house.</h2>
             <p className="section-sub">
@@ -292,6 +317,24 @@ export default async function TownPage({ params }: PageParams) {
               <div key={s.title} className="card">
                 <h3 className="card__title">{s.title}</h3>
                 <p className="card__desc">{s.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div className="container">
+          <div className="section-center">
+            <span className="eyebrow">Why {data.name} Homeowners Pick Vitrin</span>
+            <h2 className="section-heading">Five reasons clients in {data.name} choose us.</h2>
+          </div>
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.25rem" }}>
+            {whyCards.map((r) => (
+              <div key={r.title} className="card">
+                <h3 className="card__title">{r.title}</h3>
+                <p className="card__desc">{r.body}</p>
               </div>
             ))}
           </div>
@@ -375,15 +418,11 @@ export default async function TownPage({ params }: PageParams) {
           __html: toJsonLd(
             breadcrumbSchema([
               { name: "Home", url: site.url },
-              { name: "Bucks County", url: `${site.url}/custom-kitchen-cabinets/bucks-county` },
+              { name: "Custom kitchen cabinets", url: `${site.url}/custom-kitchen-cabinets` },
               { name: `${data.name}, PA`, url: pageUrl },
             ])
           ),
         }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: toJsonLd(cabinetStoreSchema) }}
       />
       <script
         type="application/ld+json"

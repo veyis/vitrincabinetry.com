@@ -256,6 +256,9 @@ export default function CostGuidePage() {
             <p>
               If any of those answers come back vague, that&apos;s the signal. A real custom shop can answer all six in 30 seconds.
             </p>
+            <p>
+              Planning a kitchen near Solebury? See our page on <Link href="/custom-kitchen-cabinets/new-hope" className="text-link">custom cabinets in New Hope</Link>.
+            </p>
 
             <h2 className="section-heading" style={{ marginTop: "2.5rem", marginBottom: "1rem", fontSize: "1.8rem" }}>FAQs</h2>
           </div>

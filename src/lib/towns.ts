@@ -127,7 +127,7 @@ export const towns: TownData[] = [
     projectBody:
       "The original kitchen was tiny, dark, and walled off from the living room — typical of the period. The new layout opened a load-bearing wall, repositioned the sink to face the yard, and reworked the entire appliance layout.\n\nWe drew full-overlay flat-panel doors in rift-cut white oak with a brushed-bronze hardware suite. The waterfall island runs the length of where the old wall used to be. Bright, modern, and finally usable.",
     townships: "Sellersville Borough and West Rockhill Township",
-    permitsNote: "Anything that moves a wall or rerunes plumbing needs a permit in Sellersville — we handle the application.",
+    permitsNote: "Anything that moves a wall or reroutes plumbing needs a permit in Sellersville — we handle the application.",
     popularStyleNote: "Modern full-overlay leads here, with shaker as the second option for owners who prefer transitional.",
     whyLocalLine: "Sellersville is about 40 minutes from our Easton bench, and part of our regular install territory.",
   },
