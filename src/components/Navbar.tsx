@@ -84,7 +84,7 @@ export default function Navbar() {
       className={`navbar ${isOpen ? "navbar--open" : ""}`}
       aria-label="Primary"
     >
-      <Link href="/" className="navbar__brand" onClick={close} aria-label="Vitrin Cabinetry">
+      <Link href="/" className="navbar__brand" onClick={close}>
         <Image
           src="/logo-mark.png"
           alt=""
@@ -92,7 +92,7 @@ export default function Navbar() {
           height={26}
           priority
         />
-        <span className="navbar__wordmark" aria-hidden="true">
+        <span className="navbar__wordmark">
           <span className="navbar__wordmark-name">Vitrin</span>
           <span className="navbar__wordmark-sub">Cabinetry</span>
         </span>
