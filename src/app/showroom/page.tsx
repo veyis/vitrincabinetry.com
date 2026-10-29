@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { site } from "@/lib/site";
-import { breadcrumbSchema, cabinetStoreSchema, faqPageJsonLd, toJsonLd } from "@/lib/schema";
+import { breadcrumbSchema, faqPageJsonLd, toJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Kitchen & Bath Showroom in Easton, PA (Prelaunch)",
@@ -166,12 +166,6 @@ export default function ShowroomPage() {
               { name: "Showroom", url: pageUrl },
             ])
           ),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: toJsonLd(cabinetStoreSchema),
         }}
       />
       <script

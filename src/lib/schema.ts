@@ -13,7 +13,6 @@ import type {
   VideoObject, 
   BreadcrumbList, 
   Service,
-  HomeAndConstructionBusiness,
   Product,
   Offer,
   Person
@@ -81,6 +80,9 @@ export const localBusinessSchema: WithContext<LocalBusiness> = {
   description: site.description,
   url: site.url,
   image: `${site.url}/og.jpg`,
+  // One business entity site-wide: layout.tsx emits this node on every page and
+  // Service nodes reference it by @id. Do not add a second LocalBusiness node.
+  parentOrganization: { "@id": `${site.url}#organization` },
   telephone: site.phone,
   email: site.email,
   priceRange: "$$$",
@@ -296,37 +298,6 @@ export function serviceSchema(opts: {
     areaServed: site.areaServed,
   };
 }
-
-/**
- * Vitrin operates as both a custom cabinetry workshop AND a cabinet store —
- * stock cabinets sold from the showroom plus made-to-order custom. The
- * default localBusinessSchema (@type "CabinetMaker") emphasizes the workshop.
- * This variant emphasizes the storefront and is rendered on /, /showroom,
- * and the town pages where both tiers are sold.
- */
-export const cabinetStoreSchema: WithContext<HomeAndConstructionBusiness> = {
-  "@context": "https://schema.org",
-  "@type": "HomeAndConstructionBusiness" as const,
-  "@id": `${site.url}#cabinetstore`,
-  name: site.name,
-  alternateName: site.gbpName,
-  url: site.url,
-  image: `${site.url}/og.jpg`,
-  telephone: site.phone,
-  email: site.email,
-  priceRange: "$$",
-  address: postalAddress,
-  geo: geoCoordinates,
-  openingHoursSpecification,
-  areaServed: site.areaServed,
-  // aggregateRating intentionally omitted — the storefront and the workshop
-  // share the same rating pool; render it only on localBusinessSchema.
-  // hasMap belongs on the storefront too: /showroom renders this schema, and
-  // the Maps place URL is the storefront's strongest entity link once the GBP
-  // exists. Both resolve to undefined until NEXT_PUBLIC_GOOGLE_PROFILE_URL is set.
-  ...(hasMapUrl ? { hasMap: hasMapUrl } : {}),
-  ...(sameAs.length > 0 ? { sameAs } : {}),
-};
 
 export function productSchema(opts: {
   name: string;
