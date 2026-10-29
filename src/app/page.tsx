@@ -551,7 +551,7 @@ export default function Home() {
         <div className="container" style={{ textAlign: "center" }}>
           <h2 className="section-heading">Planning a cabinet project?</h2>
           <p style={{ fontSize: "1.1rem", maxWidth: "560px", margin: "1rem auto 2.5rem" }}>
-            Send your kitchen drawings and ask about pricing and availability. Our Easton showroom is in prelaunch; contact us before planning a visit.
+            Send your kitchen drawings and ask about pricing and availability. Looking for the Easton kitchen and bath showroom? See current <Link href="/showroom">showroom visit information</Link> (prelaunch — confirm before you travel). Planning a Bucks County kitchen? Start with our <Link href="/custom-kitchen-cabinets/new-hope">New Hope cabinet guide</Link>.
           </p>
           <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
             <Link href="/showroom" className="btn-primary" style={{ padding: "1.25rem 2.5rem", fontSize: "1rem" }}>

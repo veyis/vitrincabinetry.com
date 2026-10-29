@@ -138,6 +138,9 @@ export default function Page() {
           <p>
             Building a new primary suite or renovating? Closets fold neatly into a larger <Link href="/remodeling">remodeling project</Link> — one design pass, one schedule, one crew.
           </p>
+          <p>
+            Serving Bucks County towns including <Link href="/custom-kitchen-cabinets/new-hope">New Hope</Link>. Our Easton <Link href="/showroom">showroom</Link> is in prelaunch — contact us before you travel.
+          </p>
         </div>
       </section>
 

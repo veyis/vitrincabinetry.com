@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: PageParams): Promise<Metadata
   const data = getTown(slug);
   if (!data) return {};
   return {
-    title: `Custom Kitchen Cabinets in ${data.name}, PA | Handcrafted Cabinetry & Design`,
+    title: `Custom Kitchen Cabinets in ${data.name}, PA`,
     description: slug === "new-hope"
       ? "Plan custom kitchen cabinets in New Hope, PA. Compare cabinet scope, prepare your measurements, and request confirmed pricing, availability, and delivery details."
       : `Custom kitchen cabinets in ${data.name}, PA built at our local workshop. Premium all-plywood boxes, dovetail drawers, lifetime warranty & transparent pricing tiers. Free 3D design consultation.`,

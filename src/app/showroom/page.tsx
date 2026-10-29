@@ -8,9 +8,9 @@ import { site } from "@/lib/site";
 import { breadcrumbSchema, cabinetStoreSchema, faqPageJsonLd, toJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Easton Showroom — Prelaunch Inquiries",
+  title: "Kitchen & Bath Showroom in Easton, PA (Prelaunch)",
   description:
-    "Our Easton showroom is in prelaunch. Contact Vitrin Cabinetry about your cabinet project, pricing, availability, and possible appointment arrangements.",
+    "Kitchen and bathroom cabinetry showroom in Easton, PA — currently in prelaunch. Contact Vitrin for project pricing, availability, and a confirmed visit before you travel.",
   alternates: { canonical: "/showroom" },
 };
 
