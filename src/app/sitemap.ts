@@ -21,8 +21,9 @@ const UPDATED = {
   cabinets: "2026-07-04",      // src/app/cabinets/**
   services: "2026-07-04",      // remodeling, countertops, flooring, closets
   supporting: "2026-07-04",    // installation, showroom
+  hub: "2026-10-28",           // src/app/custom-kitchen-cabinets/page.tsx
   pillar: "2026-08-02",        // src/app/custom-kitchen-cabinets/**
-  towns: "2026-07-04",         // src/lib/towns.ts
+  towns: "2026-10-28",         // src/lib/towns.ts
   projects: "2026-07-04",      // src/lib/projects.ts
 } as const;
 
@@ -64,6 +65,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   const pillars: MetadataRoute.Sitemap = [
+    { url: `${base}/custom-kitchen-cabinets`, lastModified: UPDATED.hub, changeFrequency: "monthly", priority: 0.95 },
     { url: `${base}/custom-kitchen-cabinets/bucks-county`, lastModified: UPDATED.pillar, changeFrequency: "weekly", priority: 0.95 },
   ];
 

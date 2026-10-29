@@ -12,6 +12,7 @@ const cabinetsLinks = [
   { href: "/cabinets/bath", label: "Bath" },
   { href: "/cabinets/built-ins", label: "Built-ins" },
   { href: "/cabinets/aging-in-place", label: "Aging in Place" },
+  { href: "/custom-kitchen-cabinets", label: "Custom kitchen cabinets by town" },
 ];
 
 const topLevel: Array<{ href: string; label: string }> = [
