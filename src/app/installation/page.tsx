@@ -136,7 +136,7 @@ export default function InstallationPage() {
             <span className="eyebrow">Pricing</span>
             <h2 className="section-heading">What install costs</h2>
             <p className="section-sub">
-              Installation is typically <strong>10–15% of cabinet order value</strong> for kitchens, <strong>8–12%</strong> for bath. Final figure is included in your quote.
+              Installation is priced as its own line item, based on the scope of your kitchen or bath. The final figure is included in your written quote.
             </p>
           </div>
         </div>

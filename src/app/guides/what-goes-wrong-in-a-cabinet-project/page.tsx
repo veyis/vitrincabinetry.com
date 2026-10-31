@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ArticleByline from "@/components/ArticleByline";
 import { site } from "@/lib/site";
 import { getGuide } from "@/lib/guides";
 import { articleJsonLd, breadcrumbSchema, faqPageJsonLd, toJsonLd } from "@/lib/schema";
@@ -86,6 +87,7 @@ export default function GuidePage() {
     description: meta.excerpt,
     url: pageUrl,
     datePublished: meta.datePublished,
+    dateModified: meta.dateModified ?? meta.datePublished,
   });
 
   const faqSchema = faqPageJsonLd(faqs);
@@ -105,6 +107,7 @@ export default function GuidePage() {
           </nav>
           <span className="eyebrow">Process Guide · 11 min read</span>
           <h1 className="section-heading">What actually goes wrong in a cabinet project.</h1>
+          <ArticleByline datePublished={meta.datePublished} dateModified={meta.dateModified} />
           <p className="section-sub" style={{ margin: "1rem auto 0" }}>
             Read enough cabinet complaints and the same six stories come back around. None of them are exotic. All of them are predictable — and most of them are visible in the contract before anyone breaks ground.
           </p>

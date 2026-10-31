@@ -156,7 +156,7 @@ export async function GET() {
         name: "When does cabinet refacing make sense vs replacing with custom cabinets?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Refacing makes financial sense only if your cabinet boxes are structurally sound furniture-grade plywood, you are 100% happy with your existing kitchen layout, and the refacing quote is under 50% of new custom cabinetry. If boxes are particle board or layout changes are required, custom replacement delivers substantially higher long-term ROI and durability.",
+          text: "Refacing makes financial sense only if your cabinet boxes are structurally sound furniture-grade plywood, you are 100% happy with your existing kitchen layout, and the refacing quote is well below the cost of new custom cabinetry. If boxes are particle board or layout changes are required, custom replacement delivers substantially higher long-term ROI and durability.",
           url: `${baseUrl}/guides/refacing-vs-custom`,
         },
       },
@@ -168,7 +168,7 @@ export async function GET() {
     {
       "@type": "Claim",
       "@id": `${baseUrl}/#claim-cabinet-lifespan`,
-      text: "Bench-built solid wood cabinetry with mortise-and-tenon or dovetail joinery has an expected lifespan of 40-50+ years, compared to 5-10 years for mass-produced flat-pack particle board cabinets.",
+      text: "Bench-built solid wood cabinetry with mortise-and-tenon or dovetail joinery is built to outlast mass-produced flat-pack particle board cabinets, which are the usual limiting factor in a kitchen's lifespan.",
       appearance: { "@type": "WebPage", url: `${baseUrl}/cabinets` },
       author: { "@id": `${baseUrl}/#organization` },
     },

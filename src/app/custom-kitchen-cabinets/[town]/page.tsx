@@ -48,15 +48,42 @@ const neighbours: Record<string, string[]> = {
   allentown: ["bethlehem"],
 };
 
+const searchOverrides: Record<string, { title: string; description: string; h1?: string }> = {
+  "new-hope": {
+    title: "New Hope Cabinets: Custom Wood Kitchens",
+    description:
+      "Wood kitchen cabinets for New Hope and Solebury homes: white oak, walnut or painted, with plywood boxes, dovetail drawers and a lifetime warranty. Request a quote.",
+    h1: "Custom wood kitchen cabinets in New Hope, PA.",
+  },
+  easton: {
+    title: "Custom Cabinets in Easton, PA",
+    description:
+      "Custom cabinets for Easton homes, from College Hill Victorians to Palmer colonials: plywood boxes, dovetail drawers and a lifetime warranty. Request a consultation.",
+  },
+  bethlehem: {
+    title: "Custom Kitchen Cabinets in Bethlehem, PA",
+    description:
+      "Custom kitchen cabinets for Bethlehem homes, from historic-district stone to Southside rowhomes: plywood boxes, dovetail drawers, lifetime warranty. Request a consultation.",
+  },
+  allentown: {
+    title: "Custom Kitchen Cabinets in Allentown, PA",
+    description:
+      "Custom kitchen cabinets for Allentown homes, from West End Tudors to center-city rowhomes: plywood boxes, dovetail drawers, lifetime warranty. Request a consultation.",
+  },
+};
+
 export async function generateMetadata({ params }: PageParams): Promise<Metadata> {
   const { town: slug } = await params;
   const data = getTown(slug);
   if (!data) return {};
+  // Search Console 1-28 Oct 2026: these four ranked 10-15 with little or no
+  // click-through, so their title/description lead with the searched phrase and
+  // state only proof points already on the page (plywood boxes, dovetail
+  // drawers, lifetime warranty). No shop-location claim here (owner Q A3).
+  const override = searchOverrides[slug];
   return {
-    title: `Custom Kitchen Cabinets in ${data.name}, PA`,
-    description: slug === "new-hope"
-      ? "Plan custom kitchen cabinets in New Hope, PA. Compare cabinet scope, prepare your measurements, and request confirmed pricing, availability, and delivery details."
-      : townDescription(data),
+    title: override?.title ?? `Custom Kitchen Cabinets in ${data.name}, PA`,
+    description: override?.description ?? townDescription(data),
     alternates: { canonical: `/custom-kitchen-cabinets/${slug}` },
   };
 }
@@ -158,7 +185,7 @@ export default async function TownPage({ params }: PageParams) {
           </nav>
           <span className="eyebrow" style={{ color: "#e6c87a" }}>{data.name}, PA</span>
           <h1 style={{ fontSize: "clamp(2.4rem, 5vw, 3.6rem)", marginBottom: "1.25rem", color: "#fff" }}>
-            Custom kitchen cabinets in {data.name}, PA.
+            {searchOverrides[slug]?.h1 ?? `Custom kitchen cabinets in ${data.name}, PA.`}
           </h1>
           <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.92)", maxWidth: "640px", margin: "0 auto", lineHeight: 1.6 }}>{data.intro}</p>
           <div style={{ marginTop: "2rem", display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>

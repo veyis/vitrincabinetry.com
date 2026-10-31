@@ -85,6 +85,13 @@ export default function CustomKitchenCabinetsHub() {
           <div className="section-center">
             <span className="eyebrow">Choose your town</span>
             <h2 className="section-heading">Custom kitchen cabinets by town.</h2>
+            <p className="section-sub">
+              In Bucks County, see our <Link href="/custom-kitchen-cabinets/new-hope" className="text-link">wood kitchen cabinets in New Hope</Link> and the{" "}
+              <Link href="/custom-kitchen-cabinets/bucks-county" className="text-link">Bucks County overview</Link>. In the Lehigh Valley, start with{" "}
+              <Link href="/custom-kitchen-cabinets/easton" className="text-link">custom cabinets in Easton</Link>,{" "}
+              <Link href="/custom-kitchen-cabinets/bethlehem" className="text-link">Bethlehem</Link> or{" "}
+              <Link href="/custom-kitchen-cabinets/allentown" className="text-link">Allentown</Link>.
+            </p>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "1.25rem" }}>
             <Link href="/custom-kitchen-cabinets/bucks-county" className="card">

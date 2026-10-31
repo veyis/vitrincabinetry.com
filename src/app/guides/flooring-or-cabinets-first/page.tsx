@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ArticleByline from "@/components/ArticleByline";
 import { site } from "@/lib/site";
 import { getGuide } from "@/lib/guides";
 import { articleJsonLd, breadcrumbSchema, faqPageJsonLd, toJsonLd } from "@/lib/schema";
@@ -58,6 +59,7 @@ export default function FlooringOrCabinetsFirstPage() {
     description: meta.excerpt,
     url: pageUrl,
     datePublished: meta.datePublished,
+    dateModified: meta.dateModified ?? meta.datePublished,
   });
   const faqSchema = faqPageJsonLd(faqs);
 
@@ -76,6 +78,7 @@ export default function FlooringOrCabinetsFirstPage() {
           </nav>
           <span className="eyebrow">Process Guide · {meta.readingMinutes} min read</span>
           <h1 className="section-heading">{meta.title}</h1>
+          <ArticleByline datePublished={meta.datePublished} dateModified={meta.dateModified} />
           <p className="section-sub" style={{ margin: "1rem auto 0" }}>
             It&apos;s the most common sequencing question in a kitchen remodel, and the internet answers it badly because the honest answer is: it depends on the floor.
           </p>

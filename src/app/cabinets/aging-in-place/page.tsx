@@ -30,7 +30,7 @@ const principles = [
   },
   {
     title: "Layered lighting.",
-    body: "Aging eyes require 3–4x the light of younger eyes. Layered lighting — overhead, under-cabinet, in-cabinet, toe-kick — provides generous workspace illumination without harsh glare.",
+    body: "Aging eyes need substantially more light than younger eyes. Layered lighting — overhead, under-cabinet, in-cabinet, toe-kick — provides generous workspace illumination without harsh glare.",
   },
   {
     title: "Lower counter heights.",

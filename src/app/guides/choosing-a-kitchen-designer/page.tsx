@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ArticleByline from "@/components/ArticleByline";
 import { site } from "@/lib/site";
 import { getGuide } from "@/lib/guides";
 import { articleJsonLd, breadcrumbSchema, faqPageJsonLd, toJsonLd } from "@/lib/schema";
@@ -107,6 +108,7 @@ export default function ChoosingDesignerGuide() {
     description: meta.excerpt,
     url: pageUrl,
     datePublished: meta.datePublished,
+    dateModified: meta.dateModified ?? meta.datePublished,
   });
   const faqSchema = faqPageJsonLd(faqs);
 
@@ -125,6 +127,7 @@ export default function ChoosingDesignerGuide() {
           </nav>
           <span className="eyebrow">Decision Guide · {meta.readingMinutes} min read</span>
           <h1 className="section-heading">{meta.title}</h1>
+          <ArticleByline datePublished={meta.datePublished} dateModified={meta.dateModified} />
           <p className="section-sub" style={{ margin: "1rem auto 0" }}>
             Picking a kitchen designer is mostly a process of separating real custom shops from rebadged catalog resellers — and finding someone whose model matches your project. Here&apos;s what to ask.
           </p>

@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ArticleByline from "@/components/ArticleByline";
 import { site } from "@/lib/site";
 import { getGuide } from "@/lib/guides";
 import { articleJsonLd, breadcrumbSchema, faqPageJsonLd, toJsonLd } from "@/lib/schema";
@@ -20,12 +21,12 @@ export const metadata: Metadata = {
 
 const faqs = [
   {
-    q: "Is refacing really 50% cheaper than new cabinets?",
-    a: "Sometimes. The big national refacing companies advertise that figure, and on a like-for-like kitchen with stock-grade replacement, the math can work out close to 40–50%. But the comparison is rarely like-for-like — refacing keeps your old boxes, layout, and storage, while a custom replacement gives you all three of those redesigned. Compare total value, not just sticker.",
+    q: "Is refacing really half the price of new cabinets?",
+    a: "Sometimes. National refacing companies advertise big savings, and on a like-for-like kitchen with stock-grade replacement, the math can work out in refacing's favor. But the comparison is rarely like-for-like — refacing keeps your old boxes, layout, and storage, while a custom replacement gives you all three of those redesigned. Compare total value, not just sticker.",
   },
   {
     q: "How long does refacing last?",
-    a: "The doors and veneer themselves usually hold up 15–20 years. The original boxes underneath are the limiting factor — if those are particle-board with worn-out hinges and damaged drawer slides, you're putting expensive new fronts on tired infrastructure.",
+    a: "The doors and veneer themselves usually hold up well. The original boxes underneath are the limiting factor — if those are particle-board with worn-out hinges and damaged drawer slides, you're putting expensive new fronts on tired infrastructure.",
   },
   {
     q: "Can I reface and change the layout?",
@@ -50,7 +51,7 @@ const tableRows = [
   { feature: "Hardware", refacing: "Often the same hinges as before", custom: "New Blum or Hettich soft-close throughout" },
   { feature: "Finish durability", refacing: "Depends on veneer quality (varies)", custom: "Catalyzed finish in dust-controlled booth" },
   { feature: "Style ceiling", refacing: "Door styles from refacer's catalog", custom: "Anything that can be drawn" },
-  { feature: "Lifespan", refacing: "15–20 years", custom: "30+ years on the cabinetry itself" },
+  { feature: "Lifespan", refacing: "Limited by the original boxes", custom: "Built to last decades on the cabinetry itself" },
   { feature: "Warranty (typical)", refacing: "5–25 yrs depending on company", custom: "Lifetime on bench-built cabinetry" },
 ];
 
@@ -62,6 +63,7 @@ export default function GuidePage() {
     description: meta.excerpt,
     url: pageUrl,
     datePublished: meta.datePublished,
+    dateModified: meta.dateModified ?? meta.datePublished,
   });
 
   const faqSchema = faqPageJsonLd(faqs);
@@ -81,6 +83,7 @@ export default function GuidePage() {
           </nav>
           <span className="eyebrow">Decision Guide · 8 min read</span>
           <h1 className="section-heading">Cabinet refacing vs. custom replacement — an honest comparison.</h1>
+          <ArticleByline datePublished={meta.datePublished} dateModified={meta.dateModified} />
           <p className="section-sub" style={{ margin: "1rem auto 0" }}>
             We&apos;re a custom cabinet shop — we don&apos;t do refacing — so we have no skin in this comparison except telling the truth. Here&apos;s how to decide.
           </p>

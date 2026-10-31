@@ -512,7 +512,7 @@ export default function Home() {
             <span className="eyebrow">Where We Sell</span>
             <h2 className="section-heading">Built in Easton. Sold across the Lehigh Valley and Bucks County.</h2>
             <p className="section-sub">
-              We supply cabinets to homeowners and trade in {towns.slice(0, 6).map((t) => t.name).join(", ")} and beyond.
+              We supply cabinets to homeowners and trade in {towns.slice(0, 6).map((t) => t.name).join(", ")} and beyond. Planning in Bucks County? See our <Link href="/custom-kitchen-cabinets/new-hope" className="text-link">cabinets in New Hope</Link>. In the Lehigh Valley, start with our <Link href="/custom-kitchen-cabinets/bethlehem" className="text-link">custom kitchen cabinets in Bethlehem</Link> or <Link href="/custom-kitchen-cabinets/allentown" className="text-link">Allentown kitchen cabinets</Link> pages.
             </p>
           </div>
 

@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ArticleByline from "@/components/ArticleByline";
 import { site } from "@/lib/site";
 import { getGuide } from "@/lib/guides";
 import { articleJsonLd, breadcrumbSchema, faqPageJsonLd, toJsonLd } from "@/lib/schema";
@@ -50,11 +51,11 @@ const factors = [
   },
   {
     name: "Door style",
-    body: "Flat-panel is the most efficient style we build. Inset shaker adds ~10–15% over full-overlay. Traditional raised-panel adds another 5–10% on top of that.",
+    body: "Flat-panel is the most efficient style we build. Inset shaker costs more than full-overlay because of the tighter construction tolerance, and traditional raised-panel adds more again.",
   },
   {
     name: "Wood species",
-    body: "Paint-grade poplar or maple is the value choice. Rift-cut white oak, walnut, cherry, and quarter-sawn species each step the materials cost up roughly 15–25%.",
+    body: "Paint-grade poplar or maple is the value choice. Rift-cut white oak, walnut, cherry, and quarter-sawn species each step the materials cost up from there.",
   },
   {
     name: "Hardware suite",
@@ -134,6 +135,7 @@ export default function CostGuidePage() {
     description: meta.excerpt,
     url: pageUrl,
     datePublished: meta.datePublished,
+    dateModified: meta.dateModified ?? meta.datePublished,
   });
   const faqSchema = faqPageJsonLd(faqs);
 
@@ -152,6 +154,7 @@ export default function CostGuidePage() {
           </nav>
           <span className="eyebrow">Pricing Guide · {meta.readingMinutes} min read</span>
           <h1 className="section-heading">{meta.title}</h1>
+          <ArticleByline datePublished={meta.datePublished} dateModified={meta.dateModified} />
           <p className="section-sub" style={{ margin: "1rem auto 0" }}>
             No competitor in this region publishes pricing. We do — because the &quot;call for quote&quot; game wastes everyone&apos;s time. Here&apos;s what custom kitchens actually cost in Bucks County in 2026.
           </p>
@@ -238,7 +241,7 @@ export default function CostGuidePage() {
           <div className="container--narrow prose" style={{ paddingTop: "3rem" }}>
             <h2 className="section-heading" style={{ marginBottom: "1rem", fontSize: "1.8rem" }}>Where the comparison shops will quote you</h2>
             <p>
-              For perspective: a comparable franchise-catalog kitchen from a competitor in this region typically quotes 15–25% under our Signature Custom tier. The cost gap reflects the catalog cabinet line vs. bench-built construction, and the subcontracted installer vs. in-house team. Whether that gap is worth it depends entirely on what you&apos;re trying to achieve.
+              For perspective: a franchise-catalog kitchen from a competitor will often quote below our Signature Custom tier. The cost gap reflects the catalog cabinet line vs. bench-built construction, and the subcontracted installer vs. in-house team. Whether that gap is worth it depends entirely on what you&apos;re trying to achieve.
             </p>
             <p>
               At the other end, a refacing job on the same kitchen footprint runs <strong>$10,000–$20,000</strong>. We&apos;ve written a separate guide on <Link href="/guides/refacing-vs-custom" className="text-link">refacing vs. custom replacement</Link> if that&apos;s where your decision actually sits.

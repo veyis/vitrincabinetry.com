@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ArticleByline from "@/components/ArticleByline";
 import { site } from "@/lib/site";
 import { getGuide } from "@/lib/guides";
 import { articleJsonLd, breadcrumbSchema, faqPageJsonLd, toJsonLd } from "@/lib/schema";
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
 };
 
 const rows = [
-  { feature: "What it is", quartz: "Engineered: ~90% ground quartz + resin binder", granite: "Natural stone, quarried and cut from a single slab", porcelain: "Kiln-fired ceramic slab, extremely dense and thin" },
+  { feature: "What it is", quartz: "Engineered: mostly ground quartz + resin binder", granite: "Natural stone, quarried and cut from a single slab", porcelain: "Kiln-fired ceramic slab, extremely dense and thin" },
   { feature: "Look", quartz: "Consistent, controlled patterning — what you see in the sample is what you get", granite: "Unique — no two slabs match; you pick your actual slab", porcelain: "Printed surface: convincing marble looks, large formats, book-matching" },
   { feature: "Sealing", quartz: "Never", granite: "Periodically (modern sealers last years, not months)", porcelain: "Never" },
   { feature: "Stains", quartz: "Highly resistant — non-porous", granite: "Resistant when sealed; porous when neglected", porcelain: "Highly resistant — non-porous" },
@@ -60,6 +61,7 @@ export default function QuartzVsGraniteVsPorcelainPage() {
     description: meta.excerpt,
     url: pageUrl,
     datePublished: meta.datePublished,
+    dateModified: meta.dateModified ?? meta.datePublished,
   });
   const faqSchema = faqPageJsonLd(faqs);
 
@@ -78,6 +80,7 @@ export default function QuartzVsGraniteVsPorcelainPage() {
           </nav>
           <span className="eyebrow">Materials Guide · {meta.readingMinutes} min read</span>
           <h1 className="section-heading">{meta.title}</h1>
+          <ArticleByline datePublished={meta.datePublished} dateModified={meta.dateModified} />
           <p className="section-sub" style={{ margin: "1rem auto 0" }}>
             Three good materials, three different personalities. Here&apos;s the comparison we walk through at the materials bench — including the weaknesses each one&apos;s marketing skips.
           </p>

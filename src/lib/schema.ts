@@ -3,7 +3,6 @@ import type {
   WithContext, 
   Thing, 
   LocalBusiness, 
-  Organization, 
   WebSite, 
   Article, 
   FAQPage, 
@@ -74,15 +73,19 @@ const offerCatalog = {
 export const localBusinessSchema: WithContext<LocalBusiness> = {
   "@context": "https://schema.org",
   "@type": "HomeAndConstructionBusiness",
-  "@id": `${site.url}#localbusiness`,
+  "@id": `${site.url}#organization`,
   name: site.name,
+  legalName: site.legalName,
   alternateName: site.gbpName,
   description: site.description,
   url: site.url,
+  logo: `${site.url}/logo.png`,
   image: `${site.url}/og.jpg`,
-  // One business entity site-wide: layout.tsx emits this node on every page and
-  // Service nodes reference it by @id. Do not add a second LocalBusiness node.
-  parentOrganization: { "@id": `${site.url}#organization` },
+  // One business entity site-wide (merged 2026-10-31: the separate Organization
+  // node carried the same name/URL, no address). layout.tsx emits this node on
+  // every page; Article, Service, WebSite etc. reference it by this @id. Do not
+  // add a second Organization/LocalBusiness node. No parentOrganization: Vitrin
+  // is a standalone business.
   telephone: site.phone,
   email: site.email,
   priceRange: "$$$",
@@ -113,18 +116,6 @@ export const localBusinessSchema: WithContext<LocalBusiness> = {
         },
       }
     : {}),
-};
-
-export const organizationSchema: WithContext<Organization> = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "@id": `${site.url}#organization`,
-  name: site.name,
-  legalName: site.legalName,
-  url: site.url,
-  logo: `${site.url}/logo.png`,
-  knowsAbout: [...site.knowsAbout],
-  ...(sameAs.length > 0 ? { sameAs } : {}),
 };
 
 export const websiteSchema: WithContext<WebSite> = {
@@ -294,7 +285,7 @@ export function serviceSchema(opts: {
     description: opts.description,
     url: opts.url,
     serviceType: opts.serviceType ?? "Custom Cabinetry",
-    provider: { "@id": `${site.url}#localbusiness` },
+    provider: { "@id": `${site.url}#organization` },
     areaServed: site.areaServed,
   };
 }

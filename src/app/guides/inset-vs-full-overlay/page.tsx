@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ArticleByline from "@/components/ArticleByline";
 import { site } from "@/lib/site";
 import { getGuide } from "@/lib/guides";
 import { articleJsonLd, breadcrumbSchema, faqPageJsonLd, toJsonLd } from "@/lib/schema";
@@ -22,7 +23,7 @@ const comparisonRows = [
   { feature: "Construction", inset: "Door sits flush inside the cabinet frame opening", overlay: "Door sits on the face of the cabinet, covering the frame or box edge" },
   { feature: "Visible reveal", inset: "Frame visible around every door — the look people associate with \"furniture grade\"", overlay: "Frame minimally visible (face-frame) or hidden (frameless)" },
   { feature: "Construction tolerance", inset: "Very tight — every door must fit its opening perfectly. Wood movement matters.", overlay: "More forgiving — small variations are masked by the door overlap" },
-  { feature: "Cost vs. flat-panel baseline", inset: "+10–15%", overlay: "Baseline" },
+  { feature: "Cost vs. flat-panel baseline", inset: "Higher: tighter tolerance and more hand-fitting", overlay: "Baseline" },
   { feature: "Visual character", inset: "Traditional, period-correct, formal. Reads as crafted furniture.", overlay: "Contemporary, clean, modern. Reads as flush cabinetry." },
   { feature: "Storage efficiency", inset: "Slightly less — frame steals ~1 inch per cabinet width", overlay: "More — frame steals less or none (frameless)" },
   { feature: "Seasonal movement", inset: "Visible if the wood moves with humidity — gaps may open in winter", overlay: "Invisible — door overlap masks any movement" },
@@ -32,7 +33,7 @@ const comparisonRows = [
 const faqs = [
   {
     q: "Which is more expensive?",
-    a: "Inset is roughly 10–15% more than full-overlay on the same kitchen, because of the construction tolerance required and the additional hand-fitting time. On a $60k kitchen, that's a $6k–$9k delta.",
+    a: "Inset costs more than full-overlay on the same kitchen, because of the construction tolerance required and the additional hand-fitting time. Your written quote shows the difference line by line.",
   },
   {
     q: "Does inset cabinetry have problems in a humid climate?",
@@ -44,7 +45,7 @@ const faqs = [
   },
   {
     q: "What about beaded inset?",
-    a: "Beaded inset adds a small decorative bead around the door opening. It's a more period-correct, more formal look — almost always seen in traditional kitchens. Adds another ~5% to inset pricing.",
+    a: "Beaded inset adds a small decorative bead around the door opening. It's a more period-correct, more formal look — almost always seen in traditional kitchens. Adds to inset pricing.",
   },
   {
     q: "Is full-overlay the same as frameless?",
@@ -60,6 +61,7 @@ export default function InsetVsFullOverlayPage() {
     description: meta.excerpt,
     url: pageUrl,
     datePublished: meta.datePublished,
+    dateModified: meta.dateModified ?? meta.datePublished,
   });
   const faqSchema = faqPageJsonLd(faqs);
 
@@ -78,6 +80,7 @@ export default function InsetVsFullOverlayPage() {
           </nav>
           <span className="eyebrow">Materials Guide · {meta.readingMinutes} min read</span>
           <h1 className="section-heading">{meta.title}</h1>
+          <ArticleByline datePublished={meta.datePublished} dateModified={meta.dateModified} />
           <p className="section-sub" style={{ margin: "1rem auto 0" }}>
             One of the few cabinetry decisions where the visual difference is dramatic and the cost gap is real. Here&apos;s how to pick the right one for your house.
           </p>
@@ -89,7 +92,7 @@ export default function InsetVsFullOverlayPage() {
           <div className="container--narrow prose">
             <h2 className="section-heading" style={{ marginBottom: "1rem", fontSize: "1.8rem" }}>The 30-second answer</h2>
             <p>
-              <strong>Inset</strong> doors sit flush inside the cabinet frame. The frame is visible around every door. The look is traditional, crafted, formal — what most people mean when they say &quot;furniture-grade cabinetry.&quot; It costs 10–15% more than full-overlay because the construction tolerance is much tighter.
+              <strong>Inset</strong> doors sit flush inside the cabinet frame. The frame is visible around every door. The look is traditional, crafted, formal — what most people mean when they say &quot;furniture-grade cabinetry.&quot; It costs more than full-overlay because the construction tolerance is much tighter.
             </p>
             <p>
               <strong>Full-overlay</strong> doors sit on the face of the cabinet, covering the frame. The look is clean, contemporary, modern. The frame mostly disappears behind the doors. Cost is the baseline; storage is slightly better; seasonal wood movement is invisible.

@@ -5,7 +5,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { site } from "@/lib/site";
-import { localBusinessSchema, organizationSchema, websiteSchema, toJsonLd } from "@/lib/schema";
+import { localBusinessSchema, websiteSchema, toJsonLd } from "@/lib/schema";
 import "./globals.css";
 
 /** DM Sans + DM Serif Display — Colophon Foundry / Google Fonts; designed as a harmonious premium pair. */
@@ -94,14 +94,10 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body>
         {children}
 
-        {/* JSON-LD: LocalBusiness + Organization + WebSite */}
+        {/* JSON-LD: LocalBusiness (single merged entity) + WebSite */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: toJsonLd(localBusinessSchema) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: toJsonLd(organizationSchema) }}
         />
         <script
           type="application/ld+json"
