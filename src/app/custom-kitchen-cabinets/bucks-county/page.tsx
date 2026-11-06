@@ -11,7 +11,7 @@ import { projects } from "@/lib/projects";
 import { breadcrumbSchema, serviceSchema, faqPageJsonLd, toJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Custom Kitchen Cabinets in Bucks County, PA",
+  title: "Custom Kitchen Cabinets in Bucks County",
   description:
     "Custom kitchen cabinets for Bucks County homes — bench-built in Easton, not catalog-dropped. Vitrin Cabinetry: local install, published pricing tiers, historic-district experience, and a lifetime workmanship warranty on Signature work.",
   alternates: { canonical: "/custom-kitchen-cabinets/bucks-county" },
@@ -95,23 +95,23 @@ export default function BucksCountyPillar() {
         />
         <div className="hero__overlay" />
         <div className="hero__inner">
-          <nav className="breadcrumb" aria-label="Breadcrumb" style={{ color: "rgba(255,255,255,0.8)" }}>
+          <nav className="breadcrumb" aria-label="Breadcrumb" style={{ color: "var(--text-on-dark-muted)" }}>
             <Link href="/" style={{ color: "inherit" }}>Home</Link>
             <span className="sep">/</span>
             <Link href="/custom-kitchen-cabinets" style={{ color: "inherit" }}>Custom kitchen cabinets</Link>
             <span className="sep">/</span>
-            <span aria-current="page" style={{ color: "#fff" }}>Bucks County, PA</span>
+            <span aria-current="page" style={{ color: "var(--text-on-dark)" }}>Bucks County, PA</span>
           </nav>
-          <span className="eyebrow" style={{ color: "#e6c87a" }}>Bucks County, PA</span>
-          <h1 style={{ fontSize: "clamp(2.4rem, 5vw, 3.6rem)", marginBottom: "1.25rem", color: "#fff" }}>
+          <span className="eyebrow" style={{ color: "var(--accent-on-dark)" }}>Bucks County, PA</span>
+          <h1 style={{ fontSize: "clamp(2.4rem, 5vw, 3.6rem)", marginBottom: "1.25rem", color: "var(--text-on-dark)" }}>
             Custom kitchen cabinets across Bucks County.
           </h1>
-          <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.92)", maxWidth: "680px", margin: "0 auto", lineHeight: 1.6 }}>
+          <p style={{ fontSize: "1.1rem", color: "var(--text-on-dark-subtle)", maxWidth: "680px", margin: "0 auto", lineHeight: 1.6 }}>
             From Doylestown to New Hope to Quakertown, Bucks County kitchens are rarely “standard size.” Vitrin draws, mills, and finishes Signature cabinetry at our Easton shop — and keeps curated Stock on hand when the schedule does not allow an 8-week bench build. One team, line-item quotes, weekly bench photos on custom work.
           </p>
           <div style={{ marginTop: "2rem", display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
             <Link href="/contact" className="btn-primary">Get a Quote</Link>
-            <Link href="/portfolio" className="btn-secondary" style={{ background: "transparent", color: "#fff", borderColor: "#fff" }}>See Recent Work</Link>
+            <Link href="/portfolio" className="btn-secondary" style={{ background: "transparent", color: "var(--text-on-dark)", borderColor: "var(--text-on-dark)" }}>See Recent Work</Link>
           </div>
         </div>
       </section>
@@ -152,7 +152,7 @@ export default function BucksCountyPillar() {
                 style={{
                   display: "block",
                   padding: "1rem 1.25rem",
-                  background: "#fff",
+                  background: "var(--background)",
                   border: "1px solid var(--border)",
                   borderRadius: "10px",
                   fontSize: "0.95rem",
@@ -191,7 +191,7 @@ export default function BucksCountyPillar() {
                   border: "1px solid var(--border)",
                   borderRadius: "12px",
                   overflow: "hidden",
-                  background: "#fff",
+                  background: "var(--background)",
                 }}
               >
                 <div className="img-placeholder" style={{ minHeight: "220px", border: "none", borderRadius: 0, fontSize: "0.8rem" }} role="img" aria-label={`${p.title} preview`}>
@@ -225,7 +225,7 @@ export default function BucksCountyPillar() {
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "1rem" }}>
             {tiers.map((t) => (
-              <div key={t.tier} className="card" style={{ background: "#fff" }}>
+              <div key={t.tier} className="card" style={{ background: "var(--background)" }}>
                 <div style={{ color: "var(--primary)", fontFamily: "var(--font-serif)", fontSize: "1.5rem", marginBottom: "0.4rem" }}>{t.range}</div>
                 <div style={{ fontWeight: 600, marginBottom: "0.6rem" }}>{t.tier}</div>
                 <div style={{ color: "var(--text-secondary)", fontSize: "0.9rem" }}>{t.desc}</div>

@@ -41,18 +41,18 @@ export default function Page() {
         />
         <div className="hero__overlay" />
         <div className="hero__inner">
-          <nav className="breadcrumb" aria-label="Breadcrumb" style={{ color: "rgba(255,255,255,0.8)" }}>
+          <nav className="breadcrumb" aria-label="Breadcrumb" style={{ color: "var(--text-on-dark-muted)" }}>
             <Link href="/" style={{ color: "inherit" }}>Home</Link>
             <span className="sep">/</span>
             <Link href="/cabinets" style={{ color: "inherit" }}>Cabinets</Link>
             <span className="sep">/</span>
-            <span aria-current="page" style={{ color: "#fff" }}>Built-ins</span>
+            <span aria-current="page" style={{ color: "var(--text-on-dark)" }}>Built-ins</span>
           </nav>
-          <span className="eyebrow" style={{ color: "#e6c87a" }}>Built-In Cabinets</span>
-          <h1 style={{ fontSize: "clamp(2.4rem, 5vw, 3.6rem)", marginBottom: "1.25rem", color: "#fff" }}>
+          <span className="eyebrow" style={{ color: "var(--accent-on-dark)" }}>Built-In Cabinets</span>
+          <h1 style={{ fontSize: "clamp(2.4rem, 5vw, 3.6rem)", marginBottom: "1.25rem", color: "var(--text-on-dark)" }}>
             Built-ins for the rest of your house.
           </h1>
-          <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.92)", maxWidth: "640px", margin: "0 auto", lineHeight: 1.6 }}>
+          <p style={{ fontSize: "1.1rem", color: "var(--text-on-dark-subtle)", maxWidth: "640px", margin: "0 auto", lineHeight: 1.6 }}>
             Libraries, mudrooms, home offices, entertainment walls, closets. Stock modules for small spaces; custom-built for whole walls.
           </p>
         </div>

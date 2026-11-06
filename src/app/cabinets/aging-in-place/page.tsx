@@ -74,18 +74,18 @@ export default function Page() {
         />
         <div className="hero__overlay" />
         <div className="hero__inner">
-          <nav className="breadcrumb" aria-label="Breadcrumb" style={{ color: "rgba(255,255,255,0.8)" }}>
+          <nav className="breadcrumb" aria-label="Breadcrumb" style={{ color: "var(--text-on-dark-muted)" }}>
             <Link href="/" style={{ color: "inherit" }}>Home</Link>
             <span className="sep">/</span>
             <Link href="/cabinets" style={{ color: "inherit" }}>Cabinets</Link>
             <span className="sep">/</span>
-            <span aria-current="page" style={{ color: "#fff" }}>Aging in Place</span>
+            <span aria-current="page" style={{ color: "var(--text-on-dark)" }}>Aging in Place</span>
           </nav>
-          <span className="eyebrow" style={{ color: "#e6c87a" }}>Aging in Place Cabinets</span>
-          <h1 style={{ fontSize: "clamp(2.4rem, 5vw, 3.6rem)", marginBottom: "1.25rem", color: "#fff" }}>
+          <span className="eyebrow" style={{ color: "var(--accent-on-dark)" }}>Aging in Place Cabinets</span>
+          <h1 style={{ fontSize: "clamp(2.4rem, 5vw, 3.6rem)", marginBottom: "1.25rem", color: "var(--text-on-dark)" }}>
             Cabinets built for accessibility.
           </h1>
-          <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.92)", maxWidth: "640px", margin: "0 auto", lineHeight: 1.6 }}>
+          <p style={{ fontSize: "1.1rem", color: "var(--text-on-dark-subtle)", maxWidth: "640px", margin: "0 auto", lineHeight: 1.6 }}>
             Lower counter heights. Knee space at sinks. Pull-out drawers in place of shelves. Tile-edge hardware. Stock and custom options.
           </p>
         </div>

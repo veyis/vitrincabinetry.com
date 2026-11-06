@@ -178,7 +178,7 @@ export default function ChoosingDesignerGuide() {
             {redFlags.map((r) => (
               <div key={r.flag} style={{ borderTop: "1px solid var(--border)", padding: "1.25rem 0" }}>
                 <h3 style={{ fontSize: "1.05rem", fontFamily: "var(--font-sans)", fontWeight: 600, marginBottom: "0.4rem", color: "var(--text)" }}>
-                  <span style={{ color: "#b00020", marginRight: "0.6rem" }}>•</span>
+                  <span style={{ color: "var(--error)", marginRight: "0.6rem" }}>•</span>
                   {r.flag}
                 </h3>
                 <p style={{ color: "var(--text-secondary)", lineHeight: 1.7, marginLeft: "1.4rem" }}>{r.body}</p>

@@ -57,16 +57,16 @@ export default function InstallationPage() {
         />
         <div className="hero__overlay" />
         <div className="hero__inner">
-          <nav className="breadcrumb" aria-label="Breadcrumb" style={{ color: "rgba(255,255,255,0.8)" }}>
+          <nav className="breadcrumb" aria-label="Breadcrumb" style={{ color: "var(--text-on-dark-muted)" }}>
             <Link href="/" style={{ color: "inherit" }}>Home</Link>
             <span className="sep">/</span>
-            <span aria-current="page" style={{ color: "#fff" }}>Installation</span>
+            <span aria-current="page" style={{ color: "var(--text-on-dark)" }}>Installation</span>
           </nav>
-          <span className="eyebrow" style={{ color: "#e6c87a" }}>Installation</span>
-          <h1 style={{ fontSize: "clamp(2.2rem, 4.5vw, 3.2rem)", marginBottom: "1.25rem", color: "#fff" }}>
+          <span className="eyebrow" style={{ color: "var(--accent-on-dark)" }}>Installation</span>
+          <h1 style={{ fontSize: "clamp(2.2rem, 4.5vw, 3.2rem)", marginBottom: "1.25rem", color: "var(--text-on-dark)" }}>
             Installation, if you want it.
           </h1>
-          <p style={{ fontSize: "1.05rem", color: "rgba(255,255,255,0.92)", maxWidth: "620px", margin: "0 auto", lineHeight: 1.6 }}>
+          <p style={{ fontSize: "1.05rem", color: "var(--text-on-dark-subtle)", maxWidth: "620px", margin: "0 auto", lineHeight: 1.6 }}>
             Most of our cabinets are installed by the contractor who bought them. For homeowners buying direct, we offer installation as an optional service.
           </p>
         </div>

@@ -210,7 +210,7 @@ export default function GuidePage() {
                 </thead>
                 <tbody>
                   {failureRows.map((r, i) => (
-                    <tr key={r.mode} style={{ background: i % 2 === 0 ? "#fff" : "var(--surface)" }}>
+                    <tr key={r.mode} style={{ background: i % 2 === 0 ? "var(--text-on-dark)" : "var(--surface)" }}>
                       <td style={{ padding: "0.85rem 1.25rem", fontWeight: 600 }}>{r.mode}</td>
                       <td style={{ padding: "0.85rem 1.25rem", color: "var(--text-secondary)" }}>{r.cause}</td>
                       <td style={{ padding: "0.85rem 1.25rem", color: "var(--text-secondary)" }}>{r.ask}</td>

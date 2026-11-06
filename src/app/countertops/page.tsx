@@ -84,16 +84,16 @@ export default function Page() {
         />
         <div className="hero__overlay" />
         <div className="hero__inner">
-          <nav className="breadcrumb" aria-label="Breadcrumb" style={{ color: "rgba(255,255,255,0.8)" }}>
+          <nav className="breadcrumb" aria-label="Breadcrumb" style={{ color: "var(--text-on-dark-muted)" }}>
             <Link href="/" style={{ color: "inherit" }}>Home</Link>
             <span className="sep">/</span>
-            <span aria-current="page" style={{ color: "#fff" }}>Countertops</span>
+            <span aria-current="page" style={{ color: "var(--text-on-dark)" }}>Countertops</span>
           </nav>
-          <span className="eyebrow" style={{ color: "#e6c87a" }}>Countertops</span>
-          <h1 style={{ fontSize: "clamp(2.4rem, 5vw, 3.6rem)", marginBottom: "1.25rem", color: "#fff" }}>
+          <span className="eyebrow" style={{ color: "var(--accent-on-dark)" }}>Countertops</span>
+          <h1 style={{ fontSize: "clamp(2.4rem, 5vw, 3.6rem)", marginBottom: "1.25rem", color: "var(--text-on-dark)" }}>
             Quartz, granite &amp; porcelain countertops — done in the right order.
           </h1>
-          <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.92)", maxWidth: "660px", margin: "0 auto", lineHeight: 1.6 }}>
+          <p style={{ fontSize: "1.1rem", color: "var(--text-on-dark-subtle)", maxWidth: "660px", margin: "0 auto", lineHeight: 1.6 }}>
             The countertop is the last big decision in a kitchen and the first thing everyone touches. We template after the cabinets are set, fabricate to the template, and install with the same crew accountability as our cabinetry — across Easton, Bethlehem, Allentown, and the greater Lehigh Valley.
           </p>
         </div>

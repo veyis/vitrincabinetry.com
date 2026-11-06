@@ -14,6 +14,22 @@
     "arbitrary-shadow"
   ],
   "strictTokens": false,
+  "extraPairs": [
+    ["text", "background", 4.5],
+    ["text", "surface", 4.5],
+    ["text", "surface-hover", 4.5],
+    ["text-secondary", "background", 4.5],
+    ["text-secondary", "surface", 4.5],
+    ["text-secondary", "surface-hover", 4.5],
+    ["primary", "background", 4.5],
+    ["primary", "surface", 4.5],
+    ["primary-hover", "surface-hover", 4.5],
+    ["brand-red", "background", 4.5],
+    ["brand-red", "surface", 4.5],
+    ["text-on-dark", "surface-dark", 4.5],
+    ["accent-on-dark", "surface-dark", 4.5],
+    ["error", "background", 4.5]
+  ],
   "knownContrastGaps": [],
   "baseline": "scripts/checks/design-tokens-baseline.json"
 }

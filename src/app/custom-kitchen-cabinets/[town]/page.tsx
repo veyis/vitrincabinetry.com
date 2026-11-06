@@ -81,54 +81,85 @@ export async function generateMetadata({ params }: PageParams): Promise<Metadata
   // state only proof points already on the page (plywood boxes, dovetail
   // drawers, lifetime warranty). No shop-location claim here (owner Q A3).
   const override = searchOverrides[slug];
+  const fullTownTitle = `Custom Kitchen Cabinets in ${data.name}, PA`;
+  const midTownTitle = `Custom Cabinets in ${data.name}, PA`;
+  const shortTownTitle = `Custom Cabinets in ${data.name}`;
+  const defaultTownTitle =
+    fullTownTitle.length <= 41
+      ? fullTownTitle
+      : midTownTitle.length <= 41
+        ? midTownTitle
+        : shortTownTitle;
   return {
-    title: override?.title ?? `Custom Kitchen Cabinets in ${data.name}, PA`,
+    title: override?.title ?? defaultTownTitle,
     description: override?.description ?? townDescription(data),
     alternates: { canonical: `/custom-kitchen-cabinets/${slug}` },
   };
 }
 
-const sharedWhyCards = [
-  {
-    title: "One shop, start to finish.",
-    body: "The person who measures your kitchen is the person building your cabinets. No hand-offs, no catalog middleman — your project is built by the same shop that priced it.",
-  },
-  {
-    title: "Bench-built, not catalog product.",
-    body: "Every cabinet is built at our Easton shop — plywood box, dovetail drawers, soft-close hardware, finished in a dust-controlled spray booth.",
-  },
-  {
-    title: "Transparent pricing tiers.",
-    body: "We publish our project ranges so you can self-qualify before a single visit. No mystery, no \"call for pricing\" games.",
-  },
-  {
-    title: "Lifetime cabinetry warranty.",
-    body: "Our warranty covers our work for as long as you own the home — not the resale clock that catalog-cabinet warranties run on.",
-  },
-];
+function buildWhyCards(data: TownData) {
+  return [
+    {
+      title: `We are local to ${data.name} — actually local.`,
+      body: data.whyLocalLine,
+    },
+    {
+      title: `One shop for ${data.name} homes, start to finish.`,
+      body: `The cabinetmaker who measures your ${data.name} kitchen (${data.housing}) is the team building your cabinets. No hand-offs across ${data.townships}.`,
+    },
+    {
+      title: "Bench-built in Easton, not catalog product.",
+      body: `Every cabinet for ${data.name} is built at our Easton shop — plywood box, dovetail drawers, soft-close hardware, finished in a dust-controlled spray booth. ${data.popularStyleNote}`,
+    },
+    {
+      title: `Transparent pricing for ${data.name} scopes.`,
+      body: `We publish our project ranges for ${data.name} and ${data.townships} so you can self-qualify before an in-home visit. ${data.permitsNote}`,
+    },
+    {
+      title: "Lifetime cabinetry warranty.",
+      body: `Our warranty covers our cabinetry in your ${data.name} home for as long as you own the house — not the short resale clock that catalog-cabinet warranties run on.`,
+    },
+  ];
+}
 
-const sharedStyles = [
-  { title: "Inset Shaker, painted", body: "Crisp lines, traditional bones, contemporary palette." },
-  { title: "Two-tone (island contrast)", body: "Painted perimeter with a stained or contrasting island — fits farmhouse and transitional homes." },
-  { title: "Rift-cut white oak, full-overlay", body: "Clean and modern. The favorite of newer construction and remodeled split-levels." },
-  { title: "Traditional raised panel", body: "Holds up beautifully in historic homes where keeping period character matters." },
-];
+function buildStyles(data: TownData) {
+  return [
+    {
+      title: `Inset Shaker for ${data.name}`,
+      body: `Crisp lines, traditional face-frame bones, and scribed fit tailored to ${data.housing}.`,
+    },
+    {
+      title: `Two-tone islands in ${data.name}`,
+      body: `Painted perimeter with a stained white-oak or walnut island — ${data.popularStyleNote}`,
+    },
+    {
+      title: "Rift-cut white oak, full-overlay",
+      body: `Clean, tight reveals suited to remodeled layouts and newer construction across ${data.townships}.`,
+    },
+    {
+      title: "Period-sympathetic raised panel",
+      body: `Proportioned stiles, rails, and crown profiles that respect older ${data.name} millwork (${data.housing}).`,
+    },
+  ];
+}
 
-const sharedProcessSteps = [
-  "Discovery call",
-  "In-home survey & measurements",
-  "Design & 3D renderings",
-  "Materials & finishes",
-  "Fabrication at our bench",
-  "Installation by our crew",
-  "Walkthrough & lifetime warranty",
-];
+function buildProcessSteps(data: TownData) {
+  return [
+    `Discovery call for your ${data.name} kitchen`,
+    `In-home laser & scribe survey in ${data.name} (${data.housing})`,
+    `CAD shop drawings & 3D renderings (${data.popularStyleNote})`,
+    `Hardwood, finish & hardware selection at our Easton shop`,
+    `Bench fabrication & spray-booth finishing for ${data.name}`,
+    `Delivery & installation across ${data.townships} (${data.permitsNote})`,
+    `Final walkthrough & lifetime workmanship warranty in ${data.name}`,
+  ];
+}
 
 function buildFaqs(data: TownData) {
   const base = [
     {
       q: `How long does a custom kitchen take in ${data.name}?`,
-      a: "Most kitchens are 4–8 weeks in our shop after design lock, plus 1–2 weeks of installation. From signed contract to finished kitchen is typically 10–14 weeks depending on countertops and any structural scope.",
+      a: `For ${data.name} homes (${data.housing}), most kitchens take 4–8 weeks at our Easton bench after design lock, plus 1–2 weeks of installation across ${data.townships}. From signed contract to finished kitchen is typically 10–14 weeks depending on countertops and structural scope.`,
     },
     {
       q: `Do you handle permits in ${data.name}?`,
@@ -136,15 +167,15 @@ function buildFaqs(data: TownData) {
     },
     {
       q: `What does a custom kitchen cost in ${data.name}?`,
-      a: "Our Studio Semi-Custom kitchens run $30k–$55k. Signature Custom runs $55k–$95k. Signature Luxury starts at $95k. Pricing depends on cabinet count, materials, hardware, and counters. We publish line-item proposals so every dollar is accounted for.",
+      a: `Across ${data.name} (${data.housing}), our Studio Semi-Custom kitchens run $30k–$55k, Signature Custom runs $55k–$95k, and Signature Luxury starts at $95k. ${data.popularStyleNote} We publish line-item proposals so every dollar is accounted for.`,
     },
     {
       q: `Can you match existing trim and millwork in older ${data.name} homes?`,
-      a: "Yes. We build casework to match existing crown, base, and door casing profiles. For older homes we routinely scribe cabinets to plaster walls and uneven floors.",
+      a: `Yes. In ${data.name} (${data.housing}), we build casework to match existing crown, base, and door casing profiles, and routinely scribe cabinets to plaster walls and out-of-level floors.`,
     },
     {
       q: `Do you work with general contractors and designers in ${data.name}?`,
-      a: `Yes — we run a Trade Program for designers, architects, and GCs in ${data.name} and the surrounding Bucks/Lehigh counties. See the Trade page for details.`,
+      a: `Yes — we run a Trade Program for designers, architects, and GCs working across ${data.townships}. ${data.whyLocalLine}`,
     },
   ];
   return [...base, ...(data.extraFaqs ?? [])];
@@ -159,7 +190,9 @@ export default async function TownPage({ params }: PageParams) {
   const faqs = buildFaqs(data);
   const faqSchema = faqPageJsonLd(faqs);
 
-  const whyCards = [{ title: `We are local — actually local.`, body: data.whyLocalLine }, ...sharedWhyCards];
+  const whyCards = buildWhyCards(data);
+  const stylesForTown = buildStyles(data);
+  const processStepsForTown = buildProcessSteps(data);
 
   return (
     <main>
@@ -176,21 +209,21 @@ export default async function TownPage({ params }: PageParams) {
         />
         <div className="hero__overlay" />
         <div className="hero__inner">
-          <nav className="breadcrumb" aria-label="Breadcrumb" style={{ color: "rgba(255,255,255,0.8)" }}>
+          <nav className="breadcrumb" aria-label="Breadcrumb" style={{ color: "var(--text-on-dark-muted)" }}>
             <Link href="/" style={{ color: "inherit" }}>Home</Link>
             <span className="sep">/</span>
             <Link href="/custom-kitchen-cabinets" style={{ color: "inherit" }}>Custom kitchen cabinets</Link>
             <span className="sep">/</span>
-            <span aria-current="page" style={{ color: "#fff" }}>{data.name}, PA</span>
+            <span aria-current="page" style={{ color: "var(--text-on-dark)" }}>{data.name}, PA</span>
           </nav>
-          <span className="eyebrow" style={{ color: "#e6c87a" }}>{data.name}, PA</span>
-          <h1 style={{ fontSize: "clamp(2.4rem, 5vw, 3.6rem)", marginBottom: "1.25rem", color: "#fff" }}>
+          <span className="eyebrow" style={{ color: "var(--accent-on-dark)" }}>{data.name}, PA</span>
+          <h1 style={{ fontSize: "clamp(2.4rem, 5vw, 3.6rem)", marginBottom: "1.25rem", color: "var(--text-on-dark)" }}>
             {searchOverrides[slug]?.h1 ?? `Custom kitchen cabinets in ${data.name}, PA.`}
           </h1>
-          <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.92)", maxWidth: "640px", margin: "0 auto", lineHeight: 1.6 }}>{data.intro}</p>
+          <p style={{ fontSize: "1.1rem", color: "var(--text-on-dark-subtle)", maxWidth: "640px", margin: "0 auto", lineHeight: 1.6 }}>{data.intro}</p>
           <div style={{ marginTop: "2rem", display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
             <Link href="/contact" className="btn-primary">Start a Conversation</Link>
-            <Link href="/process" className="btn-secondary" style={{ background: "transparent", color: "#fff", borderColor: "#fff" }}>See Our Process</Link>
+            <Link href="/process" className="btn-secondary" style={{ background: "transparent", color: "var(--text-on-dark)", borderColor: "var(--text-on-dark)" }}>See Our Process</Link>
           </div>
         </div>
       </section>
@@ -251,7 +284,7 @@ export default async function TownPage({ params }: PageParams) {
       <section>
         <div className="container">
           <div className="two-col" style={{ alignItems: "center" }}>
-            <div style={{ position: "relative", minHeight: "440px", borderRadius: "12px", overflow: "hidden", border: "1px solid var(--border)", boxShadow: "0 8px 24px rgba(0,0,0,0.06)" }}>
+            <div style={{ position: "relative", minHeight: "440px", borderRadius: "12px", overflow: "hidden", border: "1px solid var(--border)", boxShadow: "var(--shadow-card)" }}>
               <Image
                 src={townProjectImages[slug] || "/images/heros/inset-shaker-kitchen-pennsylvania-stone-farmhouse.png"}
                 alt={`Representative custom kitchen cabinetry for ${data.name}, PA homes by Vitrin Cabinetry`}
@@ -264,9 +297,9 @@ export default async function TownPage({ params }: PageParams) {
                   position: "absolute",
                   bottom: "12px",
                   left: "12px",
-                  background: "rgba(0, 0, 0, 0.75)",
+                  background: "var(--surface-overlay)",
                   backdropFilter: "blur(8px)",
-                  color: "#fff",
+                  color: "var(--text-on-dark)",
                   padding: "6px 14px",
                   borderRadius: "6px",
                   fontSize: "0.8rem",
@@ -279,9 +312,9 @@ export default async function TownPage({ params }: PageParams) {
             </div>
             <div>
               <span className="eyebrow">Typical {data.name} kitchen</span>
-              <h2 className="section-heading">A typical {data.name} kitchen project.</h2>
+              <h2 className="section-heading">{data.projectTitle}</h2>
               <p style={{ marginTop: "0.75rem", color: "var(--text-secondary)", fontSize: "0.9rem" }}>
-                An illustrative scenario for {data.name}-area homes, with representative imagery. It is not a specific client job.
+                An illustrative scenario for {data.name}-area homes ({data.housing}), with representative imagery. It is not a specific client job.
               </p>
               <div className="prose" style={{ marginTop: "1rem" }}>
                 {data.projectBody.split("\n\n").map((p, i) => (
@@ -340,7 +373,7 @@ export default async function TownPage({ params }: PageParams) {
           </div>
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "1.25rem" }}>
-            {sharedStyles.map((s) => (
+            {stylesForTown.map((s) => (
               <div key={s.title} className="card">
                 <h3 className="card__title">{s.title}</h3>
                 <p className="card__desc">{s.body}</p>
@@ -372,10 +405,10 @@ export default async function TownPage({ params }: PageParams) {
         <div className="container">
           <div className="two-col">
             <div>
-              <span className="eyebrow">Our Process</span>
-              <h2 className="section-heading">From discovery call to lifetime warranty.</h2>
+              <span className="eyebrow">Our Process in {data.name}</span>
+              <h2 className="section-heading">From {data.name} discovery call to lifetime warranty.</h2>
               <p className="section-sub" style={{ marginTop: "1rem" }}>
-                Seven steps, one team. Every step happens with the same people from start to finish — no hand-offs, no franchise process.
+                Seven steps for {data.name} homeowners across {data.townships}. {data.whyLocalLine}
               </p>
               <div style={{ marginTop: "2rem" }}>
                 <Link href="/process" className="btn-secondary">See the Full Process</Link>
@@ -383,7 +416,7 @@ export default async function TownPage({ params }: PageParams) {
             </div>
             <div>
               <ol style={{ listStyle: "none", padding: 0 }}>
-                {sharedProcessSteps.map((step, i) => (
+                {processStepsForTown.map((step, i) => (
                   <li key={step} style={{ display: "flex", gap: "1rem", padding: "0.65rem 0", borderBottom: "1px solid var(--border)" }}>
                     <span style={{ color: "var(--primary)", fontFamily: "var(--font-serif)", width: "1.5rem" }}>{String(i + 1).padStart(2, "0")}</span>
                     <span>{step}</span>

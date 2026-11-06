@@ -114,7 +114,7 @@ export default function FlooringOrCabinetsFirstPage() {
                 </thead>
                 <tbody>
                   {rows.map((r, i) => (
-                    <tr key={r.floor} style={{ background: i % 2 === 0 ? "#fff" : "var(--surface)" }}>
+                    <tr key={r.floor} style={{ background: i % 2 === 0 ? "var(--text-on-dark)" : "var(--surface)" }}>
                       <td style={{ padding: "0.85rem 1.25rem", fontWeight: 600 }}>{r.floor}</td>
                       <td style={{ padding: "0.85rem 1.25rem", color: "var(--text-secondary)" }}>{r.order}</td>
                       <td style={{ padding: "0.85rem 1.25rem", color: "var(--text-secondary)" }}>{r.why}</td>

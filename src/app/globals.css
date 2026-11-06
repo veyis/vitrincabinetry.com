@@ -11,6 +11,18 @@
   --glass: rgba(255, 255, 255, 0.7);
   --glass-border: rgba(0, 0, 0, 0.08);
   --border: #e8e6e1;
+  --text-on-dark: #ffffff;
+  --text-on-dark-muted: rgba(255, 255, 255, 0.8);
+  --text-on-dark-subtle: rgba(255, 255, 255, 0.92);
+  --accent-on-dark: #e6c87a;
+  --accent-on-dark-bg: rgba(230, 200, 122, 0.05);
+  --accent-on-dark-border: rgba(230, 200, 122, 0.25);
+  --primary-subtle: rgba(130, 100, 48, 0.05);
+  --surface-dark: #1c1c1c;
+  --surface-overlay: rgba(0, 0, 0, 0.75);
+  --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.06);
+  --shadow-elevated: 0 12px 36px rgba(0, 0, 0, 0.04);
+  --error: #b00020;
   --font-sans: var(--font-dm-sans), system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-serif: var(--font-dm-serif-display), Georgia, "Times New Roman", serif;
 }

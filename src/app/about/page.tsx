@@ -8,7 +8,7 @@ import { site } from "@/lib/site";
 import { breadcrumbSchema, toJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "About — Bench-Built Custom Cabinets in Easton, PA",
+  title: "About Our Easton, PA Cabinet Shop",
   description:
     "Meet Vitrin Cabinetry: an Easton, PA shop building Vitrin Signature kitchens to order, stocking Vitrin Stock for faster projects, and serving the Lehigh Valley and Bucks County with transparent timelines and line-item quotes.",
   alternates: { canonical: "/about" },
@@ -31,16 +31,16 @@ export default function AboutPage() {
         />
         <div className="hero__overlay" />
         <div className="hero__inner">
-          <nav className="breadcrumb" aria-label="Breadcrumb" style={{ color: "rgba(255,255,255,0.8)" }}>
+          <nav className="breadcrumb" aria-label="Breadcrumb" style={{ color: "var(--text-on-dark-muted)" }}>
             <Link href="/" style={{ color: "inherit" }}>Home</Link>
             <span className="sep">/</span>
-            <span aria-current="page" style={{ color: "#fff" }}>About</span>
+            <span aria-current="page" style={{ color: "var(--text-on-dark)" }}>About</span>
           </nav>
-          <span className="eyebrow" style={{ color: "#e6c87a" }}>About Vitrin</span>
-          <h1 style={{ fontSize: "clamp(2.4rem, 5vw, 3.6rem)", marginBottom: "1.25rem", color: "#fff" }}>
+          <span className="eyebrow" style={{ color: "var(--accent-on-dark)" }}>About Vitrin</span>
+          <h1 style={{ fontSize: "clamp(2.4rem, 5vw, 3.6rem)", marginBottom: "1.25rem", color: "var(--text-on-dark)" }}>
             A working shop — not a pass-through for someone else&apos;s line.
           </h1>
-          <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.92)", maxWidth: "640px", margin: "0 auto", lineHeight: 1.6 }}>
+          <p style={{ fontSize: "1.1rem", color: "var(--text-on-dark-subtle)", maxWidth: "640px", margin: "0 auto", lineHeight: 1.6 }}>
             Vitrin Cabinetry is a hands-on cabinet shop in Easton, PA. Vitrin Signature kitchens are drawn, built, and finished at our bench — then delivered by us, installed by our crew or yours. Vitrin Stock is a curated in-shop lineup for faster projects, still backed by the same team. No franchise. No disappearing act after the sale.
           </p>
         </div>

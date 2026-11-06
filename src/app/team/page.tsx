@@ -9,7 +9,7 @@ import { team } from "@/lib/team";
 import { breadcrumbSchema, personSchema, toJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Our Team — Bench-Built Custom Cabinets in Easton, PA",
+  title: "Our Team — Easton, PA Cabinet Makers",
   description: "Meet the team behind Vitrin Cabinetry. Every custom cabinet that leaves our Easton shop is measured, drawn, milled, and finished by the people you can meet here.",
   alternates: { canonical: "/team" },
 };
@@ -33,18 +33,18 @@ export default function TeamPage() {
         />
         <div className="hero__overlay" />
         <div className="hero__inner">
-          <nav className="breadcrumb" aria-label="Breadcrumb" style={{ color: "rgba(255,255,255,0.8)" }}>
+          <nav className="breadcrumb" aria-label="Breadcrumb" style={{ color: "var(--text-on-dark-muted)" }}>
             <Link href="/" style={{ color: "inherit" }}>Home</Link>
             <span className="sep">/</span>
             <Link href="/about" style={{ color: "inherit" }}>About</Link>
             <span className="sep">/</span>
-            <span aria-current="page" style={{ color: "#fff" }}>Team</span>
+            <span aria-current="page" style={{ color: "var(--text-on-dark)" }}>Team</span>
           </nav>
-          <span className="eyebrow" style={{ color: "#e6c87a" }}>The Vitrin Team</span>
-          <h1 style={{ fontSize: "clamp(2.4rem, 5vw, 3.6rem)", marginBottom: "1.25rem", color: "#fff" }}>
+          <span className="eyebrow" style={{ color: "var(--accent-on-dark)" }}>The Vitrin Team</span>
+          <h1 style={{ fontSize: "clamp(2.4rem, 5vw, 3.6rem)", marginBottom: "1.25rem", color: "var(--text-on-dark)" }}>
             The hands on the bench.
           </h1>
-          <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.92)", maxWidth: "640px", margin: "0 auto", lineHeight: 1.6 }}>
+          <p style={{ fontSize: "1.1rem", color: "var(--text-on-dark-subtle)", maxWidth: "640px", margin: "0 auto", lineHeight: 1.6 }}>
             Vitrin is intentionally small. We don&apos;t have commissioned salespeople or outsourced install crews. The people who draw your layout are the same ones who oversee the build and install it in your home.
           </p>
         </div>

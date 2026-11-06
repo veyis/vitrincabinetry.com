@@ -113,7 +113,7 @@ export default async function ProjectPage({ params }: PageParams) {
               )}
             </div>
             <div>
-              <div className="card" style={{ background: "#fff" }}>
+              <div className="card" style={{ background: "var(--background)" }}>
                 <div style={{ color: "var(--primary)", fontSize: "0.8rem", textTransform: "uppercase", letterSpacing: "1.5px", marginBottom: "1rem" }}>Project Details</div>
                 <dl style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: "0.6rem 1rem", fontSize: "0.95rem" }}>
                   <dt style={{ color: "var(--text-secondary)" }}>Town</dt>
@@ -149,7 +149,7 @@ export default async function ProjectPage({ params }: PageParams) {
               <Link
                 key={r.slug}
                 href={`/portfolio/${r.slug}`}
-                style={{ display: "block", border: "1px solid var(--border)", borderRadius: "12px", overflow: "hidden", background: "#fff" }}
+                style={{ display: "block", border: "1px solid var(--border)", borderRadius: "12px", overflow: "hidden", background: "var(--background)" }}
               >
                 <div className="img-placeholder" style={{ minHeight: "200px", border: "none", borderRadius: 0, fontSize: "0.8rem" }} role="img" aria-label={`${r.title} preview`}>
                   {r.title}

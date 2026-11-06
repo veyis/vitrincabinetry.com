@@ -65,16 +65,16 @@ export default function CustomKitchenCabinetsHub() {
         />
         <div className="hero__overlay" />
         <div className="hero__inner">
-          <nav className="breadcrumb" aria-label="Breadcrumb" style={{ color: "rgba(255,255,255,0.8)" }}>
+          <nav className="breadcrumb" aria-label="Breadcrumb" style={{ color: "var(--text-on-dark-muted)" }}>
             <Link href="/" style={{ color: "inherit" }}>Home</Link>
             <span className="sep">/</span>
-            <span aria-current="page" style={{ color: "#fff" }}>Custom kitchen cabinets</span>
+            <span aria-current="page" style={{ color: "var(--text-on-dark)" }}>Custom kitchen cabinets</span>
           </nav>
-          <span className="eyebrow" style={{ color: "#e6c87a" }}>Where we work</span>
-          <h1 style={{ fontSize: "clamp(2.4rem, 5vw, 3.6rem)", marginBottom: "1.25rem", color: "#fff" }}>
+          <span className="eyebrow" style={{ color: "var(--accent-on-dark)" }}>Where we work</span>
+          <h1 style={{ fontSize: "clamp(2.4rem, 5vw, 3.6rem)", marginBottom: "1.25rem", color: "var(--text-on-dark)" }}>
             Custom kitchen cabinets in Easton, the Lehigh Valley and Bucks County.
           </h1>
-          <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.92)", maxWidth: "680px", margin: "0 auto", lineHeight: 1.6 }}>
+          <p style={{ fontSize: "1.1rem", color: "var(--text-on-dark-subtle)", maxWidth: "680px", margin: "0 auto", lineHeight: 1.6 }}>
             {site.name} serves {site.areaServed.slice(0, -1).join(", ")} and {site.areaServed[site.areaServed.length - 1]}. Choose your town for local housing notes, permit information and a free design consultation.
           </p>
         </div>

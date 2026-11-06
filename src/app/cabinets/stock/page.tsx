@@ -50,18 +50,18 @@ export default function StockPage() {
         />
         <div className="hero__overlay" />
         <div className="hero__inner">
-          <nav className="breadcrumb" aria-label="Breadcrumb" style={{ color: "rgba(255,255,255,0.8)" }}>
+          <nav className="breadcrumb" aria-label="Breadcrumb" style={{ color: "var(--text-on-dark-muted)" }}>
             <Link href="/" style={{ color: "inherit" }}>Home</Link>
             <span className="sep">/</span>
             <Link href="/cabinets" style={{ color: "inherit" }}>Cabinets</Link>
             <span className="sep">/</span>
-            <span aria-current="page" style={{ color: "#fff" }}>Stock</span>
+            <span aria-current="page" style={{ color: "var(--text-on-dark)" }}>Stock</span>
           </nav>
-          <span className="eyebrow" style={{ color: "#e6c87a" }}>Vitrin Stock</span>
-          <h1 style={{ fontSize: "clamp(2.4rem, 5vw, 3.6rem)", marginBottom: "1.25rem", color: "#fff" }}>
+          <span className="eyebrow" style={{ color: "var(--accent-on-dark)" }}>Vitrin Stock</span>
+          <h1 style={{ fontSize: "clamp(2.4rem, 5vw, 3.6rem)", marginBottom: "1.25rem", color: "var(--text-on-dark)" }}>
             Ask about stock cabinet options.
           </h1>
-          <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.92)", maxWidth: "640px", margin: "0 auto", lineHeight: 1.6 }}>
+          <p style={{ fontSize: "1.1rem", color: "var(--text-on-dark-subtle)", maxWidth: "640px", margin: "0 auto", lineHeight: 1.6 }}>
             Plywood-box construction, Blum hardware, and dovetail drawers. Our Easton showroom is in prelaunch. Tell us the sizes and finishes you need. Pricing, availability, and collection or delivery arrangements will be confirmed with your inquiry.
           </p>
         </div>

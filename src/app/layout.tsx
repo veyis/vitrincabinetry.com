@@ -33,7 +33,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} | Kitchen, Bathroom & Closet Cabinetry in Easton, PA`,
+    default: `${site.name} | Kitchen & Bath Cabinetry in Easton, PA`,
     template: `%s | ${site.name}`,
   },
   description:

@@ -28,7 +28,7 @@ function ProjectCard({ p }: { p: Project }) {
         borderRadius: "12px",
         overflow: "hidden",
         transition: "all 0.25s ease",
-        background: "#fff",
+        background: "var(--background)",
       }}
     >
       <div
@@ -86,7 +86,7 @@ export default function PortfolioGrid() {
                 border: "1px solid var(--border)",
                 cursor: "pointer",
                 background: isActive ? "var(--primary)" : "transparent",
-                color: isActive ? "#fff" : "inherit",
+                color: isActive ? "var(--text-on-dark)" : "inherit",
                 fontFamily: "inherit",
                 fontSize: "0.875rem",
                 transition: "background 0.15s ease, color 0.15s ease",

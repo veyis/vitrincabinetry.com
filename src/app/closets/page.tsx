@@ -81,16 +81,16 @@ export default function Page() {
         />
         <div className="hero__overlay" />
         <div className="hero__inner">
-          <nav className="breadcrumb" aria-label="Breadcrumb" style={{ color: "rgba(255,255,255,0.8)" }}>
+          <nav className="breadcrumb" aria-label="Breadcrumb" style={{ color: "var(--text-on-dark-muted)" }}>
             <Link href="/" style={{ color: "inherit" }}>Home</Link>
             <span className="sep">/</span>
-            <span aria-current="page" style={{ color: "#fff" }}>Closets</span>
+            <span aria-current="page" style={{ color: "var(--text-on-dark)" }}>Closets</span>
           </nav>
-          <span className="eyebrow" style={{ color: "#e6c87a" }}>Custom Closets</span>
-          <h1 style={{ fontSize: "clamp(2.4rem, 5vw, 3.6rem)", marginBottom: "1.25rem", color: "#fff" }}>
+          <span className="eyebrow" style={{ color: "var(--accent-on-dark)" }}>Custom Closets</span>
+          <h1 style={{ fontSize: "clamp(2.4rem, 5vw, 3.6rem)", marginBottom: "1.25rem", color: "var(--text-on-dark)" }}>
             Closets built like furniture, not filing systems.
           </h1>
-          <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.92)", maxWidth: "660px", margin: "0 auto", lineHeight: 1.6 }}>
+          <p style={{ fontSize: "1.1rem", color: "var(--text-on-dark-subtle)", maxWidth: "660px", margin: "0 auto", lineHeight: 1.6 }}>
             Walk-ins, reach-ins, pantries, and mudrooms — designed in 3D around what you actually own, bench-built from plywood at our Easton shop, and installed by the crew that built them. Serving Bucks County and the Lehigh Valley.
           </p>
         </div>

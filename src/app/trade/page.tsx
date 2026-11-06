@@ -86,16 +86,16 @@ export default function TradePage() {
         />
         <div className="hero__overlay" />
         <div className="hero__inner">
-          <nav className="breadcrumb" aria-label="Breadcrumb" style={{ color: "rgba(255,255,255,0.8)" }}>
+          <nav className="breadcrumb" aria-label="Breadcrumb" style={{ color: "var(--text-on-dark-muted)" }}>
             <Link href="/" style={{ color: "inherit" }}>Home</Link>
             <span className="sep">/</span>
-            <span aria-current="page" style={{ color: "#fff" }}>Trade Program</span>
+            <span aria-current="page" style={{ color: "var(--text-on-dark)" }}>Trade Program</span>
           </nav>
-          <span className="eyebrow" style={{ color: "#e6c87a" }}>Trade Program</span>
-          <h1 style={{ fontSize: "clamp(2.4rem, 5vw, 3.6rem)", marginBottom: "1.25rem", color: "#fff" }}>
+          <span className="eyebrow" style={{ color: "var(--accent-on-dark)" }}>Trade Program</span>
+          <h1 style={{ fontSize: "clamp(2.4rem, 5vw, 3.6rem)", marginBottom: "1.25rem", color: "var(--text-on-dark)" }}>
             Your cabinet supplier in Easton.
           </h1>
-          <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.92)", maxWidth: "680px", margin: "0 auto", lineHeight: 1.6 }}>
+          <p style={{ fontSize: "1.1rem", color: "var(--text-on-dark-subtle)", maxWidth: "680px", margin: "0 auto", lineHeight: 1.6 }}>
             Trade pricing on every cabinet we make. Stock cabinets ready for pickup. Custom kitchens built to your spec. For contractors, builders, designers, and installers across Bucks County and the Lehigh Valley.
           </p>
         </div>

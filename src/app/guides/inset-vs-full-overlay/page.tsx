@@ -116,7 +116,7 @@ export default function InsetVsFullOverlayPage() {
                 </thead>
                 <tbody>
                   {comparisonRows.map((r, i) => (
-                    <tr key={r.feature} style={{ background: i % 2 === 0 ? "#fff" : "var(--surface)" }}>
+                    <tr key={r.feature} style={{ background: i % 2 === 0 ? "var(--text-on-dark)" : "var(--surface)" }}>
                       <td style={{ padding: "0.85rem 1.25rem", fontWeight: 600 }}>{r.feature}</td>
                       <td style={{ padding: "0.85rem 1.25rem", color: "var(--text-secondary)" }}>{r.inset}</td>
                       <td style={{ padding: "0.85rem 1.25rem", color: "var(--text-secondary)" }}>{r.overlay}</td>

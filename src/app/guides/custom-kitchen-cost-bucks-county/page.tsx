@@ -191,7 +191,7 @@ export default function CostGuidePage() {
                 </thead>
                 <tbody>
                   {tierRows.map((r, i) => (
-                    <tr key={r.tier} style={{ background: i % 2 === 0 ? "#fff" : "var(--surface)" }}>
+                    <tr key={r.tier} style={{ background: i % 2 === 0 ? "var(--text-on-dark)" : "var(--surface)" }}>
                       <td style={{ padding: "0.85rem 1.25rem", fontWeight: 600 }}>{r.tier}</td>
                       <td style={{ padding: "0.85rem 1.25rem", color: "var(--text)" }}>{r.range}</td>
                       <td style={{ padding: "0.85rem 1.25rem", color: "var(--text-secondary)" }}>{r.cabinetCount}</td>

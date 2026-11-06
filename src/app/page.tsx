@@ -12,7 +12,7 @@ import { towns } from "@/lib/towns";
 import { breadcrumbSchema, toJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Kitchen, Bathroom & Closet Cabinetry in Easton, PA",
+  title: "Kitchen & Bath Cabinetry in Easton, PA",
   description:
     "Custom and semi-custom kitchen, bathroom, and closet cabinetry bench-built in Easton, PA — plus quartz countertops, flooring, and full remodeling. Serving Easton, Bethlehem, Allentown, and the Lehigh Valley.",
   alternates: { canonical: "/" },
@@ -191,16 +191,16 @@ export default function Home() {
         <div className="hero__overlay" />
         <div className="hero__inner">
           <div className="eyebrow-row">
-            <span className="eyebrow-rule" aria-hidden="true" style={{ background: "#e6c87a" }} />
-            <span className="eyebrow" style={{ color: "#e6c87a", marginBottom: 0 }}>The Lehigh Valley&apos;s Cabinet Shop</span>
+            <span className="eyebrow-rule" aria-hidden="true" style={{ background: "var(--accent-on-dark)" }} />
+            <span className="eyebrow" style={{ color: "var(--accent-on-dark)", marginBottom: 0 }}>The Lehigh Valley&apos;s Cabinet Shop</span>
           </div>
           <h1 className="hero__title">
             <span className="mask-line"><span>Cabinets, built and sold</span></span>
             {" "}
             <span className="mask-line"><span>in <em>Easton.</em></span></span>
           </h1>
-          <p style={{ fontSize: "1.15rem", color: "rgba(255,255,255,0.92)", maxWidth: "720px", lineHeight: 1.6 }}>
-            We don&apos;t sell kitchens out of a catalog — we build them at our own bench in Easton, PA, with stock options, pricing, and availability confirmed for your project. Kitchen, bath, and closet cabinetry drawn in 3D and finished in our shop, then completed with quartz, granite, or porcelain counters, tile, and flooring by the same crew — in homes that have stood in Easton, Bethlehem, and Allentown for a century or more. See our <Link href="/custom-kitchen-cabinets/easton" style={{ color: "inherit", textDecoration: "underline" }}>custom kitchen cabinets in Easton</Link>.
+          <p style={{ fontSize: "1.15rem", color: "var(--text-on-dark-subtle)", maxWidth: "720px", lineHeight: 1.6 }}>
+            Stock options and custom cabinetry for kitchens, baths, and closets. Explore <Link href="/custom-kitchen-cabinets/easton" style={{ color: "inherit", textDecoration: "underline" }}>custom kitchen cabinets built in Easton</Link>, with 3D design and coordinated counters, tile, and flooring. We confirm pricing and availability for your project.
           </p>
           <div className="hero__cta">
             <Link href="/cabinets/stock" className="btn-primary">Browse Stock Cabinets &rarr;</Link>
@@ -208,7 +208,7 @@ export default function Home() {
               href="/cabinets/custom"
               style={{
                 background: "transparent",
-                color: "#fff",
+                color: "var(--text-on-dark)",
                 border: "1px solid #fff",
                 padding: "1rem 2rem",
                 borderRadius: "4px",
@@ -219,7 +219,7 @@ export default function Home() {
                 fontSize: "0.9rem",
               }}
             >
-              Order a Custom Kitchen &rarr;
+              Explore Custom Kitchens &rarr;
             </Link>
           </div>
         </div>
@@ -264,8 +264,8 @@ export default function Home() {
             itemScope
             itemType="https://schema.org/DefinedTerm"
             style={{
-              background: "rgba(230, 200, 122, 0.05)",
-              border: "1px solid rgba(230, 200, 122, 0.25)",
+              background: "var(--accent-on-dark-bg)",
+              border: "1px solid var(--accent-on-dark-border)",
               borderRadius: "12px",
               padding: "1.75rem",
               margin: "2rem auto 0",
@@ -332,7 +332,7 @@ export default function Home() {
                 <h3 className="card__title">{s.name}</h3>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "0.75rem" }}>
                   <span style={{ color: "var(--primary)", fontWeight: 600 }}>{s.from}</span>
-                  <span style={{ fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: "1px", color: "var(--muted, #666)" }}>{s.status}</span>
+                  <span style={{ fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: "1px", color: "var(--text-secondary)" }}>{s.status}</span>
                 </div>
               </Link>
             ))}
@@ -354,7 +354,7 @@ export default function Home() {
             </p>
           </div>
           <div style={{ textAlign: "center", marginTop: "1.5rem" }}>
-            <Link href="/cabinets/custom" className="btn-primary">Order a Custom Kitchen &rarr;</Link>
+            <Link href="/cabinets/custom" className="btn-primary">Explore Custom Kitchens &rarr;</Link>
           </div>
         </div>
       </section>
@@ -377,7 +377,7 @@ export default function Home() {
                   <span className="svc-row__title">{s.title}</span>
                   <span className="svc-row__desc">{s.desc}</span>
                 </span>
-                <span className="svc-row__arrow" aria-hidden="true">&#8599;</span>
+                <span className="svc-row__arrow" aria-hidden="true">↗</span>
               </Link>
             ))}
           </div>

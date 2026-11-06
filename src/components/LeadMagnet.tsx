@@ -77,7 +77,7 @@ export default function LeadMagnet({ title, description, buttonText, downloadUrl
               type="text" 
               placeholder="First Name" 
               required 
-              style={{ width: "100%", padding: "0.8rem", border: "1px solid var(--border)", background: "#fff" }} 
+              style={{ width: "100%", padding: "0.8rem", border: "1px solid var(--border)", background: "var(--background)" }} 
             />
           </div>
           <div>
@@ -88,13 +88,13 @@ export default function LeadMagnet({ title, description, buttonText, downloadUrl
               type="email" 
               placeholder="Email Address" 
               required 
-              style={{ width: "100%", padding: "0.8rem", border: "1px solid var(--border)", background: "#fff" }} 
+              style={{ width: "100%", padding: "0.8rem", border: "1px solid var(--border)", background: "var(--background)" }} 
             />
           </div>
         </div>
 
         {status === "error" && (
-          <div style={{ color: "#b00020", fontSize: "0.9rem" }}>Something went wrong. Please try again.</div>
+          <div style={{ color: "var(--error)", fontSize: "0.9rem" }}>Something went wrong. Please try again.</div>
         )}
 
         <button 
