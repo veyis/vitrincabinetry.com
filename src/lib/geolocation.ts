@@ -1,5 +1,3 @@
-// Trimmed from vmpowerconstruction.com lib/geolocation.ts (console instead of log lib)
-
 interface GeolocationData {
   ip: string;
   country?: string;
@@ -11,45 +9,40 @@ interface GeolocationData {
   isp?: string;
 }
 
-export async function getGeolocationFromIP(ip: string): Promise<GeolocationData> {
-  // Return just the IP if it's localhost or private
-  if (
-    ip === "::1" ||
-    ip === "127.0.0.1" ||
-    ip.startsWith("192.168.") ||
-    ip.startsWith("10.") ||
-    // 172.16.0.0/12 only — 172.32+ are public (common mobile/CDN ranges)
-    /^172\.(1[6-9]|2\d|3[01])\./.test(ip)
-  ) {
-    return { ip, country: "Local", region: "Local", city: "Local" };
-  }
+type GeoHeaders = Pick<Headers, "get">;
 
+function geoText(headers: GeoHeaders | undefined, name: string): string | undefined {
+  const value = headers?.get(name);
+  if (!value) return undefined;
   try {
-    // ip-api.com free tier: no key, 45 req/min
-    const response = await fetch(
-      `http://ip-api.com/json/${ip}?fields=status,message,country,regionName,city,lat,lon,timezone,isp`,
-      { signal: AbortSignal.timeout(5000) },
-    );
-
-    if (!response.ok) return { ip };
-
-    const data = await response.json();
-    if (data.status === "fail") return { ip };
-
-    return {
-      ip,
-      country: data.country,
-      region: data.regionName,
-      city: data.city,
-      latitude: data.lat,
-      longitude: data.lon,
-      timezone: data.timezone,
-      isp: data.isp,
-    };
-  } catch (error) {
-    console.warn("Geolocation lookup failed", { ip, error });
-    return { ip };
+    return decodeURIComponent(value).slice(0, 200) || undefined;
+  } catch {
+    return undefined;
   }
+}
+
+function geoCoordinate(headers: GeoHeaders | undefined, name: string, limit: number): number | undefined {
+  const raw = headers?.get(name);
+  if (!raw?.trim()) return undefined;
+  const value = Number(raw);
+  return Number.isFinite(value) && Math.abs(value) <= limit ? value : undefined;
+}
+
+export async function getGeolocationFromIP(
+  ip: string,
+  requestHeaders?: GeoHeaders,
+): Promise<GeolocationData> {
+  // Hosting-edge metadata is optional enrichment, never proof of identity.
+  // Do not send visitor IPs to a third party or delay a lead for a lookup.
+  return {
+    ip,
+    country: geoText(requestHeaders, "x-vercel-ip-country"),
+    region: geoText(requestHeaders, "x-vercel-ip-country-region"),
+    city: geoText(requestHeaders, "x-vercel-ip-city"),
+    latitude: geoCoordinate(requestHeaders, "x-vercel-ip-latitude", 90),
+    longitude: geoCoordinate(requestHeaders, "x-vercel-ip-longitude", 180),
+    timezone: geoText(requestHeaders, "x-vercel-ip-timezone"),
+  };
 }
 
 export function getClientIP(request: Request): string {

@@ -29,7 +29,7 @@ function normalizeType(input: string | null): ProjectType | "" {
 type Status = "idle" | "submitting" | "success" | "error";
 
 const inputStyle: React.CSSProperties = {
-  background: "#ffffff",
+  background: "var(--background)",
   border: "1px solid var(--border)",
   padding: "0.8rem",
   color: "var(--text)",
@@ -75,8 +75,19 @@ export default function ContactForm() {
         body: JSON.stringify(payload),
       });
       if (!res.ok) {
-        const body = await res.json().catch(() => ({}));
-        throw new Error(body.error || "Could not send message");
+        const body: unknown = await res.json().catch(() => null);
+        const message = body && typeof body === "object" && "error" in body && typeof body.error === "string"
+          ? body.error
+          : "We couldn't confirm your message. Please contact us before trying again.";
+        throw new Error(message);
+      }
+      const acknowledgement: unknown = await res.json().catch(() => null);
+      if (
+        !acknowledgement || typeof acknowledgement !== "object" ||
+        !("ok" in acknowledgement) || acknowledgement.ok !== true ||
+        !("id" in acknowledgement) || typeof acknowledgement.id !== "string" || !acknowledgement.id.trim()
+      ) {
+        throw new Error("We couldn't confirm your message. Please contact us before trying again.");
       }
       setStatus("success");
       if (!payload.honeypot) {
@@ -181,7 +192,7 @@ export default function ContactForm() {
       </div>
 
       {status === "error" && (
-        <div role="alert" style={{ color: "#b00020", fontSize: "0.9rem" }}>
+        <div role="alert" style={{ color: "var(--error)", fontSize: "0.9rem" }}>
           {errorMessage}
         </div>
       )}

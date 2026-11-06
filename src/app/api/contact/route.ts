@@ -47,6 +47,10 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Invalid JSON" }, { status: 400 });
   }
 
+  if (!body || typeof body !== "object" || Array.isArray(body)) {
+    return NextResponse.json({ error: "Invalid form data" }, { status: 400 });
+  }
+
   const required = ["firstName", "lastName", "email", "projectType", "message"] as const;
   for (const k of required) {
     if (!isString(body[k])) {
@@ -79,7 +83,7 @@ export async function POST(req: Request) {
   // Best-effort geolocation — fraud scoring works without it
   let geoData: Awaited<ReturnType<typeof getGeolocationFromIP>> | null = null;
   try {
-    geoData = await getGeolocationFromIP(ipAddress);
+    geoData = await getGeolocationFromIP(ipAddress, req.headers);
   } catch {
     geoData = null;
   }
@@ -105,7 +109,7 @@ export async function POST(req: Request) {
     clientIP: ipAddress,
     clientUserAgent: userAgent,
     notifications: { admin: true, confirmation: true },
-    // PxlPeak logs honeypot hits to fraud_submissions and returns a fake 201
+    // PxlPeak records and classifies honeypot hits, suppressing auto-replies.
     honeypots: body.honeypot ? { companyName: body.honeypot } : undefined,
   };
 
@@ -135,8 +139,7 @@ export async function POST(req: Request) {
     });
 
     if (!resp.ok) {
-      const errorBody = await resp.text().catch(() => "Unknown error");
-      console.error("PxlPeak leads API error:", resp.status, errorBody);
+      console.error("PxlPeak leads API error:", resp.status);
       if (resp.status === 422) {
         return NextResponse.json(
           { error: "Please check your form details and try again." },
@@ -146,7 +149,18 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Could not send message" }, { status: 500 });
     }
 
-    const result = await resp.json();
+    const result: unknown = await resp.json().catch(() => null);
+    if (
+      !result || typeof result !== "object" ||
+      !("success" in result) || result.success !== true ||
+      !("id" in result) || typeof result.id !== "string" || !result.id.trim()
+    ) {
+      console.error("PxlPeak leads API did not confirm persistence");
+      return NextResponse.json(
+        { error: "We couldn't confirm your message. Please contact us before trying again." },
+        { status: 502 },
+      );
+    }
     return NextResponse.json({ ok: true, id: result.id });
   } catch (error) {
     console.error("Contact form error:", error);

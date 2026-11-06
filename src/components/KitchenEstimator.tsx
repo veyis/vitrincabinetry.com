@@ -55,7 +55,7 @@ const LAYOUTS: LayoutOption[] = [
 const TIERS = [
   {
     id: "studio" as CabinetTier,
-    name: "Vitrin Studio",
+    name: "Semi-Custom Scenario",
     subtitle: "Semi-Custom",
     startingBase: 28000,
     features: [
@@ -67,21 +67,21 @@ const TIERS = [
   },
   {
     id: "signature" as CabinetTier,
-    name: "Vitrin Signature",
+    name: "Custom Scenario",
     subtitle: "Bench-Built Custom",
     startingBase: 48000,
-    badge: "Most Popular",
+    badge: "Starting Selection",
     features: [
       "Bench-built in our local workshop",
       "Exact 1/16\" dimensional tailoring to room walls",
       "Solid maple / white oak dovetail drawers",
       "Hand-scribed face frames & custom moldings",
-      "Lifetime cabinetry craft warranty",
+      "Warranty terms confirmed in your written proposal",
     ],
   },
   {
     id: "estate" as CabinetTier,
-    name: "Architectural Estate",
+    name: "Bespoke Scenario",
     subtitle: "Full Bespoke Luxury",
     startingBase: 82000,
     features: [
@@ -137,7 +137,7 @@ export default function KitchenEstimator({ townName = "Upper Bucks", townSlug = 
         borderRadius: "16px",
         padding: "clamp(1.5rem, 4vw, 3rem)",
         margin: "2.5rem 0",
-        boxShadow: "0 12px 36px rgba(0, 0, 0, 0.04)",
+        boxShadow: "var(--shadow-elevated)",
       }}
     >
       <div style={{ textAlign: "center", maxWidth: "640px", margin: "0 auto 2.5rem" }}>
@@ -152,13 +152,13 @@ export default function KitchenEstimator({ townName = "Upper Bucks", townSlug = 
             marginBottom: "0.5rem",
           }}
         >
-          Instant Project Estimator
+          Project Planning Estimate
         </span>
         <h3 style={{ fontSize: "clamp(1.75rem, 3.5vw, 2.4rem)", marginBottom: "0.75rem" }}>
           Estimate Your Custom Kitchen in {townName}, PA
         </h3>
         <p style={{ color: "var(--text-secondary)", fontSize: "1rem", lineHeight: 1.6 }}>
-          Select your floorplan and craftsmanship tier to generate an immediate, transparent budget range based on verified local project data.
+          Compare indicative budgets by layout and scope. These are planning scenarios, not product lines or quotes. Your selections, measurements, availability, and written proposal determine the final price.
         </p>
       </div>
 
@@ -189,13 +189,14 @@ export default function KitchenEstimator({ townName = "Upper Bucks", townSlug = 
                 <button
                   key={item.id}
                   type="button"
+                  aria-pressed={active}
                   onClick={() => setLayout(item.id)}
                   style={{
                     textAlign: "left",
                     padding: "1.2rem",
                     borderRadius: "10px",
                     border: `2px solid ${active ? "var(--primary)" : "var(--border)"}`,
-                    background: active ? "rgba(130, 100, 48, 0.05)" : "var(--background)",
+                    background: active ? "var(--primary-subtle)" : "var(--background)",
                     cursor: "pointer",
                     transition: "all 0.2s ease",
                   }}
@@ -241,6 +242,7 @@ export default function KitchenEstimator({ townName = "Upper Bucks", townSlug = 
                 <button
                   key={item.id}
                   type="button"
+                  aria-pressed={active}
                   onClick={() => setTier(item.id)}
                   style={{
                     position: "relative",
@@ -248,7 +250,7 @@ export default function KitchenEstimator({ townName = "Upper Bucks", townSlug = 
                     padding: "1.25rem",
                     borderRadius: "10px",
                     border: `2px solid ${active ? "var(--primary)" : "var(--border)"}`,
-                    background: active ? "rgba(130, 100, 48, 0.05)" : "var(--background)",
+                    background: active ? "var(--primary-subtle)" : "var(--background)",
                     cursor: "pointer",
                     transition: "all 0.2s ease",
                   }}
@@ -260,7 +262,7 @@ export default function KitchenEstimator({ townName = "Upper Bucks", townSlug = 
                         top: "-10px",
                         right: "12px",
                         background: "var(--primary)",
-                        color: "#fff",
+                        color: "var(--text-on-dark)",
                         fontSize: "0.7rem",
                         fontWeight: 700,
                         padding: "2px 8px",
@@ -315,13 +317,14 @@ export default function KitchenEstimator({ townName = "Upper Bucks", townSlug = 
                 <button
                   key={opt.id}
                   type="button"
+                  aria-pressed={countertop === opt.id}
                   onClick={() => setCountertop(opt.id)}
                   style={{
                     padding: "0.6rem 1rem",
                     borderRadius: "8px",
                     border: `1px solid ${countertop === opt.id ? "var(--primary)" : "var(--border)"}`,
                     background: countertop === opt.id ? "var(--primary)" : "var(--background)",
-                    color: countertop === opt.id ? "#fff" : "var(--text)",
+                    color: countertop === opt.id ? "var(--text-on-dark)" : "var(--text)",
                     fontSize: "0.85rem",
                     fontWeight: 500,
                     cursor: "pointer",
@@ -355,7 +358,7 @@ export default function KitchenEstimator({ townName = "Upper Bucks", townSlug = 
                 padding: "0.65rem 1rem",
                 borderRadius: "8px",
                 border: "1px solid var(--border)",
-                background: includeRemodelScope ? "rgba(130, 100, 48, 0.05)" : "var(--background)",
+                background: includeRemodelScope ? "var(--primary-subtle)" : "var(--background)",
               }}
             >
               <input
@@ -388,11 +391,11 @@ export default function KitchenEstimator({ townName = "Upper Bucks", townSlug = 
             <div style={{ fontSize: "0.8rem", textTransform: "uppercase", letterSpacing: "1.5px", color: "var(--primary)", fontWeight: 600 }}>
               Estimated Investment Range
             </div>
-            <div style={{ fontSize: "clamp(2rem, 4vw, 2.8rem)", fontWeight: 700, color: "var(--text)", fontFamily: "var(--font-serif)", lineHeight: 1.1, margin: "0.3rem 0" }}>
+            <div aria-live="polite" aria-atomic="true" style={{ fontSize: "clamp(2rem, 4vw, 2.8rem)", fontWeight: 700, color: "var(--text)", fontFamily: "var(--font-serif)", lineHeight: 1.1, margin: "0.3rem 0" }}>
               ${estimate.low} – ${estimate.high}
             </div>
             <div style={{ fontSize: "0.85rem", color: "var(--text-secondary)", lineHeight: 1.5 }}>
-              *Includes custom fabrication at our local workshop, Blum soft-close hardware, delivery to {townName}, PA, and dedicated professional installation.
+              Planning assumptions include cabinetry, hardware, delivery to {townName}, PA, and installation. Confirm the specifications, inclusions, and exclusions in your written proposal.
             </div>
           </div>
 
@@ -407,8 +410,11 @@ export default function KitchenEstimator({ townName = "Upper Bucks", townSlug = 
                 fontWeight: 600,
               }}
             >
-              Lock In Your {townName} Design Slot →
+              Discuss Your {townName} Project →
             </Link>
+            <p style={{ fontSize: "0.85rem", color: "var(--text-secondary)", lineHeight: 1.5, margin: 0 }}>
+              Fully custom kitchens start with a $250 Discovery Session, credited toward your deposit if you proceed. Availability is confirmed before booking.
+            </p>
             <div style={{ textAlign: "center", fontSize: "0.85rem", color: "var(--text-secondary)" }}>
               Or call our team directly at <a href={`tel:${site.phone}`} style={{ color: "var(--primary)", fontWeight: 600 }}>{site.phoneDisplay}</a>
             </div>
