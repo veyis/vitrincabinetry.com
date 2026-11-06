@@ -28,11 +28,6 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   compress: true,
 
-  experimental: {
-    inlineCss: true,
-    optimizePackageImports: ["lucide-react"],
-  },
-
   images: {
     formats: ["image/avif", "image/webp"],
   },
