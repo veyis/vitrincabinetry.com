@@ -70,31 +70,31 @@ export default function LeadMagnet({ title, description, buttonText, downloadUrl
 
         <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "1rem" }}>
           <div>
-            <label htmlFor="lm-firstName" className="visually-hidden" style={{ display: "none" }}>First Name</label>
+            <label htmlFor="lm-firstName" className="visually-hidden">First Name</label>
             <input 
               id="lm-firstName" 
               name="firstName" 
               type="text" 
               placeholder="First Name" 
               required 
-              style={{ width: "100%", padding: "0.8rem", border: "1px solid var(--border)", background: "var(--background)" }} 
+              style={{ width: "100%", padding: "0.8rem", border: "1px solid var(--border)", borderRadius: "4px", background: "var(--background)", color: "var(--text)", font: "inherit" }} 
             />
           </div>
           <div>
-            <label htmlFor="lm-email" className="visually-hidden" style={{ display: "none" }}>Email</label>
+            <label htmlFor="lm-email" className="visually-hidden">Email</label>
             <input 
               id="lm-email" 
               name="email" 
               type="email" 
               placeholder="Email Address" 
               required 
-              style={{ width: "100%", padding: "0.8rem", border: "1px solid var(--border)", background: "var(--background)" }} 
+              style={{ width: "100%", padding: "0.8rem", border: "1px solid var(--border)", borderRadius: "4px", background: "var(--background)", color: "var(--text)", font: "inherit" }} 
             />
           </div>
         </div>
 
         {status === "error" && (
-          <div style={{ color: "var(--error)", fontSize: "0.9rem" }}>Something went wrong. Please try again.</div>
+          <div role="alert" style={{ color: "var(--error)", fontSize: "0.9rem" }}>Something went wrong. Please try again.</div>
         )}
 
         <button 

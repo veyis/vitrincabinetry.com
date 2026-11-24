@@ -149,14 +149,13 @@ export default function BucksCountyPillar() {
               <Link
                 key={t.slug}
                 href={`/custom-kitchen-cabinets/${t.slug}`}
+                className="link-card"
                 style={{
                   display: "block",
                   padding: "1rem 1.25rem",
                   background: "var(--background)",
-                  border: "1px solid var(--border)",
                   borderRadius: "10px",
                   fontSize: "0.95rem",
-                  transition: "all 0.25s ease",
                 }}
               >
                 <div style={{ fontWeight: 600 }}>{t.name}, PA</div>

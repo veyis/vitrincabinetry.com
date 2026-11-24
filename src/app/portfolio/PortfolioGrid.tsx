@@ -22,12 +22,11 @@ function ProjectCard({ p }: { p: Project }) {
   return (
     <Link
       href={`/portfolio/${p.slug}`}
+      className="link-card"
       style={{
         display: "block",
-        border: "1px solid var(--border)",
         borderRadius: "12px",
         overflow: "hidden",
-        transition: "all 0.25s ease",
         background: "var(--background)",
       }}
     >
@@ -89,9 +88,7 @@ export default function PortfolioGrid() {
                 color: isActive ? "var(--text-on-dark)" : "inherit",
                 fontFamily: "inherit",
                 fontSize: "0.875rem",
-                transition: "background 0.15s ease, color 0.15s ease",
-                outline: isActive ? "2px solid var(--primary)" : undefined,
-                outlineOffset: "2px",
+                transition: "background-color 0.15s ease, color 0.15s ease",
               }}
               aria-pressed={isActive}
             >

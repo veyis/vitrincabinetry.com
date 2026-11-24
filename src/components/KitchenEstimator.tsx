@@ -198,7 +198,7 @@ export default function KitchenEstimator({ townName = "Upper Bucks", townSlug = 
                     border: `2px solid ${active ? "var(--primary)" : "var(--border)"}`,
                     background: active ? "var(--primary-subtle)" : "var(--background)",
                     cursor: "pointer",
-                    transition: "all 0.2s ease",
+                    transition: "border-color 0.2s ease, background-color 0.2s ease",
                   }}
                 >
                   <div style={{ fontWeight: 600, fontSize: "1rem", color: "var(--text)", marginBottom: "0.25rem" }}>
@@ -252,7 +252,7 @@ export default function KitchenEstimator({ townName = "Upper Bucks", townSlug = 
                     border: `2px solid ${active ? "var(--primary)" : "var(--border)"}`,
                     background: active ? "var(--primary-subtle)" : "var(--background)",
                     cursor: "pointer",
-                    transition: "all 0.2s ease",
+                    transition: "border-color 0.2s ease, background-color 0.2s ease",
                   }}
                 >
                   {item.badge && (
@@ -328,7 +328,7 @@ export default function KitchenEstimator({ townName = "Upper Bucks", townSlug = 
                     fontSize: "0.85rem",
                     fontWeight: 500,
                     cursor: "pointer",
-                    transition: "all 0.15s ease",
+                    transition: "border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease",
                   }}
                 >
                   {opt.label}

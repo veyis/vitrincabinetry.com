@@ -57,7 +57,7 @@ export default function Contact() {
                 Send your inquiry using the form. We will follow up about options, pricing, availability, and any appointment arrangements. Please wait for confirmed visit details before traveling.
               </p>
 
-              <div style={{ marginBottom: "2.5rem", padding: "1.5rem", background: "var(--surface)", borderLeft: "4px solid var(--primary)", borderRadius: "0 4px 4px 0" }}>
+              <div style={{ marginBottom: "2.5rem", padding: "1.5rem", background: "var(--surface)", border: "1px solid var(--border)", borderRadius: "4px" }}>
                 <h3 style={{ fontSize: "1.25rem", marginBottom: "0.75rem", color: "var(--text)" }}>The $250 Discovery Session</h3>
                 <p style={{ fontSize: "0.95rem", color: "var(--text-secondary)", marginBottom: "1rem" }}>
                   For fully custom kitchen projects, we start with a Paid Discovery Session. This 60-minute consultation includes a hand-sketched layout and a ballpark written quote. Location and appointment availability are confirmed before booking. <strong>The $250 fee is fully credited toward your deposit if you proceed.</strong> This ensures our design time is dedicated to serious homeowners.
