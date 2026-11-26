@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import TradeCalloutStrip from "@/components/TradeCalloutStrip";
 import KitchenEstimator from "@/components/KitchenEstimator";
+import HeroVideo from "@/components/HeroVideo";
 import { site } from "@/lib/site";
 import { towns } from "@/lib/towns";
 import { breadcrumbSchema, toJsonLd } from "@/lib/schema";
@@ -176,18 +177,11 @@ export default function Home() {
 
       {/* Hero — editorial: left-aligned, bottom-anchored, staggered line reveal */}
       <section id="main-content" className="hero hero--editorial">
-        <video
-          className="hero__video"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="none"
+        <HeroVideo
+          src="/videos/bespoke-kitchen-stone-farmhouse-bucks-county.mp4"
           poster="/images/heros/bespoke-kitchen-stone-farmhouse-bucks-county-poster.jpg"
-          aria-hidden="true"
-        >
-          <source media="(min-width: 900px) and (prefers-reduced-motion: no-preference)" src="/videos/bespoke-kitchen-stone-farmhouse-bucks-county.mp4" type="video/mp4" />
-        </video>
+          alt="Custom bench-built kitchen cabinetry in a Pennsylvania stone farmhouse"
+        />
         <div className="hero__overlay" />
         <div className="hero__inner">
           <div className="eyebrow-row">

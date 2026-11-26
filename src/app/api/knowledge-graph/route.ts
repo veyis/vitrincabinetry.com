@@ -13,44 +13,21 @@ import { towns } from "@/lib/towns";
 export async function GET() {
   const baseUrl = site.url;
 
-  // ── Organization Entity ──────────────────────────────────────────────────
-  const organizationEntity = {
+  // ── Single Merged Business Entity (aligned with src/lib/schema.ts) ──────
+  const localBusinessEntity = {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "@id": `${baseUrl}/#organization`,
+    "@type": "HomeAndConstructionBusiness",
+    "@id": `${baseUrl}#organization`,
     name: site.name,
     legalName: site.legalName,
+    alternateName: site.gbpName,
+    description: site.description,
     url: baseUrl,
     logo: {
       "@type": "ImageObject",
       url: `${baseUrl}/logo.png`,
     },
     image: `${baseUrl}/og.jpg`,
-    description: site.description,
-    telephone: site.phone,
-    email: site.email,
-    knowsAbout: [...site.knowsAbout],
-    address: {
-      "@type": "PostalAddress",
-      ...(site.address.street.startsWith("TBD") ? {} : { streetAddress: site.address.street }),
-      addressLocality: site.address.locality,
-      addressRegion: site.address.region,
-      postalCode: site.address.postalCode,
-      addressCountry: site.address.country,
-    },
-    sameAs: Object.values(site.social).filter(Boolean),
-  };
-
-  // ── Local Business Entity (Home & Construction) ──────────────────────────
-  const localBusinessEntity = {
-    "@context": "https://schema.org",
-    "@type": "HomeAndConstructionBusiness",
-    "@id": `${baseUrl}/#localbusiness`,
-    name: site.name,
-    alternateName: site.gbpName,
-    description: site.description,
-    url: baseUrl,
-    parentOrganization: { "@id": `${baseUrl}/#organization` },
     telephone: site.phone,
     email: site.email,
     priceRange: "$$$",
@@ -89,17 +66,18 @@ export async function GET() {
         },
       })),
     },
+    sameAs: Object.values(site.social).filter(Boolean),
   };
 
   // ── WebSite Node ────────────────────────────────────────────────────────
   const webSiteEntity = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "@id": `${baseUrl}/#website`,
+    "@id": `${baseUrl}#website`,
     name: site.name,
     url: baseUrl,
     description: `Custom kitchen, bathroom, and closet cabinetry designed, built, and installed in-house in ${site.address.locality}, ${site.address.region}. Serving Bucks County and the Lehigh Valley.`,
-    publisher: { "@id": `${baseUrl}/#organization` },
+    publisher: { "@id": `${baseUrl}#organization` },
     inLanguage: site.defaultLocale,
   };
 
@@ -167,24 +145,24 @@ export async function GET() {
   const citableClaims = [
     {
       "@type": "Claim",
-      "@id": `${baseUrl}/#claim-cabinet-lifespan`,
+      "@id": `${baseUrl}#claim-cabinet-lifespan`,
       text: "Bench-built solid wood cabinetry with mortise-and-tenon or dovetail joinery is built to outlast mass-produced flat-pack particle board cabinets, which are the usual limiting factor in a kitchen's lifespan.",
       appearance: { "@type": "WebPage", url: `${baseUrl}/cabinets` },
-      author: { "@id": `${baseUrl}/#organization` },
+      author: { "@id": `${baseUrl}#organization` },
     },
     {
       "@type": "Claim",
-      "@id": `${baseUrl}/#claim-floating-floor-expansion`,
+      "@id": `${baseUrl}#claim-floating-floor-expansion`,
       text: "Never pin floating luxury vinyl plank (LVP) under kitchen base cabinets. LVP requires an uninhibited 1/4-inch expansion perimeter around the room to accommodate seasonal humidity changes.",
       appearance: { "@type": "WebPage", url: `${baseUrl}/guides/flooring-or-cabinets-first` },
-      author: { "@id": `${baseUrl}/#organization` },
+      author: { "@id": `${baseUrl}#organization` },
     },
     {
       "@type": "Claim",
-      "@id": `${baseUrl}/#claim-local-craftsmanship`,
+      "@id": `${baseUrl}#claim-local-craftsmanship`,
       text: "Vitrin Cabinetry manufactures custom cabinetry in Easton, Pennsylvania, serving homeowners and design professionals throughout Lehigh Valley and Bucks County.",
       appearance: { "@type": "WebPage", url: `${baseUrl}/shop-tour` },
-      author: { "@id": `${baseUrl}/#organization` },
+      author: { "@id": `${baseUrl}#organization` },
     },
   ];
 
@@ -193,7 +171,7 @@ export async function GET() {
     "@type": "HomeAndConstructionBusiness",
     "@id": `${baseUrl}/custom-kitchen-cabinets/${town.slug}#service-area`,
     name: `Vitrin Cabinetry - ${town.name} Service Area`,
-    parentOrganization: { "@id": `${baseUrl}/#organization` },
+    parentOrganization: { "@id": `${baseUrl}#organization` },
     areaServed: {
       "@type": "City",
       name: town.name,
@@ -210,7 +188,6 @@ export async function GET() {
   const graph = {
     "@context": "https://schema.org",
     "@graph": [
-      organizationEntity,
       localBusinessEntity,
       webSiteEntity,
       ...qaNodes,

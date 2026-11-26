@@ -331,7 +331,7 @@ export function offerSchema(opts: {
     price: opts.price,
     availability: `https://schema.org/${opts.availability ?? "InStock"}`,
     ...(opts.url ? { url: opts.url } : {}),
-    seller: { "@id": `${site.url}#cabinetstore` },
+    seller: { "@id": `${site.url}#organization` },
   };
 }
 

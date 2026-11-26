@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import Link from "next/link";
 import { site } from "@/lib/site";
@@ -141,7 +139,7 @@ export default function Footer() {
           gap: "1rem",
         }}
       >
-        <div>© {new Date().getFullYear()} {site.name}. All rights reserved.</div>
+        <div>© 2026 {site.name}. All rights reserved.</div>
         <div style={{ display: "flex", gap: "1.5rem" }}>
           <a href="/portal" rel="nofollow">Client Portal</a>
           <Link href="/privacy">Privacy</Link>

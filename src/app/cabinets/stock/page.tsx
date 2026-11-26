@@ -18,10 +18,10 @@ export const metadata: Metadata = {
 
 // Illustrative door styles — lineup and exact pricing confirmed with inquiry.
 const featured = [
-  { name: "Inset Shaker", finish: "Painted White Dove", from: "Request pricing", status: "Ask about availability", img: "/images/placeholder.png" },
-  { name: "Full-Overlay Shaker", finish: "Painted Iron Ore", from: "Request pricing", status: "Ask about availability", img: "/images/placeholder.png" },
-  { name: "Slab Modern", finish: "Rift-Cut White Oak", from: "Request pricing", status: "Ask about availability", img: "/images/placeholder.png" },
-  { name: "Beaded Inset", finish: "Stained Walnut", from: "Request pricing", status: "Ask about availability", img: "/images/placeholder.png" },
+  { name: "Inset Shaker", finish: "Painted White Dove", from: "Request pricing", status: "Ask about availability" },
+  { name: "Full-Overlay Shaker", finish: "Painted Iron Ore", from: "Request pricing", status: "Ask about availability" },
+  { name: "Slab Modern", finish: "Rift-Cut White Oak", from: "Request pricing", status: "Ask about availability" },
+  { name: "Beaded Inset", finish: "Stained Walnut", from: "Request pricing", status: "Ask about availability" },
 ];
 
 const sizes = [

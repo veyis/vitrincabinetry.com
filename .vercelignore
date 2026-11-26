@@ -1,0 +1,37 @@
+# Dependencies
+node_modules/
+
+# Testing & verification artifacts
+coverage/
+tests/
+playwright-report/
+test-results/
+.playwright-cli/
+.playwright-mcp/
+
+# Development & local tooling
+.env
+.env.*
+!.env.example
+.vscode/
+.idea/
+.DS_Store
+*.log
+*.pem
+*.key
+tsconfig.tsbuildinfo
+.claude/
+.cursor/
+.agents/
+.codex/
+.secrets/
+/tmp/
+
+# Build outputs
+.next/
+out/
+
+# Scripts not needed in production — preserve Vercel Ignored Build Step script
+# (use `scripts/*`, never `scripts/`, so the negation takes effect)
+scripts/*
+!scripts/vercel-ignore-build.sh

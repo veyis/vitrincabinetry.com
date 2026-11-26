@@ -8,6 +8,56 @@ export const dynamic = "force-dynamic";
 // /api/v1/leads platform (storage, fraud scoring, owner notification,
 // customer auto-reply all handled there).
 
+const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000; // 10 minutes
+const RATE_LIMIT_MAX_REQUESTS = 5;
+const RATE_LIMIT_MAX_KEYS = 1_000;
+const submissionTimestamps = new Map<string, number[]>();
+
+function getRateLimitIP(req: Request): string {
+  const vercelForwarded = req.headers.get("x-vercel-forwarded-for");
+  if (vercelForwarded) {
+    const first = vercelForwarded.split(",")[0]?.trim();
+    if (first) return first;
+  }
+  return getClientIP(req);
+}
+
+function checkRateLimit(ip: string): { allowed: boolean; retryAfterSec: number } {
+  const now = Date.now();
+  const cutoff = now - RATE_LIMIT_WINDOW_MS;
+
+  // Prune stale timestamps for this IP
+  const existing = (submissionTimestamps.get(ip) ?? []).filter((ts) => ts > cutoff);
+
+  if (existing.length >= RATE_LIMIT_MAX_REQUESTS) {
+    submissionTimestamps.set(ip, existing);
+    const oldestActive = existing[0] ?? now;
+    const retryAfterSec = Math.max(1, Math.ceil((oldestActive + RATE_LIMIT_WINDOW_MS - now) / 1000));
+    return { allowed: false, retryAfterSec };
+  }
+
+  // Bound map size to avoid unbounded memory growth across long-lived warm lambdas
+  if (!submissionTimestamps.has(ip) && submissionTimestamps.size >= RATE_LIMIT_MAX_KEYS) {
+    for (const [key, timestamps] of submissionTimestamps) {
+      const fresh = timestamps.filter((ts) => ts > cutoff);
+      if (fresh.length === 0) {
+        submissionTimestamps.delete(key);
+      } else {
+        submissionTimestamps.set(key, fresh);
+      }
+      if (submissionTimestamps.size < RATE_LIMIT_MAX_KEYS) break;
+    }
+    if (submissionTimestamps.size >= RATE_LIMIT_MAX_KEYS) {
+      const oldestKey = submissionTimestamps.keys().next().value;
+      if (oldestKey !== undefined) submissionTimestamps.delete(oldestKey);
+    }
+  }
+
+  existing.push(now);
+  submissionTimestamps.set(ip, existing);
+  return { allowed: true, retryAfterSec: 0 };
+}
+
 const PROJECT_TYPE_LABEL: Record<string, string> = {
   stock: "Vitrin Stock cabinets",
   custom: "Vitrin Signature (custom kitchen)",
@@ -40,6 +90,18 @@ function isString(v: unknown): v is string {
 }
 
 export async function POST(req: Request) {
+  const ipAddress = getRateLimitIP(req);
+  const rateLimit = checkRateLimit(ipAddress);
+  if (!rateLimit.allowed) {
+    return NextResponse.json(
+      { error: "Too many inquiries submitted. Please wait a few minutes and try again." },
+      {
+        status: 429,
+        headers: { "Retry-After": String(rateLimit.retryAfterSec) },
+      },
+    );
+  }
+
   let body: ContactBody;
   try {
     body = await req.json();
@@ -76,7 +138,6 @@ export async function POST(req: Request) {
     );
   }
 
-  const ipAddress = getClientIP(req);
   const userAgent = getUserAgent(req);
   const referrer = req.headers.get("referer") || undefined;
 

@@ -3,6 +3,7 @@ import { site } from "@/lib/site";
 import { towns } from "@/lib/towns";
 import { projects } from "@/lib/projects";
 import { guides } from "@/lib/guides";
+import { team } from "@/lib/team";
 
 const base = site.url;
 
@@ -25,6 +26,7 @@ const UPDATED = {
   pillar: "2026-08-02",        // src/app/custom-kitchen-cabinets/**
   towns: "2026-10-28",         // src/lib/towns.ts
   projects: "2026-07-04",      // src/lib/projects.ts
+  team: "2026-11-05",          // src/app/team/** & src/lib/team.ts
 } as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -33,6 +35,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/`, lastModified: UPDATED.core, changeFrequency: "weekly", priority: 1.0 },
     { url: `${base}/process`, lastModified: UPDATED.core, changeFrequency: "monthly", priority: 0.85 },
     { url: `${base}/about`, lastModified: UPDATED.core, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${base}/team`, lastModified: UPDATED.team, changeFrequency: "monthly", priority: 0.7 },
     { url: `${base}/shop-tour`, lastModified: UPDATED.core, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/trade`, lastModified: UPDATED.trade, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/portfolio`, lastModified: UPDATED.core, changeFrequency: "weekly", priority: 0.9 },
@@ -90,5 +93,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }));
 
-  return [...core, ...cabinets, ...services, ...supporting, ...pillars, ...townPages, ...projectPages, ...guidePages];
+  const teamPages: MetadataRoute.Sitemap = team.map((m) => ({
+    url: `${base}/team/${m.slug}`,
+    lastModified: UPDATED.team,
+    changeFrequency: "monthly",
+    priority: 0.65,
+  }));
+
+  return [...core, ...cabinets, ...services, ...supporting, ...pillars, ...townPages, ...projectPages, ...guidePages, ...teamPages];
 }
